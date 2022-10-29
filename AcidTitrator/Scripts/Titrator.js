@@ -3,8 +3,7 @@
 	var iSpeciesMode = 0;
 	var fStartPKa = 0.0;	
 	
-	if(!window.createPopup){
-		alert("createPopup");
+	if(!window.createPopup){		
 		window.createPopup = function (){
 			var popup = document.createElement("iframe"), //must be iframe because existing functions are being called like parent.func()
 				isShown = false, popupClicked = false;
@@ -99,6 +98,7 @@
 		oHelpPopup.document.body.innerHTML = HelpPopupDIV.innerHTML;
 		ChangeHelpPage( "HelpContentsDIV" );
 		CenterPopup( oHelpPopup, 500, 408 );
+		alert("DisplayHelp");
 	}
 	
 	function ChangeHelpPage( sDIV )
