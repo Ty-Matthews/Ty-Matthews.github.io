@@ -3,6 +3,60 @@
 	var iSpeciesMode = 0;
 	var fStartPKa = 0.0;	
 	
+	if(!window.createPopup){
+		window.createPopup = function (){
+			var popup = document.createElement("iframe"), //must be iframe because existing functions are being called like parent.func()
+				isShown = false, popupClicked = false;
+			popup.src = "about:blank";
+			popup.style.position = "absolute";
+			popup.style.border = "0px";
+			popup.style.display = "none";
+			popup.addEventListener("load", function(e){
+				popup.document = (popup.contentWindow || popup.contentDocument);//this will allow us to set innerHTML in the old fashion.
+				if(popup.document.document) popup.document = popup.document.document;
+			});
+			document.body.appendChild (popup);
+			var hidepopup = function (event){
+				if(isShown)
+					setTimeout(function (){
+						if(!popupClicked){
+							popup.hide();
+						}
+						popupClicked = false;
+					}, 150);//timeout will allow the click event to trigger inside the frame before closing.
+			}
+
+			popup.show = function (x, y, w, h, pElement){
+				if(typeof(x) !== 'undefined'){
+					var elPos = [0, 0];
+					if(pElement) elPos = findPos(pElement);//maybe validate that this is a DOM node instead of just falsy
+					elPos[0] += y, elPos[1] += x;
+
+					if(isNaN(w)) w = popup.document.scrollWidth;
+					if(isNaN(h)) h = popup.document.scrollHeight;
+					if(elPos[0] + w > document.body.clientWidth) elPos[0] = document.body.clientWidth - w - 5;
+					if(elPos[1] + h > document.body.clientHeight) elPos[1] = document.body.clientHeight - h - 5;
+
+					popup.style.left = elPos[0] + "px";
+					popup.style.top = elPos[1] + "px";
+					popup.style.width = w + "px";
+					popup.style.height = h + "px";
+				}
+				popup.style.display = "block";
+				isShown = true;
+			}
+
+			popup.hide = function (){
+				isShown = false;
+				popup.style.display = "none";
+			}
+
+			window.addEventListener('click', hidepopup, true);
+			window.addEventListener('blur', hidepopup, true);
+			return popup;
+		}
+	}
+		
 	// Popups
 	var oAmpholytePopup = window.createPopup();
 	var oHelpPopup = window.createPopup();
@@ -988,59 +1042,7 @@
 		UpdateChart();
 	}
 	
-if(!window.createPopup){
-    window.createPopup = function (){
-        var popup = document.createElement("iframe"), //must be iframe because existing functions are being called like parent.func()
-            isShown = false, popupClicked = false;
-        popup.src = "about:blank";
-        popup.style.position = "absolute";
-        popup.style.border = "0px";
-        popup.style.display = "none";
-        popup.addEventListener("load", function(e){
-            popup.document = (popup.contentWindow || popup.contentDocument);//this will allow us to set innerHTML in the old fashion.
-            if(popup.document.document) popup.document = popup.document.document;
-        });
-        document.body.appendChild (popup);
-        var hidepopup = function (event){
-            if(isShown)
-                setTimeout(function (){
-                    if(!popupClicked){
-                        popup.hide();
-                    }
-                    popupClicked = false;
-                }, 150);//timeout will allow the click event to trigger inside the frame before closing.
-        }
 
-        popup.show = function (x, y, w, h, pElement){
-            if(typeof(x) !== 'undefined'){
-                var elPos = [0, 0];
-                if(pElement) elPos = findPos(pElement);//maybe validate that this is a DOM node instead of just falsy
-                elPos[0] += y, elPos[1] += x;
-
-                if(isNaN(w)) w = popup.document.scrollWidth;
-                if(isNaN(h)) h = popup.document.scrollHeight;
-                if(elPos[0] + w > document.body.clientWidth) elPos[0] = document.body.clientWidth - w - 5;
-                if(elPos[1] + h > document.body.clientHeight) elPos[1] = document.body.clientHeight - h - 5;
-
-                popup.style.left = elPos[0] + "px";
-                popup.style.top = elPos[1] + "px";
-                popup.style.width = w + "px";
-                popup.style.height = h + "px";
-            }
-            popup.style.display = "block";
-            isShown = true;
-        }
-
-        popup.hide = function (){
-            isShown = false;
-            popup.style.display = "none";
-        }
-
-        window.addEventListener('click', hidepopup, true);
-        window.addEventListener('blur', hidepopup, true);
-        return popup;
-    }
-}
 function findPos(obj, foundScrollLeft, foundScrollTop) {
     var curleft = 0;
     var curtop = 0;
