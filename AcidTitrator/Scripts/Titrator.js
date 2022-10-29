@@ -4,6 +4,7 @@
 	var fStartPKa = 0.0;	
 	
 	if(!window.createPopup){
+		alert("createPopup");
 		window.createPopup = function (){
 			var popup = document.createElement("iframe"), //must be iframe because existing functions are being called like parent.func()
 				isShown = false, popupClicked = false;
