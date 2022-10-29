@@ -1,0 +1,179 @@
+<style type="text/css">
+BODY.main
+{
+    BACKGROUND-COLOR: #ffffff;
+    COLOR: #000000
+}
+.TableBorder
+{
+    BACKGROUND-COLOR: #000000
+}
+.SectionBackground
+{
+    BACKGROUND-COLOR: #eeeeee
+}
+.SectionHeaderBackground
+{
+    BACKGROUND-COLOR: #c0c0c0
+}
+.SectionHeaderRequiredBackground
+{
+    BACKGROUND-COLOR: #cc0000
+}
+.SubSectionBackground
+{
+    BACKGROUND-COLOR: #cbd7ff
+}
+.SelectionBackground
+{
+    BACKGROUND-COLOR: #dddddd
+}
+.TitleBlackBold
+{	
+	COLOR: #000000;
+	FONT-FAMILY: arial, helvetica, sans-serif;
+	FONT-SIZE: 12pt
+	FONT-WEIGHT: bold
+}
+.FieldHeaderRequired
+{
+    COLOR: #ffffee;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold
+}
+.FieldBlack
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    BACKGROUND-COLOR: #ffffff;
+    FONT-SIZE: 8pt
+}
+.RowType1
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    BACKGROUND-COLOR: #EDEEFF;
+    FONT-SIZE: 8pt
+}
+.RowType2
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    BACKGROUND-COLOR: #D1D3FF;
+    FONT-SIZE: 8pt
+}
+.RowType3
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    BACKGROUND-COLOR: #ABADFF;
+    FONT-SIZE: 8pt
+}
+.FieldBlackBold
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold
+}
+.FieldRedBold
+{
+    COLOR: #c00000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold
+}
+.FieldBlue
+{
+    COLOR: #0000c0;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 8pt
+}
+.FieldBlueBold
+{
+    COLOR: #0000c0;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold
+}
+.FieldHeaderBlack
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold
+}
+.SectionHeader
+{
+    COLOR: #081c80;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold
+}
+.SubSectionHeader
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: bold
+}
+.HelpLink:link
+{
+    COLOR: #0000c0
+}
+.HelpLink:visited
+{
+    COLOR: #0000c0
+}
+.HelpLink:hover
+{
+    COLOR: #c0c0ff
+}
+.HelpLink
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 18pt;
+    TEXT-DECORATION: none
+}
+.FieldHeaderSmall
+{
+    COLOR: #000000;
+    FONT-FAMILY: Arial, helvetica, sans-serif;
+    FONT-SIZE: 7pt;
+    FONT-WEIGHT: normal
+}
+.acid
+{
+	COLOR: #C00000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 8pt
+}
+.strongacid
+{
+	COLOR: #C00000;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+	FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt
+}
+.base
+{
+	COLOR: #0005E2;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 8pt
+}
+.strongbase
+{
+	COLOR: #0005E2;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+	FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt
+}
+.ampholyte
+{
+	COLOR: #FF860F;
+    FONT-FAMILY: arial, helvetica, sans-serif;
+    FONT-SIZE: 8pt
+}
+</style>

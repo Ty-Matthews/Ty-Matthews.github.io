@@ -1,0 +1,434 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Developer Studio">
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<TITLE>Acid-Base Titrator</TITLE>
+<link rel=stylesheet href="Styles/Titrator.css" type="text/css">
+</HEAD>
+
+<script language="JavaScript" type="text/javascript" src="Scripts/ASCII.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="Scripts/Titrator.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="Scripts/Species.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="Scripts/Library.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="Scripts/Example.js">
+</script>
+
+
+<BODY bgcolor="#aaaaaa" onload="javascript:onDocLoad();" topmargin="0" leftmargin="0">
+
+<!--#include file="./Include/HelpPages.inc"-->
+
+<div align="center" valign="center">
+<table border="0" cellspacing="5" cellpadding="0" width="780">
+<tr>
+<td align="left" width="70">
+<a href="http://www.uiuc.edu"><img src="Images/GUI/UIUC.png" border="0"></a>
+</td>
+<td align="center">
+<span style="font-family: 'comic sans MS'; font-size: 30; color: #FFFFFF">
+Acid-Base Titrator
+</span>
+</td>
+<td align="right">
+<img src="Images/GUI/ErlenBlue.png"><img src="Images/GUI/ErlenOrange.png">
+</td>
+</tr>
+</table>
+
+<table border="0" cellspacing="5" cellpadding="0" height="470">
+<tr height="345">
+	<td valign="top">
+
+<div id="SampleDivID" style="display:inline;">
+
+<table background="Images/GUI/TabsSample.png" border="0" height="326" width="188" cellspacing="0" cellpadding="0">
+
+<tr valign="top" height="3" width="188"><td colspan="2"></td></tr>
+
+<tr valign="top" width="188" height="25">
+<td align="center" width="87" 
+onmouseover="javascript:this.style.cursor='hand';">
+<font face="arial" style="font-weight: 600;" size="2" color="#000080">Sample</font></td>
+<td align="center" width="101"
+onmouseover="javascript:this.style.cursor='hand';"
+onclick="javascript:ChangeToTitrant();">
+<font face="arial" color="#000000" size="2">Titrant</font></td>
+</tr>
+
+<tr valign="top" width="188">
+<td colspan="2" valign="top">
+
+	<table cellpadding="0" border="0" cellspacing="0" width="100%">
+	<tr height="160">
+		<td width="8" valign="top"></td>
+		<td valign="top" colspan="2">
+			<iframe id="IFrameSampleID" name="IFrameSample" width="170" height="150" frameborder="yes" marginheight="1" marginwidth="1">			
+			</iframe>	
+		</td>
+	</tr>
+
+<form name="SampleForm" id="SampleFormID">	
+	<tr>
+		<td width="8" valign="top"></td>
+		<td valign="center">		
+		<font face="arial" size="2">Name:</font>
+		</td>
+		<td>
+		<input type="text" name="SpeciesName" id="SpeciesNameID" style="font-family: arial;font-size: 12; width: 132px;">
+		</td>
+	</tr>
+	<tr>
+		<td width="8" valign="top"></td>
+		<td valign="center">		
+		<font face="arial" size="2">Type:</font>
+		</td>
+		<td>
+		<select name="SpeciesType" id="SpeciesTypeID" size="1" style="font-family: arial;font-size: 12; width: 132px;" onchange="javascript:ChangeSpeciesType();">
+		<option value="acid">Weak Acid
+		<option value="strongacid">Strong Acid
+		<option value="base">Weak Base
+		<option value="strongbase">Strong Base
+		<option value="ampholyte">Ampholyte		
+		</select>
+		</td>
+	</tr>	
+	<tr valign="top" id="SAMPLE_PK_TR" height="23" style="display:inline;">
+		<td width="8" valign="top"></td>
+		<td>		
+		<font face="arial" size="2">pKas:</font>
+		</td>
+		<td>
+		<input type="text" name="SpeciesPKs" id="SpeciesPKsID" style="font-family: arial;font-size: 12; width: 132px;">
+		</td>
+	</tr>
+	<tr valign="top" id="SAMPLE_HOLDER_TR" height="23" style="display:none;">
+		<td colspan=3">
+		</td>
+	</tr>
+	<tr height="35" valign="top">
+		<td width="8" valign="top"></td>
+		<td valign="top">		
+		<font face="arial" size="2">Conc:</font>
+		</td>
+		<td>
+		<input type="text" name="SpeciesConcentration" id="SpeciesConcentrationID" style="font-family: arial;font-size: 12; width: 52px;"> <font face="arial" size="2">M</font>
+		</td>
+	</tr>	
+</form>
+	<tr height="25">		
+		<td valign="top" colspan="3" align="center" id="ButtonsID">
+		<img src="Images/GUI/CheckMarkUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/CheckMarkDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/CheckMarkUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/CheckMarkUp.png';"
+			onclick="javascript:AddSpecies(false);return(false);"
+			alt="Click to add this sample to the list">	
+		<img src="Images/GUI/EraserUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/EraserDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/EraserUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/EraserUp.png';"
+			onclick="javascript:RemoveAllSolutionSpecies('sample', true);return(false);"
+			alt="Click to clear the sample list">
+		<img src="Images/GUI/HCOOHUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/HCOOHDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/HCOOHUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/HCOOHUp.png';"
+			onclick="javascript:DisplayLibrary();return(false);"
+			alt="Click to add a sample from the library">
+		<img src="Images/GUI/ChartUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/ChartDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/ChartUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/ChartUp.png';"
+			onclick="javascript:UpdateChart();return(false);"
+			alt="Click to update the chart" />
+		<img src="Images/GUI/HelpUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/HelpDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/HelpUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/HelpUp.png';"
+			onclick="javascript:DisplayHelp();return(false);"
+			alt="Click to display the help screen">
+		</td>		
+	</tr>	
+	</table>
+
+</td>
+</tr>
+
+</table>
+
+</div>
+
+<div id="TitrantDivID" style="display:none;">
+
+<table background="Images/GUI/TabsTitrant.png" border="0" height="326" width="188" cellspacing="0" cellpadding="0">
+
+<tr valign="top" height="3" width="188"><td colspan="2"></td></tr>
+
+<tr valign="top" width="188" height="25">
+<td align="center" width="87" 
+onmouseover="javascript:this.style.cursor='hand';"
+onclick="javascript:ChangeToSample();">
+<font face="arial" size="2" color="#000000">Sample</font></td>
+<td align="center" width="101"
+onmouseover="javascript:this.style.cursor='hand';">
+<font face="arial" style="font-weight: 600;" size="2" color="#D46E00">Titrant</font></td>
+</tr>
+
+<tr valign="top" width="188">
+<td colspan="2" valign="top">
+
+	<table cellpadding="0" border="0" cellspacing="0" width="100%">
+	<tr height="160">
+		<td width="8" valign="top"></td>
+		<td valign="top" colspan="2">
+			<iframe id="IFrameTitrantID" name="IFrameTitrant" width="170" height="150" frameborder="yes" marginheight="1" marginwidth="1">
+			</iframe>	
+		</td>
+	</tr>
+
+<form name="TitrantForm" id="TitrantFormID">	
+	<tr>
+		<td width="8" valign="top"></td>
+		<td valign="center">		
+		<font face="arial" size="2">Name:</font>
+		</td>
+		<td>
+		<input type="text" name="SpeciesName" id="SpeciesNameID" style="font-family: arial;font-size: 12; width: 132px;">
+		</td>
+	</tr>
+	<tr>
+		<td width="8" valign="top"></td>
+		<td valign="center">		
+		<font face="arial" size="2">Type:</font>
+		</td>
+		<td>
+		<select name="SpeciesType" id="SpeciesTypeID" size="1" style="font-family: arial;font-size: 12; width: 132px;" onchange="javascript:ChangeSpeciesType();">
+		<option value="acid">Weak Acid</option>
+		<option value="strongacid">Strong Acid</option>
+		<option value="base">Weak Base</option>
+		<option value="strongbase">Strong Base</option>
+		<option value="ampholyte">Ampholyte</option>
+		</select>
+		</td>
+	</tr>	
+	<tr valign="top" height="23"  id="TITRANT_PK_TR" style="display:inline;">
+		<td width="8" valign="top"></td>
+		<td>		
+		<font face="arial" size="2">pKas:</font>
+		</td>
+		<td>
+		<input type="text" name="SpeciesPKs" id="SpeciesPKsID" style="font-family: arial;font-size: 12; width: 132px;">
+		</td>
+	</tr>
+	<tr valign="top" height="23" id="TITRANT_HOLDER_TR" style="display:none;">
+		<td colspan="3">
+		</td>
+	</tr>
+	<tr height="35" valign="top">
+		<td width="8" valign="top"></td>
+		<td valign="top">		
+		<font face="arial" size="2">Conc:</font>
+		</td>
+		<td>
+		<input type="text" name="SpeciesConcentration" id="SpeciesConcentrationID" style="font-family: arial;font-size: 12; width: 52px;"> <font face="arial" size="2">M</font>
+		</td>
+	</tr>	
+</form>
+	<tr height="25">		
+		<td valign="top" colspan="3" align="center" id="ButtonsID">
+		<img src="Images/GUI/CheckMarkUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/CheckMarkDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/CheckMarkUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/CheckMarkUp.png';"
+			onclick="javascript:AddSpecies(false);return(false);"
+			alt="Click to add this sample to the list">		
+		<img src="Images/GUI/EraserUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/EraserDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/EraserUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/EraserUp.png';"
+			onclick="javascript:RemoveAllSolutionSpecies('titrant', true);return(false);"
+			alt="Click to clear the sample list">
+		<img src="Images/GUI/HCOOHUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/HCOOHDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/HCOOHUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/HCOOHUp.png';"
+			onclick="javascript:DisplayLibrary();return(false);"
+			alt="Click to add a sample from the library">
+		<img src="Images/GUI/ChartUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/ChartDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/ChartUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/ChartUp.png';"
+			onclick="javascript:UpdateChart();return(false);"
+			alt="Click to update the chart">
+		<img src="Images/GUI/HelpUp.png" 
+			width="31" height="25"
+			onmouseover="javascript:this.style.cursor='hand';"
+			onmousedown="javascript:this.src='Images/GUI/HelpDown.png';" 
+			onmouseout="javascript:this.src='Images/GUI/HelpUp.png';"
+			onmouseup="javascript:this.src='Images/GUI/HelpUp.png';"
+			onclick="javascript:DisplayHelp();return(false);"
+			alt="Click to display the help screen">
+		</td>
+	</tr>	
+	</table>
+
+</td>
+</tr>
+
+</table>
+
+</div>
+
+</td>
+
+<td valign="top" rowspan="2">
+	<!-- The src of this image is updated by UpdateChart() -->
+	<img id="CHART" src="Images/GUI/blank.png" border="0" width="570" height="470">
+</td>
+
+</tr>
+<tr valign="bottom" height="100%">
+<td>
+
+<form name="OptionsForm" id="OptionsFormID">
+
+	<table background="Images/GUI/Options.png" border="0" height="122" width="188" cellspacing="0" cellpadding="0">
+	<tr height="8">
+	<td colspan="3"></td>
+	</tr>
+	<tr valign="top" height="20">
+		<td width="8" valign="top"></td>
+		<td align="left"><font face="arial" size="2">Graph Limits:</font><br><hr width="150"></td>
+	</tr>
+	<tr valign="top" height="12">
+		<td width="8" valign="top"></td>
+		<td valign="top">
+
+		<table cellpadding="0" border="0" cellspacing="2">
+		<tr>
+			<td></td>
+			<td align="center"><font face="arial" size="2">Min</font></td>
+			<td align="center"><font face="arial" size="2">Max</font></td>
+		</tr>
+		<tr>
+			<td><font face="arial" size="2">pH</font></td>			
+			<td><input type="text" name="MinpH" id="MinpHID" style="font-family: arial;font-size: 12; width: 64px;" value="1.0"
+					ondeactivate="javascript:ChangeOptions();"></td>
+			<td><input type="text" name="MaxpH" id="MaxpHID" style="font-family: arial;font-size: 12; width: 64px;" value="14.0"
+					ondeactivate="javascript:ChangeOptions();"></td>
+		</tr>
+		<tr>
+			<td><font face="arial" size="2">Vt:Vs</font></td>
+			<td><input type="text" name="MinRatio" id="MinRatioID" style="font-family: arial;font-size: 12; width: 64px;" value="0.0"
+					ondeactivate="javascript:ChangeOptions();"></td>
+			<td><input type="text" name="MaxRatio" id="MaxRatioID" style="font-family: arial;font-size: 12; width: 64px;" value="5.0"
+					ondeactivate="javascript:ChangeOptions();"></td>			
+		</tr>
+		</table>
+
+		</td>
+	</tr>	
+	<tr valign="top" height="100%">
+	<td colspan="2"></td>
+	</tr>
+
+	</table>
+
+</form>
+
+	</td>	
+	
+</tr>
+</table>
+
+<DIV ID="AmpholyteDIV" STYLE="display:none;">
+	<div style="position:relative; top:0; left:0; width:100%; height:100%; background:#AEB0D8; border:1px solid black; border-top:1px solid white; border-left:1px solid white; padding:10px;  font:normal 10pt arial; padding-left:18px">
+	<b>Choose Ampholyte Species</b>
+	<hr size="1" style="border:1px solid black;">
+		<div style="width:340px; font-family:arial; font-size:80%; line-height:1.5em">
+Multiple possible protonation states for this ampholyte have been identified.  Please choose from 
+the following possible scenarios the one which accurately reflects the ampholyte [X] being added to 
+the solution:<br>
+<div id="ContainerDiv" style="width:320; height:150; border:1px solid black; border-top:1px solid black; border-left:1px solid black; background:#ffffff">
+</div>
+
+<img id="PKCheckDisabledID" src="Images/GUI/CheckMarkDisabled.png" style="display: inline;" width="31" height="25">
+<img id="PKCheckUpID" src="Images/GUI/CheckMarkUp.png" style="display: none;" alt="Click to accept" width="31" height="25"
+	onmouseover="javascript:this.style.cursor='hand';"
+	onclick="javascript:parent.AcceptAmpholytePKChoice();return(false);">
+<img src="Images/GUI/CancelUp.png" width="31" height="25" 
+	onmouseover="javascript:this.style.cursor='hand';"
+	onmousedown="javascript:this.src='Images/GUI/CancelDown.png';" 
+	onmouseout="javascript:this.src='Images/GUI/CancelUp.png';"
+	onmouseup="javascript:this.src='Images/GUI/CancelUp.png';"
+	onclick="javascript:parent.oAmpholytePopup.hide();return(false);"
+	alt="Click to close this popup">
+ 
+		</div>
+<br>
+<br>
+	</DIV>
+	<div style="position: absolute; top:50; left:365px; width:20px; height:225px; border:1px solid black; border-bottom:1px solid white; border-right:1px solid white; font:normal 10pt tahoma;  filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=orange, EndColorStr=#FFFFFF); padding:10px" >
+	</div>
+</div>
+
+<DIV ID="LibraryDIV" STYLE="display:none;">
+	<div style="position:relative; top:0; left:0; width:100%; height:100%; background:#A0D2BF; border:1px solid black; padding:10px;  font:normal 10pt arial; padding-left:18px">
+	<b>Chemical Library</b>
+	<hr size="1" align="left" style="border:1px solid black; width: 320px;">
+<table cellpadding="0" border="0" cellspacing="0">
+<tr>
+<td>
+<font face="arial" size="2">Category:</font>
+</td>
+<td>
+<select name="LibraryCategory" id="LibraryCategoryID" size="1" onchange="javascript:parent.LibraryChangeCategory();">
+<option value="All" selected>All</option>
+<option value="Examples">Example Solutions</option>
+</select>
+</td>
+</tr>
+</table>
+		<div style="position: absolute; top:68; left:18px; width:340px; font-family:arial; font-size:80%; line-height:1.5em">
+			<div id="ContainerDiv" style="overflow-y: scroll; width:320; height:200; border:1px solid black; border-top:1px solid black; border-left:1px solid black; background:#ffffff; padding:10px">
+			</div>
+			<img src="Images/GUI/CancelUp.png" style="display: inline;" alt='Click to close' width="31" height="25"
+				onclick="javascript:parent.oLibraryPopup.hide();return(false);" 
+				onmouseover="javascript:this.style.cursor='hand';"
+				onmousedown="javascript:this.src='Images/GUI/CancelDown.png';" 
+				onmouseout="javascript:this.src='Images/GUI/CancelUp.png';"
+				onmouseup="javascript:this.src='Images/GUI/CancelUp.png';">
+ 
+		</div>
+	</DIV>
+	<div style="position: absolute; top:15; left:365px; width:20px; height:270px; border:1px solid black; border-bottom:1px solid white; border-right:1px solid white; font:normal 10pt tahoma;  filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#000080, EndColorStr=#FFFFFF); padding:10px" >
+	</div>
+</div>
+
+
+</div>
+</BODY>
+</HTML>
+
