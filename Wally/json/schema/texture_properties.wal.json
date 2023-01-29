@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema", 
 	"$id": "https://ty-matthews.github.io/Wally/json/schema/texture_properties.wal.json",
-	"description": "A schema for describing bitmask flags for the q2_miptex struct variable.",
+	"description": "A schema used by Wally for describing bitmask flags for the q2_miptex struct variable.",
 {
   "type": "object",
   "required": ["entries"],
