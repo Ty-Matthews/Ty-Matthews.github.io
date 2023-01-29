@@ -1,3 +1,5 @@
+{ "$schema": "https://json-schema.org/draft/2020-12/schema" }
+{ "$id": "https://ty-matthews.github.io/Wally/json/schema/texture_properties.wal.json" }
 {
   "type": "object",
   "properties": {
