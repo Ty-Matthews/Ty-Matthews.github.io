@@ -1,0 +1,81 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+
+<TITLE>Pig Cop Recon Cars</TITLE>
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Recon Cars</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Make one large sector that will be our outside area.  
+<td>
+<img src="cops1.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Place 9 <b>Locator</b> Sprites within our large sector.  Place for now a
+single Recon Monster Sprite (tile #1960) in the mix as well.  Arrange the
+Locators in a circle and change their <b>lotags</b> in numerical sequence starting
+from 0 (which won't require a change) up to 8, making sure not to skip any
+digit.  The Recon cars will cross each Locator in sequence.  This is very similar
+to Subways.  Recon cars cannot, however, stop at any given point.  They stop
+on their own during the game.  Take and move the Locators out to the edges of
+your sector in an oval pattern.
+<td>
+<img src="cops2.gif">
+</table>
+
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+The Recon car <b>hitag</b> should be set to the first <b>locator lotag</b> that
+it will cross.  In this case, our Recon car is right next to the first locator,
+or locator #0, thus requiring no change to the tags.  You can have as many
+Recon cars as you like in the game; just note that sometimes two cars will
+stop to shoot at you and may then occupy the same space, following each other
+around.  Switch to 3d mode and move our Recon car up in the air.  Clicking
+and holding the left mouse button on the sprite <i>really</i> helps here.
+Move all of the Locator sprites to the air as well, mixing up the altitude
+to give the cars some up and down motion.
+<td>
+<img src="cops3.gif">
+</table>
+
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

@@ -1,0 +1,145 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Doors that Swing Open</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Swinging Doors</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start by making two sectors, attached to each other by a single wall.  Make one
+of the sectors bigger than the other, with clearance on either side of the red
+line as pictured.  The top sector must be taller than the red line, so that
+when the door swings open, it has room.
+<td>
+<img src="swngdor1.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert a vertice somewhere in the middle of the red line.  Start drawing a
+sector from one of the corners of the smaller room, touching the larger room.
+We want to make a penisula sector inside the larger room.  Make at least four
+sides for now.  Finish this penisula sector on the vertice you inserted on
+the red line.  Make the sector big enough so that you can place sprites and
+change tiles & heights easily.  You'll want to shrink the sector down when
+it's finished to the appropriate size of a door, but for now give yourself
+some room to work.  I've made the top sector rather small for graphic-size
+constraints.  You should make the sector large enough to accomodate the
+swinging door; ie the longest wall of your door should be shorter than the
+room you have allocated for the door to swing into.
+<td>
+<img src="swngdor2.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Drag the vertice you inserted earlier (on the red line) to the corner you used
+as the starting point (<b>pivot</b>) of your penisula, so that the vertice will be deleted.
+It is critcal that only one of the vertices of our door sector share the
+point with another sector.  We had to insert the vertice on the red line
+earlier because the BUILD editor won't allow you to use that corner vertice
+again.  It's just a little caveat.
+<td>
+<img src="swngdor3.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert a SE within our door sector.  Change that <b>SE lotag</b> to <b>11</b>,
+which is for Rotate Sector Door.  Assign a unique Swinging door <b>hitag</b>
+to the SE.  Multiple SE-11 with the same hitag will all open, or rotate, at
+the same time.  This is useful for double doors.  Change the <b>sector lotag</b>
+to <b>23</b>.
+<td>
+<img src="swngdor4.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Turn off Tag Display by hitting CTRL-T, so that you can see the angle of the
+sprite better.  Switch over to 3d mode and set your tiles and floor/ceiling
+heights of the door sector accordingly.  The entire sector will rotate, both
+ceiling and floor.  Set the door sector ceiling to the same height as its
+parent sector's ceiling if you want to see just the lower part move when
+playing.  Switch back to 2d mode and Turn off grid lock by hitting 'L'.
+Move the vertices of your door to fit the width of your opening, like the
+picture below.  Insert two vertices, really close to the pivot point.  I've
+marked them with little green arrows here.  These points will stop the tile
+squishing that occurs when our door is rotated open.  Build takes all of the
+points of our door sector and rotates them around the SE-11.  Well, any
+points attached to permanent walls will rotate with the door as well, messing
+up the tile alignment.
+<tr>
+</table>
+
+<center>
+<table cellpadding="0">
+<td>
+<img src="swngdor5.gif" align=center>
+<tr>
+</table>
+</center>
+
+<table cellpadding="0">
+<td>
+You can overlap red lines and other vertices here because the door sector
+only shares that single point.  Also move the SE to the very corner, or <b>pivot</b>
+point.  Look at the angle of the SE by noting the line coming from the sprite's
+circle point.  If the line is extending upwards from the circle, the door will
+rotate counter-clockwise.  If the line is extending downwards, the door will
+rotate clockwise (the BUILDHLP file has it backwards).  Insert a MusicAndSFX
+sprite within the door sector.  Change the <b>MSFX hitag</b> and <b>lotag</b>
+to 165, a nice door-sound.  The MSFX hitag is for the door closing, the MSFX
+lotag is for the door opening.
+<tr>
+</table>
+
+<center>
+<table cellpadding="0">
+<td>
+<img src="swngdor6.gif">
+<tr>
+</table>
+</center>
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

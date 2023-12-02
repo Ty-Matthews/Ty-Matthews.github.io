@@ -1,0 +1,105 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Two-Way Trains</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#ff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Two-Way Trains</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Make four sectors, like the image shown.  The two large sectors will be the
+track and platform, and the inside sector will be the actual train.
+<td>
+<img src="2way1.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Change the <b>sector lotag</b> of the two inside sectors to <b>31</b>.
+<td>
+<img src="2way2.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Place a Sector Effector sprite inside the car sector, and change its
+<b>lotag</b> to <b>30</b>.  Change the <b>angle</b> of the SE-30 to point
+towards the front of the car.  Change to 3d mode and raise the floor of the
+2x1 sector inside the car.  Place a switch flat against the wall of this
+raised sector, and change its <b>lotag</b> to a unique switch number, I'll
+use 1 in this example.  Insert an Activator sprite within the car sector,
+and change its <b>lotag</b> to the same number you gave to the switch
+lotag.  The Activator is what triggers the SE-30 when the switch is flipped.
+
+</table>
+<center>
+<img src="2way3.gif">  <img src="2way5.gif">
+</center>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Place two Locator sprites, one on each end of the track, to mark the two
+points at which the car will stop.  Change the <b>lotag</b> of one of the
+two Locator sprites to <b>1</b>, it then becomes point B.
+<td>
+<img src="2way4.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+</table>
+You can trigger separate events when the car stops at the two Locator
+positions.  For instance, you can have a door open when the car stops at
+the left-most position.  I'll show an example of having two doors open
+up, each opens when the car stops at that given Locator.  To do this, you
+need to change the SE-30 <b>hitag</b> to a unique Activator number, I'll
+use 5.  We then place an Activator sprite in the two door sectors. 
+They will then trigger the Sector Tag (or SE if one was there) within those
+sectors.  Here, we want to trigger a door, which is Sector Tag 20.
+Change the <b>lotag</b> of the <b>Activator</b> you wish to be triggered
+when the car stops at <b>point A</b> to the same number you gave to the
+<b>SE-30 hitag</b> (5).  Move over to the other Activator, and change its
+<b>lotag</b> to <b>1 + the SE-30 hitag</b> (6).  This will trigger when the
+car stops at point B.
+<center>
+<img src="2way6.gif">
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

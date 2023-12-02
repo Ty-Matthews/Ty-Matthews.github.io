@@ -1,0 +1,180 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Subways</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Subways</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start out making one large oval sector, with a "station" at the top and
+two island sectors which will become the cars.  Set the floor tile of the
+large oval sector to tile #859 (railhurt) to have Duke get zapped if he
+stands on the rails.  Change to 3d mode and raise the floor of the island
+sectors so you can see them.  Point at their floors and hit 'R' to make
+them relatively-aligned (sprites will move with the subway.)
+<td>
+<img src="subway1.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Change both of the <b>island sector hitags</b> to <b>1</b>.  Insert a SE within
+each of the two island sectors.  Change the <b>SE lotag</b> of the lead car to
+<b>6</b>, and the trailing car <b>SE lotag</b> to </b>14</b>.  Change the
+angle of the two SEs to the angle in which the car will begin travel, ie
+the line will point right if the car is to start moving to the right.  To make
+multiple groups of cars, change the <b>sector</b> hitags of the second group to
+2, and so on.  You can have more than one car as well, or even just one lead.
+<td>
+<img src="subway2.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+Insert 9 locator sprites (LS) positioned like the picture below.  This is the
+path your cars will travel through your level.  You must <b>uniquely identify</b>
+each of the LS <b>lotags</b>.  Starting from the top-middle locator, start
+counting from 0 and change each of the locators lotags, following the path
+you wish the cars to travel.  The cars will travel in succession across the
+locators.  To make the subway cars stop at a given locator, change its
+<b>hitag</b> to <b>1</b>.  If you plan out a lengthy track, make sure you place
+extra locators and assign them in the proper order.  That way, if you want to add
+another stop along your track, you won't have to go changing every locator
+lotag after it or their relative position.  The <b>SE hitag</b> of the
+individual cars points to the first locator it will come across.  In this
+example, the hitag is set to 0, which is the first locator we want it to
+cross.  
+<tr>
+<td>
+<img src="subway3.gif">
+<tr>
+</table>
+
+<br><br>
+<table cellpadding="0">
+<td>
+<table cellpadding="0">
+<td colspan=2>
+That's all you need for a functioning subway.  But it's pretty lame, and not
+much fun.  We're going to add some interior walls, a window, and bench seats
+to our subway cars.  There are a few key points to note when dealing with
+sectors-in-sectors and subway cars:
+<tr>
+<td width="75">
+</td>
+<td><li>
+The outer, parent sector is the only sector which can contain the SE-6 or
+SE-14 sprite.
+<tr>
+<td width="75">
+</td>
+<td><li>
+Each inner sector must have the same hitag/lotag combo as the parent.
+<tr>
+<td width="75">
+</td>
+<td><li>
+Each inner sector may only share <b>one</b> line with the outer sector.
+<tr>
+<td width="75">
+</td>
+<td><li>
+Duke can only walk on the parent sector, or he'll get shuffled right off
+the car and possibly get squished.
+<tr>
+<td width="75">
+</td>
+<td><li>
+Each interior sector must be made of red lines; no white lines are possible.
+<tr>
+<td width="75">
+</td>
+<td><li>
+Interior sectors may only be one level deep; ie no sectors within those
+interior sectors.
+<tr>
+<td colspan=2>
+With those limitations in mind, let's create a front and back wall to our car.
+Both walls will be completely inside the outer sector.  The front wall
+will be comprised of three joined pieces:  the left and right sections,
+and a middle section that will become a window.  When you create sectors
+within sectors, they automatically pick up the same tag as their parent.  Make
+sure you've set the parent sector <b>hitag</b> according to the instructions
+given earlier.
+</table>
+<td>
+<img src="subway4.gif">
+</table>
+
+<br><br>
+<table cellpadding="0">
+<td>
+Take grid-locking off and move the points of our walls to the very edges
+of the car, but don't overlap any red lines or vertices.  While it may look
+like they overlap in this image, they really do not.
+<td>
+<img src="subway5.gif">
+</table>
+
+<br><br>
+<table cellpadding="0">
+<td>
+Switch to 3d mode and lower the ceilings of the back wall, and the two side
+pieces of the front wall, all the way to the floor, blocking Duke from
+walking through.  Raise the floor of the middle/front wall a little ways
+to make a window sill, and lower the ceiling.
+<td>
+<img src="subway6.gif">
+</table>
+
+<br><br>
+<table cellpadding="0">
+<td>
+Add two sectors within the car.  These will become the bench seat.  Take
+grid-locking off, and move them real close to the back wall, but not
+overlapping.  You should get the feeling that we're trying to work around the
+limits of the engine... we are.  While in 2d mode, make all of the walls
+of the bench blocking (hit [B] on them.)  We need to do this to ensure Duke
+won't walk on them... they're nice to look at, but Duke will get shuffled
+right off the car if he attempts to walk on them.
+<td>
+<img src="subway7.gif">
+<br>
+<img src="subway8.gif">
+</table>
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

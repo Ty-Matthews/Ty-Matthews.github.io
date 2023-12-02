@@ -1,0 +1,132 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+
+<TITLE>Making C-9 Explosion Cracks</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+    
+<h1>C-9 Explosions</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Make one sector about 10x7 in size.  Insert two vertices on the top
+line and draw another sector right above our first sector.  Insert another
+two vertices, this time in the middle of the top two lines (we're going to
+split the top sector.)   Split the top sector by drawing a line between
+the two points you just inserted.  Your map should look like this picture.
+It's crucial that you split the top sector and not try to make each half
+separately.  I've found doing the latter causes weird problems.
+<td>
+<img src="crack1.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert two Sector Effectors, one in each half of the top sector.  Change
+the <b>SE lotags</b> to <b>13</b>.  Change the two <b>SE hitags</b> to
+<b>1</b>, or any unused SE-13 number.  Insert four sprites, two in each
+sector, and change the sprite tile to <b>SEENINE</b> (get it? C-9? :).
+The SEENINE sprite is tile number 1247.  Change all four <b>SEENINE
+hitags</b> to <b>1</b>, or the number you assigned to the SE-13.  The
+<b>SEENINE lotag</b> is set to the amount of time delay you want the
+explosions to occur after you've hit the crack with an explosion of its own.
+Here, I've spread the time delay around, making values 20, 40, 60, and 80
+so that the explosion will appear to travel across the two sectors.
+</table>
+
+<center>
+<table cellpadding="0">
+<td>
+<img src="crack2.gif">
+</table>
+</center>
+
+
+<br><br>
+
+
+<table cellpadding="0">
+<td>
+Switch over to 3d mode and insert a sprite <b>on the wall</b> above the
+two sectors.  I've also set tiles and floor/ceiling heights/slopes to
+something that resembles a gaping hole in a wall after an explosion.  Set
+the sprite's tile to tile number 546 (crack).  Move the crack down (pgup/pgdn
+on the sprite) so that it floats in mid-air, positioned in the middle of the
+hole.  The crack can be anywhere at all in the game, but we want it to be
+fairly close to where the explosion will occur.  When the game is run, this
+crack will appear against a solid wall.  The solid wall is created by the
+SE-13, which tells the game to put both ceiling and floor at the same
+height at the start of the level.  Switch back over to 2d mode and set
+the <b>crack's hitag</b> to <b>1</b>, or the number you have been
+assigning to the SE-13 hitag.  
+<td>
+<img src="crack3.gif">
+</table>
+
+<br><br>
+
+When an explosion hits this crack, the sectors will move to the positions
+they had in Build, and the C-9 explosives will burst in sequence.  You can
+make only the ceiling or floor match the height of the SE sprite by changing
+the angle of the SE-13 to pointing down.  By default the angle points up,
+which makes the game put both ceiling and floor at the same height/slope,
+so that our hole will not exist.<br><br>
+
+<table cellpadding="0">
+<td>
+The hole does not have to be caused only by a crack. To have another
+"exploding" sprite (ie other C-9s or the Fire Extinguisher Sprite) cause
+the hole to explode, set the sprite's <b>hitag</b> to the same number you
+gave the SE-13 hitag.
+<td>
+<img src="crack4.gif">
+<tr>
+</table>
+<br><br>
+
+<table cellpadding="0">
+<td>
+You can have the hole explode when Duke walks across the floor, as well.
+Insert a <b>TOUCHPLATE</b> sprite in any sector which Duke will walk across.
+Set the TOUCHPLATE's <b>lotag</b> to the same number you gave the SE-13
+hitag.
+<td>
+<img src="crack5.gif">
+<tr>
+</table>
+
+
+
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

@@ -1,0 +1,76 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Water Sectors</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Water Sectors</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start out making one sector with an island inside it.  Make the larger sector
+15 to a side and the smaller island around 10x5 units.  The larger sector
+will be your room, and the island sector will appear as water.  Off to the
+side, and separate from the other two, make another sector that is <b><i>
+exactly</i></b> the same size as the island sector; 10x5 or whatever you
+made.
+<td>
+<img src="water1.gif">
+<tr>
+</table>
+
+<br><br>
+
+<center>
+<table cellpadding="0">
+<td>
+Place a SE in both the island sector and the separate sector.  Change the
+<b>SE hitags</b> on both to a unique Water Sector tag, again keep track of which
+numbers you've used.  Set the <b>SE lotags</b> to <b>7</b>, which as you might
+already know, is for transport. That's basically what water sectors are;
+you transport to another sector that is underwater.  The differences being
+there isn't the transport sound and flash, and you transport by either
+falling through the floor or by swimming past the ceiling.  The two SE-7
+<b>must</b> be in the same location on both sectors or you'll have nasty
+deaths.  Set the <b>sector lotag</b> of the "above water" sector to <b>1</b>.
+Set the <b>sector lotag</b> of the "below water" sector to <b>2</b>.  Change
+over to 3d mode while putting the white arrow in the "above water" sector and
+change the floor tile to the water texture.  Do the same for the "below
+water" sector ceiling.
+<tr>
+</table>
+
+
+<table cellpadding="0">
+<td>
+<img src="water2.gif">
+<tr>
+</table>
+</center>
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

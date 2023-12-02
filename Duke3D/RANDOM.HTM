@@ -1,0 +1,83 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Random Lights After Shot Out</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#ff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Random Lights After Shot Out</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>Start out making two sectors, one larger room and a smaller, inner
+island sector.  The inner island sector will become the light.
+<td>
+<img src="random1.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>Insert two Sector Effectors, one in each sector.  Change the <b>SE Lotags</b>
+to <b>3</b>.  Change the <b>SE Hitags</b> to <b>1</b>, which will be unique
+in bigger maps.  Change the <b>Sector Hitag</b> of the light sector to <b>1</b>
+as well.
+<td>
+<img src="random2.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Switch to 3d mode and set the ceiling tile of our inner sector to a Light
+tile... tiles 120 through 125 are good for this.  Make sure you don't choose a
+tile with the word BUST in it... that tile is used by the game to show the
+Light is busted.  The shade of the SE sprites determines the brightness
+when the Light is on.  Set all of the walls/ceilings/floors in this sample
+to some darker shade by pointing at one in 3d mode and hitting the [-] key
+8 to 10 times.  You'll want to copy that shade throughout both sectors,
+so that they all match up.  To copy shade values, point at the wall you
+want to copy.  Press [TAB] to get that wall's attributes.  Then point
+at any other wall, hold down the [SHIFT] key, and hit [ENTER].  This will
+copy <b>only</b> the shade value... very handy.  Do the same for every
+tile in our sample map... but don't change our SE-3.  For more things you
+can try with this effect, <a href="seref.htm#SE3">see the SE Reference Guide</a>.
+
+<td>
+</table>
+
+<center><img src="random3.gif"></center>
+
+
+
+
+                
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

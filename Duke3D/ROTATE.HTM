@@ -1,0 +1,78 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Rotating Sectors</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Rotating Sectors</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start out making one large sector with a smaller sector inside it, as an 
+island.  For posterity's sake, let's make the inner sector a circle.  Switch
+over to 3d mode and raise the inner island sector up a few notches so that
+we can differentiate the two.
+<td>
+<img src="rotate1.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Place two SectorEffectors within the inner island sector.  Change both
+of the <b>SE hitags</b> to a unique rotating sector number above 0.  Change 
+the <b>lotag</b> of one of these <b>SE</b> sprites to <b>1</b> and leave the 
+other <b>SE lotag</b> at 0.  The SE with the lotag of 1 (SE-1) will be your 
+<b>pivot</b> point to which all of the SE-0 sectors (with identical hitags) 
+will rotate around.  You can place the SE-1 anywhere you like, it does not
+have to be within the sector you're rotating.  In this example, I've put the
+pivot point right in the middle of the circle sector. 
+<td>
+<img src="rotate2.gif">
+<tr>
+</table>
+
+<br><br>
+
+You can have multiple SE-0 with the same hitag, but you cannot have multiple
+SE-1 with the same hitag.  To have the sector rotate clockwise, set the angle
+of the SE-1 to upwards.  Set the SE-1 angle down for counter-clockwise.
+You will probably want to have any sprites (including Duke) placed on that 
+sector rotate with it, so change over to 3d mode and set the floor tile to 
+be <b>Relatively aligned</b>.  You do this by pointing the crosshairs at 
+the floor of the sector you wish to rotate and hitting 'R'.  You should 
+see the tile shift a little bit.  If you don't have the floor Relatively 
+aligned, the walls will look like they are rotating, but the floor will 
+not.   If Duke stands on the sector, he won't rotate with it.  This might 
+come in handy if you wished to set up scrolling tiles, like a message bar.
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=0>
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

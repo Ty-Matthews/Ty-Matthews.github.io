@@ -1,0 +1,123 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Cameras</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Cameras</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td width=300>
+Start out making a single room, with a 3x1 unit window and window sill.
+<td>
+<img src="camera1.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert two sprites, a viewscreen sprite (tile #502) and a camera sprite (tile
+#621.)  Put the viewscreen sprite flat against the window's wall.  Put the
+camera in one corner, and raise it to the ceiling.  Change the <b>viewscreen's
+hitag </b> to <b>1</b>, and set the <b>camera's lotag</b> to <b>1</b>.  The
+viewscreen will show all cameras whose lotags match its hitag.  Set the
+camera angle to point towards the middle of the room.  Set the <b>camera's
+hitag</b> to 256.  This will be our camera's turning radius (see notes at
+bottom for an explanation.)
+<td rowspan=2>
+<img src="camera2.gif">
+<tr>
+<td>
+<img src="camera3.gif" align=left>
+<img src="camera4.gif" align=right>
+<td>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td colspan=4>
+That's all you need to make the camera work, but we want to make a
+fancier security screen.  We made a separate window sill earlier, and now
+it's going to come into play.  Change the height of the sector containing
+your viewscreen so you can see the window sill "step."  Resize the viewscreen
+sprite to match the size of the opening. While pointing at the wall of this 
+step in 3d mode, hit 'M' to make it a maskwall.  A tile will fill the space 
+between the floor and ceiling.  Point at this "wall" and change its tile to a 
+forcefield (tile #663). While still pointing at the wall, hit 'B' and then 'H' 
+to make it blocking and masking, respectively.  Switch back to 2d mode, turn off 
+grid-lock, and move the window sill corners and window corners right up next 
+to the wall. Switch back to 3d mode and adjust the outer window sill height 
+to match that of the inner window and make that wall blocking but not masking. 
+This way, Duke will not get hurt by the forcefield and you still get that neat
+sound when shooting at it plus, you've got a nice-looking screen that 
+is recessed into the wall.
+<tr>
+<td width=150>
+<img src="camera5.gif">
+<td width=150>
+<img src="camera6.gif">
+<td width=150>
+<img src="camera7.gif">
+<td width=150>
+<img src="camera8.gif">
+<tr>
+</table>
+
+<br>
+
+<dd>Now you probably want to change the angle the camera points to... up
+or down.  The angle of the camera is determined by the <b>shade value</b>
+of the sprite itself.  The shade value of any sprite is between -128 and +127.
+The positive shade values will force the camera to point upwards, as high
+as 127 degrees.  The negative shade values will force the camera to point 
+downwards, as low as -128 degrees.  To set the shade of our camera, switch to
+3d mode, point at the sprite, hold down the ['] key, and hit [S].  If this
+key combination causes your machine to goof up, use the [+] and [-] keys
+to manually increment/decrement the shade value.
+
+<br><br>
+
+<dd>Please note that the pan angle of travel of the camera is, as stated 
+above, set by the camera's <b>hitag</b> value. These values span from 0, 
+for a fixed camera to 2048 for a complete 360 degree turn. It is also
+important to remember that this value represents the angle panned on either 
+side of the pointing angle of the sprite. So if you assign it a value of 
+512, for example (1/4 of 2048), it will describe an arc of 90 degrees on 
+the left and right side of the camera's axis for a total arc of 180 degrees.
+Although the use of exact divisions of 2048 is not absolutely necessary, it
+guarantees trouble-free operation. Small uneven values like 90 tend to make 
+the cameras operate erratically. Experiment and see what works best for you. 
+
+<br><br><br>
+
+<H3 ALIGN="center"><A HREF="local.htm">Download this page locally</A></H3>
+
+<br><br>
+
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a> and <a href="mailto:jfgrol@cam.org">Jean-Francois Groleau</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

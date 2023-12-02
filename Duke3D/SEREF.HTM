@@ -1,0 +1,850 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Sector Effector Reference Guide</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<center>
+<img src="se.gif" align=left>
+<h1>Sector Effector Reference Guide</h1>
+</center>
+
+<HR SIZE=0>
+<font size=1>
+<center>This came straight out of the BUILDHLP program.  I'm duplicating it here for
+your reference.<br>
+Original Build Docs written by Allen H Blum III & Richard "Levelord" Gray.
+<br><br>
+<font size=3>
+For those SE that I have tutorial pages on, you'll see a link to the
+corresponding page.
+
+<table cellpadding="0">
+
+<td><font size=5>0 :<td><font size=5><a href="#SE0">Rotated Sector</a><tr>
+<td><font size=5>1 :<td><font size=5><a href="#SE1">Pivot Sprite for SE-0</a><tr>
+<td><font size=5>2 :<td><font size=5><a href="#SE2">Earthquake</a><tr>
+<td><font size=5>3 :<td><font size=5><a href="#SE3">Random Lights After Shot Out</a><tr>
+<td><font size=5>4 :<td><font size=5><a href="#SE4">Random Lights</a><tr>
+<td><font size=5>6 :<td><font size=5><a href="#SE6">Subway Engine</a><tr>
+<td><font size=5>7 :<td><font size=5><a href="#SE7">Transport (For water: ST-1 or ST-2)</a><tr>
+<td><font size=5>8 :<td><font size=5><a href="#SE8">Up Open Door Lights</a><tr>
+<td><font size=5>9 :<td><font size=5><a href="#SE9">Down Open Door Lights</a><tr>
+<td><font size=5>10 :<td><font size=5><a href="#SE10">Door Auto Close (H=Delay)</a><tr>
+<td><font size=5>11 :<td><font size=5><a href="#SE11">Rotate Sector Door</a><tr>
+<td><font size=5>12 :<td><font size=5><a href="#SE12">Light Switch</a><tr>
+<td><font size=5>13 :<td><font size=5><a href="#SE13">C-9 Explosive</a><tr>
+<td><font size=5>14 :<td><font size=5><a href="#SE14">Subway Car</a><tr>
+<td><font size=5>15 :<td><font size=5><a href="#SE15">Slide Door (ST-25)</a><tr>
+<td><font size=5>17 :<td><font size=5><a href="#SE17">Elevator Transport</a><tr>
+<td><font size=5>18 :<td><font size=5><a href="#SE18">Incremental Sector Raise/Lower (PPak)</a><tr>
+<td><font size=5>19 :<td><font size=5><a href="#SE19">Shot Touchplate Ceiling Down</a><tr>
+<td><font size=5>20 :<td><font size=5><a href="#SE20">Bridge (ST-27)</a><tr>
+<td><font size=5>21 :<td><font size=5><a href="#SE21">Drop Floor (ST-28)</a><tr>
+<td><font size=5>22 :<td><font size=5><a href="#SE22">Prong (ST-29)</a><tr>
+<td><font size=5>24 :<td><font size=5><a href="#SE24">Conveyor Belt</a><tr>
+<td><font size=5>25 :<td><font size=5><a href="#SE25">Engine</a><tr>
+<td><font size=5>27 :<td><font size=5><a href="#SE27">Camera For Playback</a><tr>
+<td><font size=5>28 :<td><font size=5><a href="#SE28">Lightning Engine</a><tr>
+<td><font size=5>29 :<td><font size=5><a href="#SE29">Float</a><tr>
+<td><font size=5>30 :<td><font size=5><a href="#SE30">2-Way Train (ST-31)</a><tr>
+<td><font size=5>31 :<td><font size=5><a href="#SE31">Floor Rise</a><tr>
+<td><font size=5>32 :<td><font size=5><a href="#SE32">Ceiling Fall</a><tr>
+<td><font size=5>33 :<td><font size=5><a href="#SE33">Spawn Jib w/Quake</a><tr>
+<td><font size=5>36 :<td><font size=5><a href="#SE36">Shrink Ray Shooter</a><tr>
+</table>
+</center>
+
+<br><br>
+<hr size=0>
+<br><br>
+
+<a name="SE0"></a>
+<table border=1>
+<td><b><a href="rotate.htm">SE 0</a>:
+<td>Rotate Sector<tr>
+<td><td>:Used to <a href="rotate.htm">rotate</a> a sector around a pivot point<tr>
+
+<td>Hitag :
+<td>Set equal to Hitag of SE 1 as pivot point for sector.<tr>
+<td>Sector Lotag :
+<td>none<tr>
+
+<td>Angle :
+<td>up = Rotate all points around SE 1<tr>
+<td><td>down = Rotate sector around SE 1<tr>
+<td>Shade :
+<td>none<tr>
+<td>Palette :
+<td>none<tr>
+<td>Comments :
+<td>If Relative alignment is set on the floor (the R key) then all
+sprites and actors on the floor will rotate with the sector<tr>
+</table><br><br>
+
+<a name="SE1"></a>
+<table border=1>
+<td><b><a href="rotate.htm">SE 1</a>:
+<td>Pivot for Rotate SE 0 <tr>
+<td><td>:Used as a pivot point for Sector Effector 0 to <a href="rotate.htm">rotate</a> a sector around <tr>
+
+<td>Hitag :
+<td>Set equal to Hitag of all SE 0 to rotate <tr>
+<td>Sector Lotag :
+<td>none <tr>
+
+<td>Angle :
+<td>Up = Rotate clockwise <tr>
+<td> <td>Down = Rotate counter-clockwise <tr>
+<td>Shade :
+<td> none<tr>
+<td>Palette :
+<td> none<tr>
+<td>Comments :
+<td>
+<tr>
+</table><br><br>
+
+
+<a name="SE2"></a>
+<table border=1>
+<td><b><a href="equake.htm">SE 2</a>:
+<td>Earthquake <tr>
+<td><td>:Used to set off an <a href="equake.htm">earthquake</a>.  During the earthquake, the screen
+will shake for about 4 seconds.  The sector will move in the direction that
+the SE sprite is pointing.  If there is a slope, then it will rise during
+the earthquake. <tr>
+<td>Hitag :
+<td>none <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>Direction to move sector during earthquake <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Must activate with Masterswitch<br>
+:If there is a slope, then it will be made flat at pre-map and rised during
+the earthquake to a maximum height of 4 clicks.<tr>
+</table><br><br>
+
+
+<a name="SE3"></a>
+<table border=1>
+<td><b><a href="random.htm">SE 3</a>:
+<td><a href="random.htm">Random lights after shot out</a> <tr>
+<td><td>:Used to create lighting effect when <a href="random.htm">lights are shot out</a>.  It will
+also set the color of light when the light is on.  Make the sector shade
+dark when the light is out and make the SE sprite shade bright when the
+light is on.<tr>
+<td>Hitag :
+<td>Set equal to Wall Lotag with graphic of Light or Set equal to Ceiling
+Hitag with graphic of Light.<tr>
+<td>Sector Lotag :
+<td> none<tr>
+<td>Angle :
+<td> none<tr>
+<td> <td> <tr>
+<td>Shade :
+<td>Set to brightness when light is on, set sector brightness to when light
+is off <tr>
+<td>Palette :
+<td>Set to palette lookup number when light is on<tr>
+<td>Comments :
+<td>:Can be used with SE 12 to be turned on and off with a light switch
+until the lights are shot out.<br>
+:The lights color is taken from the SE sprite's Palette when the light is on,
+and the sector's palette when the light is off.  Default is no color (eg palette=0)<br>
+:Both the SE sprite and the sector can have different palettes.
+<tr>
+</table><br><br>
+
+<a name="SE4"></a>
+<table border=1>
+<td><b>SE 4:
+<td>Random Lights<tr>
+<td><td>:Used to make sector randomly flash in brightness.  It will also set
+the color of light when the light is on.  Make the sector shade dark when the
+light is off and make the SE sprite shade bright when the light is on.<tr>
+<td>Hitag :
+<td>Set for Random Flash number <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>Set to brightness when light is on, set sector brightness to when light
+is off.<tr>
+<td>Palette :
+<td>Set to when light is on<tr>
+<td>Comments :
+<td>:Can <b>not</b> be used with SE 12 to be turned on and off with a light
+switch.<br>
+:The light's color is taken from the SE sprite's palette when the light is
+on, and the sector's palette when the light is off.  Default is no color (e.g.
+palette=0)<br>
+:Both the SE sprite and the sector can have different palettes.
+<tr>
+</table><br><br>
+
+
+<a name="SE6"></a>
+<table border=1>
+<td><b><a href="subway.htm">SE 6</a>:
+<td>Subway Engine<tr>
+<td><td>:Used as the Engine for a <a href="subway.htm">Subway</a>.  Use with SE 14 for multiple
+subway cars.  Must be used with Locator Sprite to set track.<tr>
+<td>Hitag :
+<td>Set equal to Locator Lotag for starting position<tr>
+<td>Sector Lotag :
+<td>Set equal to 31 to have sectors within sectors for your cars.  Every sector
+within the car must have the 31 tag.<tr>
+<td>Sector Hitag :
+<td>All sectors within Car sector must be equal<tr>
+<td>Angle :
+<td>Set for direction of Subway<tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Set relative alignment on sector floor (R key) to make sprites move<br>
+:If a Locator has a Hitag of 1, then the subway will stop at that locator for
+5 seconds then continue.
+<tr>
+</table><br><br>
+
+
+<a name="SE7"></a>
+<table border=1>
+<td><b><a href="teleport.htm">SE 7</a>:
+<td>Transport/Water<tr>
+<td><td>:Used as a <a href="teleport.htm">Teleporter</a> and <a href="water.htm">Water</a> Effect<tr>
+<td>Hitag :
+<td>Set equal to one other SE 7 to Transport to <tr>
+<td>Sector Lotag :
+<td>0 = Teleporter<br>1 = On top of water<br>2 = Underwater <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>0 = Water<br>8 = Green Slime <tr>
+<td>Comments :
+<td>:If the Sector Effector Sprite is off the floor, then you will only
+teleport when Duke's waist is at the same height as the sprite and in the
+same sector.<br>
+:When using with Sector Lotag 1 and 2 as water, the two sectors must be exactly
+the same size or you will teleport to death.
+<tr>
+</table><br><br>
+
+
+<a name="SE8"></a>
+<table border=1>
+<td><b><a href="updorlt.htm">SE 8</a>:
+<td>Up open Door Lights <tr>
+<td><td>:Used to <a href="updorlt.htm">light up a room</a> when a door is opened. <tr>
+<td>Hitag :
+<td>Set equal to all other SE 8 used together <tr>
+<td>Sector Lotag :
+<td>Use with any that raises the ceiling (e.g. Sector Lotag 20) <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>Set to brightness when light is on, set sector brightness to when light
+is off<tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:At least one SE 8 with equal Hitag must be in a sector in which the ceiling
+raises
+<tr>
+</table><br><br>
+
+
+<a name="SE9"></a>
+<table border=1>
+<td><b>SE 9:
+<td>Down Open Door Lights <tr>
+<td><td>:Used to light up a room when a light comes down from the ceiling <tr>
+<td>Hitag :
+<td>Set equal to all other SE 9 used together <tr>
+<td>Sector Lotag :
+<td>Use with any that lowers to floor (e.g. Sector Lotag 21) <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>Set to brightness when light is on, set sector brightness to when
+light is off <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:At least one SE 8 with equal Hitag must be in a sector in which the floor
+rises
+<tr>
+</table><br><br>
+
+
+<a name="SE10"></a>
+<table border=1>
+<td><b><a href="doors.htm">SE 10:</a>
+<td>Door Auto Close <tr>
+<td><td>:Used to automatically close a <a href="doors.htm">door</a> after a set delay <tr>
+<td>Hitag :
+<td>Delay until door closes (e.g. 128 equals 4 seconds) <tr>
+<td>Sector Lotag :
+<td>Use with all door Sector Lotags <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>
+<tr>
+</table><br><br>
+
+
+<a name="SE11"></a>
+<table border=1>
+<td><b><a href="swngdoor.htm">SE 11</a>:
+<td>Rotate Sector Door <tr>
+<td><td>:Used as a <a href="swngdoor.htm">door that rotates</a> 90 degrees when activated <tr>
+<td>Hitag :
+<td>none <tr>
+<td>Sector Lotag :
+<td>23 <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>0 = Clockwise<br>1 = Counter-clockwise <tr>
+<td>Comments :
+<td>:Will also activate other SE 11 with equal Hitag values
+<tr>
+</table><br><br>
+
+
+<a name="SE12"></a>
+<table border=1>
+<td><b><a href="lights.htm">SE 12</a>:
+<td>Light Switch <tr>
+<td><td>:Used to <a href="lights.htm">light</a> up a sector when activated with a switch <tr>
+<td>Hitag :
+<td>Set equal to all other SE 12 used together <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>Set to brightness when light is on, set sector brightness to when light
+is off <tr>
+<td>Palette :
+<td>Set to when lights are on <tr>
+<td>Comments :
+<td>:The light's color is taken from the SE sprite's palette when the light is
+on, and the sector's palette when the light is off.  Default is no color (e.g.
+palette = 0)<br>
+:Both the SE sprite and the sector can have different palettes
+<tr>
+</table><br><br>
+
+
+<a name="SE13"></a>
+<table border=1>
+<td><b><a href="crack.htm">SE 13</a>:
+<td>C-9 Explosive <tr>
+<td><td>:Used to <a href="crack.htm">blow apart</a> the ceiling and floor of a sector to create holes
+in walls <tr>
+<td>Hitag :
+<td>Set equal to SEENINE, OOZCAN, or CRACK sprites to activate <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>Up = both ceiling and floor come together at pre-map<br>
+Down = only the ceiling or the floor matches the height with the SE sprite
+depending on which one is closest.<tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Can be activated by a Masterswitch with equal Hitags<br>
+:If the ceiling has a Sky texture without Parallax set, then the tile will be
+replaced at pre-map with the closest non-sky texture.  When it explodes, the
+sky will change to Parallax.
+<tr>
+</table><br><br>
+
+
+<a name="SE14"></a>
+<table border=1>
+<td><b><a href="subway.htm">SE 14</a>:
+<td>Subway Car <tr>
+<td><td>:Used as the car for a <a href="subway.htm">subway</a>.  Use with SE 6 for Subway Engine.  Must
+be used with Locator Sprite to set track.<tr>
+<td>Hitag :
+<td>Set equal to Locator Lotag for starting position <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Sector Hitag :
+<td>All sectors withing Car sector must be equal<tr>
+<td>Angle :
+<td>Set for direction of Subway <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Set relative alignment on sector floor (R key) to make sprites move<br>
+:If a Locator has a Hitag of 1, then the Subway will stop at that Locator
+for 5 seconds then continue.
+<tr>
+</table><br><br>
+
+
+<a name="SE15"></a>
+<table border=1>
+<td><b><a href="slide.htm">SE 15</a>:
+<td>Slide Door <tr>
+<td><td>:Used as a <a href="slide.htm">door that slides</a> when opened <tr>
+<td>Hitag :
+<td>Set equal to other doors to be opened at the same time <tr>
+<td>Sector Lotag :
+<td>25 <tr>
+<td>Angle :
+<td>Set to direction when door is <b>closed</b> <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Speed sprite sets distance to door to open<br>
+:Use MusicSFX sprite for sound
+<tr>
+</table><br><br>
+
+
+
+<a name="SE17"></a>
+<table border=1>
+<td><b><a href="elevator.htm">SE 17</a>:
+<td>Elevator Transport <tr>
+<td><td>:Used as an <a href="elevator.htm">Elevator</a> that transports from one elevator shaft to
+another to simulate going straight up from one floor to another <tr>
+<td>Hitag :
+<td>Equal to one other SE 17 <tr>
+<td>Sector Lotag :
+<td>15 <tr>
+<td>Sector Hitag :
+<td>0 = Bottom Floor<br>1 = Top Floor<tr>
+<td>Angle :     
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>Darkest shade of the two SE 17 with equal Hitag is the starting floor
+for the elevator.  Make the shade at least 30 units dark. <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Top and Bottom floors <b>must</b> be physically built at proper height
+difference to work properly<br>
+:Both Elevators must be <b>exactly</b> the same size
+<tr>
+</table><br><br>
+
+<a name="SE18"></a>
+<table border=1>
+<td><b><a href="se18.htm">SE 18</a>:
+<td>Incremental Sector Raise/Lower <tr>
+<td><td>:Used to <a href="se18.htm">raise/lower the sector floor or ceiling incrementally.</a><tr>
+<td>Hitag :
+<td>Equal to units moved per activation.  One unit equals one PgUp/PgDn in Build.<tr>
+<td>Angle :     
+<td>Up = Floor will move incrementally (by Hitag#)<br>
+Down = Ceiling will move.<tr>
+<tr>
+<td>Palette :
+<td>0 = Sector floor/ceiling starts at Build set height<br>
+>0 = Sector floor/ceiling starts at SE-18 sprite height.<tr>
+<td>Comments :
+<td>:Sector will move in opposite direction as it is in pre-map.<tr>
+</table><br><br>
+
+
+<a name="SE19"></a>
+<table border=1>
+<td><b>SE 19:
+<td>Shot Touchplate Ceiling Down <tr>
+<td><td>:Used to close ceiling when a shot or explosion hits within the sector <tr>
+<td>Hitag :
+<td>Equal to others to activate at the same time <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Does not check to see when a shot or object passes through the sector
+without hitting.<br>
+:Use MusicSFX sprite for sound
+<tr>
+</table><br><br>
+
+
+<a name="SE20"></a>
+<table border=1>
+<td><b><a href="bridges.htm">SE 20</a>:
+<td><a href="bridges.htm">Bridge</a> <tr>
+<td><td>:Used to stretch a sector when activated <tr>
+<td>Hitag :
+<td>none <tr>
+<td>Sector Lotag :
+<td>27 <tr>
+<td>Angle :
+<td>Set to direction to stretch sector <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td> <tr>
+<td>Comments :
+<td>:Set relative alignment (R key) on sector to move floor.<br>
+:Use speed sprite for distance
+<tr>
+</table><br><br>
+
+
+<a name="SE21"></a>
+<table border=1>
+<td><b>SE 21:
+<td>Drop Floor <tr>
+<td><td>:Used to make a floor or ceiling drop to the height of the SE sprite
+when activated by a Masterswitch <tr>
+<td>Hitag :
+<td>Set equal to others that activate at same time <tr>
+<td>Sector Lotag :
+<td>28 <tr>
+<td>Angle :
+<td>Up = Drop Ceiling<br>Down = Drop Floor<tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Floor or ceiling matches height of SE sprite at pre-map then drops to
+set position when activated.<br>
+:To do opposite, the SE sprite height must be put into sector
+<tr>
+</table><br><br>
+
+
+<a name="SE22"></a>
+<table border=1>
+<td><b>SE 22:
+<td>Prong <tr>
+<td><td>:Used as Door inside Teeth Prongs <tr>
+<td>Hitag :
+<td>Set equal to Hitag of Sector Lotagged 29 <tr>
+<td>Sector Lotag :
+<td>0, Outside Sector Lotag of 29 <tr>
+<td>Angle :
+<td>none<tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:This Effector was not tested in the game, so use it at your own risk.
+It may cause problems in multi-play<br>
+:See _SE.MAP for usage.
+<tr>
+</table><br><br>
+
+
+<a name="SE24"></a>
+<table border=1>
+<td><b><a href="convey.htm">SE 24</a>:
+<td>Conveyor Belt<tr>
+<td><td>:Used to move sprites along the floor like a <a href="convey.htm">conveyor belt</a><tr>
+<td>Hitag :
+<td>Set equal to a switch to turn on and off <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>Set to direction to move sprites <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Set relative alignment (R key) on sector floor to move sprites<br>
+:Set speed sprite equal to rate of movement
+<tr>
+</table><br><br>
+
+
+<a name="SE25"></a>
+<table border=1>
+<td><b>SE 25:
+<td>Engine Piston <tr>
+<td><td>:Used as a Piston that only goes up and down<tr>
+<td>Hitag :
+<td>none <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Put SE sprite height to starting position of Piston<br>
+:Speed sprite equals rate of movement
+<tr>
+</table><br><br>
+
+
+<a name="SE27"></a>
+<table border=1>
+<td><b>SE 27:
+<td>Camera for Playback <tr>
+<td><td>:Used as as camera position to view playback of game Demos <tr>
+<td>Hitag :
+<td>Set to maximum distance for the camera to view the action of other
+players (e.g. 2048 equals largest grid in Build) <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Camera does not always work well with extreme heights
+<tr>
+</table><br><br>
+
+<a name="SE28"></a>
+<table border=1>
+<td><b><a href="litenin.htm">SE 28</a>:
+<td>Lightning Engine<tr>
+<td><td>:Used to create a lightning effect in an area of 10000.  On random
+activation will flash linked Lightning Bolt sprites and start SFX.<tr>
+<td>Hitag :
+<td>Set equal to Lightning Bolt sprite (tile #4890)<tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<tr>
+</table><br><br>
+
+
+<a name="SE29"></a>
+<table border=1>
+<td><b>SE 29:
+<td>Floating Sector<tr>
+<td><td>:Used to make sector float like water or waves <tr>
+<td>Hitag :
+<td>Set to starting height of sector (0-2047) <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Use speed sprite to set height of wave<br>
+:To use as a wave, the sector must only be made of 4 lines.  Set one wall
+as first wall (ALT-F) next to another sector with a SE 29 sprite in it to
+create a wave.
+<tr>
+</table><br><br>
+
+
+<a name="SE30"></a>
+<table border=1>
+<td><b><a href="2way.htm">SE 30</a>:
+<td><a href="2way.htm">Two-way train</a><tr>
+<td><td>:Used as a train car that only goes back and forth from point A to
+point B <tr>
+<td>Hitag :
+<td>Set equal to a switch to activate <tr>
+<td>Sector Lotag :
+<td>31 <tr>
+<td>Angle :
+<td>Set to direction of front of Car <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Use with 2 Locator sprites to define track<br>
+:Activator with equal hitag+1 activates when car stops at point A<br>
+:Activator with equal hitag+2 activates when car stops at point B<br>
+
+<tr>
+</table><br><br>
+
+
+<a name="SE31"></a>
+<table border=1>
+<td><b>SE 31:
+<td>Floor Rise <tr>
+<td><td>:Used to rise or lower sector floor when activated by an Activator or
+Masterswitch <tr>
+<td>Hitag :
+<td>none <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>Up = Start sector height equal to SE sprite height at pre-map<br>
+Down = Rise sector to SE sprite height when activated <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td> <tr>
+<td>Comments :
+<td>:Use speed to set rate of rise<br>
+:Use MusicSFX sprite for sound
+
+<tr>
+</table><br><br>
+
+
+<a name="SE32"></a>
+<table border=1>
+<td><b><a href="swtchdor.htm">SE 32:</a>
+<td>Ceiling Fall <tr>
+<td><td>:<a href="swtchdor.htm">Used to rise or lower sector Ceiling when activated by an Activator
+</a>or Masterswitch<tr>
+<td>Hitag :
+<td>none <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>Up = Rise sector to SE sprite height when activated<br>
+Down = Start sector height equal to SE sprite height at pre-map <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Use speed to set rate of rise<br>
+:Use MusicSFX sprite for sound
+<tr>
+</table><br><br>
+
+
+<a name="SE33"></a>
+<table border=1>
+<td><b><a href="equake.htm">SE 33</a>:
+<td>Spawn Earthquake Jibs <tr>
+<td><td>:Used to spawn pieces of metal and rock from SE sprite during an
+<a href="equake.htm">Earthquake</a> <tr>
+<td>Hitag :
+<td>none <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>none <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Jibs will be spawned whenever an Earthquake occurs anywhere on the map
+<tr>
+</table><br><br>
+
+
+<a name="SE36"></a>
+<table border=1>
+<td><b>SE 36:
+<td>Spawn Shot <tr>
+<td><td>:Used to spawn a shot every five seconds when activated by a Masterswitch <tr>
+<td>Hitag :
+<td>none <tr>
+<td>Sector Lotag :
+<td>none <tr>
+<td>Angle :
+<td>Set to direction to shoot <tr>
+<td> <td> <tr>
+<td>Shade :
+<td>none <tr>
+<td>Palette :
+<td>none <tr>
+<td>Comments :
+<td>:Once activated, it will never stop shooting.<br>
+:Use speed sprite to set object to shoot<br>
+<dd>2556: Shrink Ray<br>
+<dd>2605: RPG<br>
+<dd>1650: Mortar<br>
+<dd>1625: Trooper Laser<br>
+<dd>1636: Lizman Spit<br>
+<tr>
+</table>
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+
+<HR SIZE=0>
+
+<font size=3>
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1997 <a href="mailto:ty@synet.net"><img src="tysig.gif" border="0"></a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table><br><br>
+</center>
+   
+</BODY>   
+</html>   
+

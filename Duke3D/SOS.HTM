@@ -1,0 +1,177 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Sectors Over Sectors</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#ff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Sectors Over Sectors</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+<table cellpadding ="0">
+<td colspan=2>
+Create one decent-sized room, with a hall extending out of it.  Switch to
+3d mode and pick a tile for the walls that has a horizontal stripe.  Adjust
+the tile position (using the arrow keys) so that some easily-identifiable
+line is at the ceiling.  Here, I'm using the light as a guide.  Slope the
+floor and ceiling of the hall upwards so that the far end of it is
+higher than the tile mark.  This ensures any sectors we create at the end
+of the hall will be higher than our first sector.
+<br><br>
+There are some limitations to Sectors Over Sectors, so let me cover them
+now:
+</td>
+</tr>
+
+<tr>
+  <td width=50 align=right valign=top>
+  1.
+  </td>
+  <td>
+  Build cannot "see" two overlapping sectors at the same time.
+</tr>
+
+<tr>
+  <td width=50 align=right valign=top>
+  2.
+  </td>
+  <td>
+  Overlapping sectors cannot share red lines.
+</tr>
+
+<tr>
+  <td width=50 align=right valign=top>
+  3.
+  </td>
+  <td>
+  Overlapping sectors must be built at separate physical heights.
+  </td>
+</tr>
+</table>
+  
+
+  <td align=center>
+    <img src="sos1.gif">
+    <br>
+    <img src="sos2.gif">
+  </td>
+</tr>
+</table>
+
+<br><br>
+
+
+<table cellpadding="0">
+<td>
+   Add three more sectors, like the image shown.  But pause after you create
+   the first sector coming off the sloped hall.  Sometimes Build will go in
+   and mess up your floors/ceilings when adding sectors to a sloped sector.
+   Mainly, it's going to set sloping for the new sector.  If this happens,
+   you'll want to correct the situation before adding too many sectors.  To
+   take all sloping off of a sector, point at the floor and/or ceiling and
+   hit [/].  You'll notice in this image that I've inserted extra vertices
+   in the last sector.  We're going to use these vertices to extend that
+   sector over the lower sector.
+</td>
+<td>
+   <img src="sos3.gif">
+</td>
+</table>
+
+<br><br>
+
+Move the vertices of the last sector over the lower sector.  I've numbered
+the vertices in the first image, and shown their corresponding results in
+the second image.
+<center>
+<table cellpadding="0">
+<tr>
+<td>
+   <img src="sos6.gif">
+</td>
+<td>
+   <img src="sos4.gif">
+</td>
+<td>
+   <img src="sos5.gif">
+</td>
+</tr>
+</table>
+</center>
+
+<br><br>
+
+Switch to 3d mode, and "walk" between the upper and lower
+floors.  Kinda neat, huh?  You may ask what that fourth sector was for.
+We created that sector so that there is no single spot where Duke is able
+to see two overlapping sectors at the same time.  Also, it is not a requirement
+that you drag vertices over an existing sector to create the effect.  You can
+create new sectors over existing ones, so long as you've started from a
+point that is known to be at the level you want.  If you just start creating
+a sector in an area shared by two or more overlapping sectors, it will default
+to the lowest physical sector.
+<br><br>
+Some sage advice on Sectors Over Sectors:
+
+<table cellpadding="0">
+<tr>
+<td width=50 align=right valign=top>
+</td>
+<td>
+<b>Never</b> attempt to join sectors in areas that are overlapping.  This
+can cause many, many problems... especially if you're trying to join sectors
+that are higher than the lowest overlapped sector.
+</tr>
+
+<tr>
+<td></td>
+<td>
+<b>Always</b> create your sectors/sprites off to a side, and don't overlap
+sectors until you're ready to finish the map.  Create a long hallway if you
+need to give yourself room.  Joining, splitting, and moving sectors that
+overlap is a real nightmare.  Just create them off to a side, and move
+the entire lot over when its ready.
+</td>
+</tr>
+<td></td>
+<td>
+Don't insert/move sprites in 2d mode in an area of overlapped sectors.  They
+default to the lowest sector, and probably not the sector you're trying to
+use.
+</td>
+</tr>
+<td></td>
+<td>
+If you've moved your finished sector over a bunch of other sectors, and need
+to go back and change something, remember there are keys in 3d mode to change
+hitags and lotags.  They are [']-[H] and [']-[T] for hi/lo, respectively.
+</td>
+</tr>
+</table>
+
+<br><br><br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

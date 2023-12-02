@@ -1,0 +1,113 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Up Open Door Lights</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Up Open Door Lights</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start out making a <a href="doors.htm">doom-like door</a>.  The SE-8 will
+only work with a sector that raises the ceiling.  Make the top room like the
+picture, with a wall extending through the middle.  We're going
+to use this to create a neat lighting effect.  The light will basically
+"originate" from the lower sector.  Before we start splitting the sector,
+switch to 3d mode to set your tiles, and darken (7 or 8 clicks) the top
+sector's walls, ceiling, and floor... it will save a lot of needless
+duplication.  We set the sector's shade to when the door is closed. A quick
+way of copying shade values is to point at a darkened tile and hit TAB.
+Then point at any other tile, hold down the LEFT SHIFT key, and hit ENTER.
+This will copy the shading value only.  Very handy.
+<td>
+<img src="updorlt1.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Switch back to 2d mode and and split the top sector into light-sources slices,
+like the image.  We're going to set the shade of each of the slices slightly
+different from the others around them to create a dithering effect.
+<td>
+<img src="updorlt2.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert 9 <b>Sector Effectors</b>, one in each section of the top sector, and
+one in the door sector.  Change all of the <b>SE lotags</b> to <b>8</b>, and change
+all the <b>SE hitags</b> to <b>1</b> (should be unique for multiple sets.)
+<td>
+<img src="updorlt3.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Switch over to 3d mode and darken the <b>shade</b> of the SE-8 sprites in
+the sliced sectors.  By default, a Sector Effector will have a shade value
+of 0 when first created.  This will create a fairly bright sector when we
+open the door, so our largest section of the top sector and the door sector
+can stay at that value.  The three SE-8 in our sliced sectors should be darkened
+by two clicks.  Point at the SE at hit '-' two times.  The three after that
+should be darkened by four clicks.  The last remaining SE will be at six
+clicks. I've put numbers representing the shade value next to the SE sprites
+in this image.  You'll also notice my door is not all the way at the floor;
+I do this so that any changes I need to make to the different SE and shading
+can be accomplished much easier.  
+<tr>
+</table>
+<center>
+<table cellpadding="0">
+<td>
+<img src="updorlt4.gif">
+<td>
+<img src="updorlt5.gif">
+</table>
+</center>
+
+<br><br>
+
+If you have a wall within a sector that you don't want to light up when
+the door opens, set that wall's <b>hitag</b> to <b>1</b>.  You'll want
+to do this for the interior door wall; as no light can really reach it.<br><br>
+
+Run your level and check it out.  Stay inside the room when the door closes
+and you'll see the slices darken to one shade and lighten to three separate
+shades... very neat.
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

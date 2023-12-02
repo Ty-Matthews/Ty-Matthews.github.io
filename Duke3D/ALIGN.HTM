@@ -1,0 +1,762 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   
+<META NAME="description" CONTENT="Online Duke3d Build Tutorial.  Clear,step-by-step instructions on creating the advanced effects of the Build leveleditor for Duke Nukem 3d.">
+   
+<META NAME="keywords" CONTENT="duke3d,build,duke,level editors,tutorial">
+   
+<TITLE>Floor Texture Alignment</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" LINK="#FF6347" VLINK="#40A0A0" ALINK="#FF6347">
+
+<H1>Floor Texture Alignment</H1>
+
+<P><IMG SRC="build.gif"></P>
+
+<BR>
+<BR>
+
+<P>Aligning textures can be a frustrating experience especially on floors
+with moving textures such as <A HREF="convey.htm">conveyor belts</A> or
+<A HREF="water.htm">water</A> and slime canals. Although it is easy to control the direction that the player will move to when standing in the moving sector (angle of the
+SectorEffector sprite) , the floor textures will sometimes move in a different
+direction. Of course, the recommended directive in such a case is to change
+the <B>Firstwall</B> of the sector and make it relatively aligned by using
+the <B>&quot;R&quot;</B> key in 3D mode. Unfortunately, this alone does
+not always cure the problem and the designer will often have to use the
+<B>&quot;F&quot;</B> key, go back and forth between Build and Duke3D to
+make sure that everything looks the way it should. This is a painstaking
+process, particularly if you have a long chain of conveyers or a sinewy
+river constructed from a large number of sectors. This is also the case
+if you have rotated a bunch of sectors after adjusting their floor textures;
+the sprites are automatically rotated but not the <U>textures</U> and you
+have to start over. This tutorial is aimed at easing the process and aligning
+these textures with 100% predictability and to eliminate the &quot;back-and-forth&quot;
+hassle.</P>
+
+<BR>
+
+<CENTER><TABLE CELLPADDING="0" ALIGN="center">
+<TR>
+<TD VALIGN="MIDDLE" WIDTH="75%">
+First, start off by making a simple rectangular
+sector, insert two vertices on the top wall and draw another sector on
+the inside of the first one. Place a <B>SectorEffector</B> sprite inside the
+inner sector and give it<B> </B>a<B> Lotag </B>of <B>24</B> to create a
+conveyer belt as shown in the picture on the right. Change the angle of
+the sprite with the &lt; or &gt; key to make it point downwards. Go to
+3D mode and raise the sector floor by a few clicks and change the floor
+texture to tile <B>#1156</B>. It might not be aligned properly but leave
+it for now. Change the texture of the top middle wall to a different texture
+to make it easily identifiable. <BR>
+<BR>
+Save your map and start the game with it. You will notice that when Duke
+steps on the conveyer, he is moving in the right direction but the belt
+may be moving in a direction either opposite or perpidicular to the desired
+direction. The reason for this is that the movement or any object placed
+on the conveyer belt depends only on the angle of the <B>SectorEffector</B>
+sprite present in that sector. The orientation and direction
+of the floor textures is an entirely different thing. In order to fully
+understand their behavior, three basic notions have to be reviewed. <B>Firstwall</B>
+, <B>Relative Alignment</B>  and <B>Texture Flipping</B> .</TD>
+
+<TD ALIGN="RIGHT" VALIGN="MIDDLE" WIDTH="25%">
+<IMG SRC="align1.gif">
+</TD>
+</TR>
+</TABLE></CENTER>
+<BR>
+
+<P ALIGN="CENTER"><IMG SRC="pipebar2.gif"></P>
+<BR>
+
+<H2>Firstwall</H2>
+<BR>
+
+<UL>
+<FONT SIZE="+1">Basics</FONT>
+<BR>
+<BR>
+<OL>
+<LI>The firstwall of a sector is the first one to be drawn when drawing
+a new sector from scratch provided that it is drawn in
+a <B>clockwise</B> fashion.<BR>
+<BR>
+</LI>
+
+<LI>If drawn <B>counter-clockwise</B>, the first wall of the sector will
+be the one opposite to the first line that was drawn at least in the case
+of a rectangular sector.<BR>
+<BR>
+</LI>
+
+<LI>If an adjoining sector is created using one wall from an existing sector,
+the firstwall of the new sector will be the first one-sided wall to be
+drawn when going clockwise and the last one-sided wall to be drawn when
+going counter-clockwise.<BR>
+<BR>
+</LI>
+
+<LI>The wall with the lowest wall number of any given sector is always
+the firstwall of that sector.<BR>
+<BR>
+</LI>
+
+<LI>Walls inside a sector are numbered in ascending order clockwise from
+the firstwall (lowest number).
+</LI>
+</OL>
+</UL>
+
+
+<BR>
+<BR>
+
+<UL>
+<FONT SIZE="+1">Which is which?</FONT>
+<BR>
+<BR>
+<OL>
+<LI>To find out the number of a wall, hold the mouse pointer close to the
+line so it blinks and hit the <B>&quot;Alt-TAB&quot;</B> key in 2D mode
+to display the <B>line attributes</B>. See example below.
+</LI>
+</OL>
+</UL>
+
+
+<CENTER><TABLE BORDER="0" ALIGN="center" WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BGCOLOR="Gray">
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" COLSPAN="3"><TT><FONT COLOR="Aqua"><B>Wall 34</B></FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">X-coordinate : 3328</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Flags (hex) : 0</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">nextsector : -1</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Y-coordinate : -13568</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Shade : 0</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">nextwall : -1</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Point2 : 35</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Pal : 0</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Extra : -1</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Sector : 4</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><FONT COLOR="Aqua"><TT>(X,Y) repeat : 12, 8</TT></FONT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Wall length : 96</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Tags : 0, 0</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">(X,Y) pan : 15, 36</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Pixel height : 76</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="TOP" ROWSPAN="2"><TT><FONT COLOR="Aqua">( 0x0 ), ( 0x0 )</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" COLSPAN="2"><TT><FONT COLOR="Aqua">Tile number : 355</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" COLSPAN="2"><TT><FONT COLOR="Aqua">Overtile number : 0</FONT></TT></TD>
+</TR>
+</TABLE></CENTER>
+
+<BR>
+<BR>
+<UL>
+<OL>
+<LI VALUE="2">The wall number is then displayed in the top left corner of the attributes
+window in the bottom part of the Build screen.<BR>
+<BR>
+</LI>
+
+<LI>Red lines actually carry two walls: one on either side of the line
+so make sure the cursor rests on the <B>inside</B> of the sector close
+to the line while hitting the <B>&quot;Alt-TAB&quot;</B> key.<BR>
+<BR>
+</LI>
+
+<LI>If a nearby sprite also blinks when you hit the <B>&quot;Alt-TAB&quot;
+</B>key, Build will give the <B>priority</B> to the sprite and display
+the <B>spite attributes</B> instead. Zooming out far enough
+to make the sprite boxes disappear helps to grab only the line.<BR>
+<BR>
+</LI>
+
+<LI>The firstwall of a sector can be determined at any time by aiming the
+cursor anywhere inside this sector and hitting the <B>&quot;TAB&quot;</B>
+key in 2D mode. This will then display the <B>sector attributes</B> and
+the sector firstwall number is displayed in the second row of the leftmost
+column in the bottom part of the Build screen as shown in the example below. </LI>
+</OL>
+</UL>
+
+<CENTER><TABLE BORDER="0" ALIGN="center" WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BGCOLOR="Gray">
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua"><B>Sector 4</B></FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua"><B>Ceilings :</B></FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua"><B>Floors :</B></FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Firstwall : 34</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Flags (hex) : 24</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Flags (hex) : 40</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Numberofwalls : 1</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">(X,Y) pan : 15, 36</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">(X,Y) pan : 0, 0</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Firstsprite : 1</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Shade byte : 7</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Shade byte : 7</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Tags : 0, 0</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><FONT COLOR="Aqua"><TT>Z-coordinate : -7168</TT></FONT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><FONT COLOR="Aqua"><TT>Z-coordinate : 12288</TT></FONT></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">( 0x0 ), ( 0x0 )</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Tile number : 355</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Tile number : 1156</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP"><TT><FONT COLOR="Aqua">Extra : -1</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Ceiling heinum : 4096</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Floor heinum : -4096</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Visibility : 32</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Palookup number : 0</FONT></TT></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"><TT><FONT COLOR="Aqua">Palookup number : 0</FONT></TT></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" COLSPAN="3"> <TT><FONT COLOR="Aqua">Pixel height : 76</FONT></TT></TD>
+</TR>
+</TABLE></CENTER>
+
+<BR>
+<BR>
+<BR>
+
+<UL>
+<FONT SIZE="+1">How can I change the firstwall of the sector?</FONT>
+<BR>
+<BR>
+<UL>
+As such, the firstwall <B>number</B> of a sector <B>cannot</B> be altered
+unless the sector is either splitted or joined. But, you can change the
+wall number assignments by hitting the <B>&quot;Alt-F&quot;</B> key while
+pointing at a wall in 3D mode. This causes all the walls of a sector to
+swap numbers in a round-robin fashion as shown below. The net effect
+is that you can actually choose which wall will be the firstwall of the
+sector.
+</UL>
+</UL>
+
+
+<TABLE BORDER="0" CELLSPACING="20" ALIGN="DEFAULT" WIDTH="100%">
+<TR>
+<TD WIDTH="20%"></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="40%"><IMG SRC="align2.gif"></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="40%"><IMG SRC="align3.gif"></TD>
+</TR>
+<TR>
+<TD COLSPAN="3"></TD>
+</TR>
+<TR>
+<TD WIDTH="20%"></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="40%"><IMG SRC="align4.gif"></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="40%"><IMG SRC="align5.gif"></TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+
+<H2>Relative Alignment</H2>
+
+<BR>
+
+<UL>
+<FONT SIZE="+1">What it means</FONT>
+<BR>
+<BR>
+<OL>
+<LI>When a new sector is drawn, the floor texture is always aligned relatively to the map grid by default.<BR>
+<BR>
+</LI>
+<LI>In the  case of a sector with the firstwall drawn orthogonally to the grid, the texture will be either parrallel or perpidicular to the firstwall of that sector  depending on which wall was drawn first (see example above). In this case, using relative alignment makes <B>no difference</B> regarding texture alignment and movement control other than the resulting <B>Floor </B><B>Hex flags</B> in the <B>sector attributes</B> (more on this later).<BR>
+<BR>
+</LI>
+<LI>If the firstwall of a sector made from any number of walls is drawn at an angle in relation with the map grid and the designer wants to use this particular wall as a reference for floor texture alignment and movement control, <B>Relative Alignment</B> <U>must</U> be used by hitting the <B>&quot;R&quot;</B> key while aiming at the floor with the mouse cursor in 3D mode.<BR>
+<BR>
+</LI>
+<LI>In most cases, the use of relative alignment alone is not sufficient to impart the desired orientation to a fixed floor texture and the direction  of a moving one. <B>Texture flipping</B> is also required, there are <B>8</B> possible orientations when using the <B>&quot;F&quot;</B>
+key (more on this later).<BR>
+<BR>
+</LI>
+<LI>Even though it might not be necessary in some cases to relatively align the floor texture to the firstwall of your sector, it is nevertheless <U>good practice</U> in case you decide later to move the walls around or rotate a sector in which the textures must remain aligned. You will still have to use texture flipping though.</LI>
+</OL>
+</UL>
+
+
+<BR>
+<BR>
+
+<H2>Texture Flipping</H2>
+
+<BR>
+<UL>
+<FONT SIZE="+1">How it works</FONT>
+<BR>
+<BR>
+<OL>
+<LI>Texture flipping controls two aspects of moving floor textures : orientation of the tile itself and the direction in which this tile will scroll while in the game. For each tile orientation, there are two possible directions of movement. This is why there are 8 possible settings (4 x 2).<BR>
+<BR>
+</LI>
+<LI>Symmetrical tiles such as tile <B>#1156</B>
+ which is almost always used for conveyer belts are hard to align because they look the same when flipped twice giving the map designer the false impression that there are only four possible orientations. Worse, it's  impossible to rely on texture oriententation when using random pattern tiles such as water or slime.<BR>
+<BR>
+</LI>
+<LI>Despite this fact, the tiles that lend themselves best to moving floors are the ones mentionned above. Tiles which have a horizontal line pattern in the tile palette cannot be resolved. Their orientation will always be perpendicular to their movement. They can be used but will not look right.<BR>
+<BR>
+ </LI>
+<LI>Flipping the texture twice after trying the map in the game does not always make the conveyer belt or the river move in the right direction right away and often, several &quot;back-and-forth&quot; cycles are required before the desired effect is attained. Fortunately, there is a better way and this is where the <B>Floor hex Flags</B> in the <B>sector</B> <B>attributes</B> come into play.</LI>
+</OL>
+</UL>
+
+
+<BR>
+
+<BR>
+<H2>Floor hex flags</H2>
+<BR>
+
+<P>The <B>Floor Hex Flags</B> is a 16 bit register in which the first 7 bits (Bit 0 - Bit 6) are used by Build to convey information on the floor of a given sector. The remaining bits are reserved and not documented in the Build Docs. As the name implies, its value is in hexadecimal form and is displayed in the second row of the third column in the <B>sector attributes</B> screen. By reading the value of this flag, it is possible to determine the status of floor parameters like parallaxing, slope and smooshiness as well as relative alignment and direction of floor displacement without having to start the game.  <BR>
+<BR>
+Don't worry if you don't understand binary or hexadecimal, tables with the hexadecimal flag values and their corresponding texture orientation and displacement are provided below. Use these tables as a reference when you want to coordinate the floor textures and their direction of displacement in your maps. Of course, these flag values are valid provided that your floor is neither sloped, parallaxed or smooshed. If you want to apply these features to the same floors, I suggest that you do it  last. Alternately, if you are familiar with binary and hex, you can use the binary table at the end of this tutorial to figure out the hex codes that will result from a combination of all the features you wish to implement. This might be useful in the event that you are reworking a existing map and have rotated many sectors</P>
+<BR>
+
+
+<TABLE CELLPADDING="4" BORDER="1" WIDTH="100%">
+<CAPTION ALIGN="BOTTOM"><FONT SIZE="+1"><B>Table 1</B></FONT></CAPTION>
+<TR>
+<TD ALIGN="CENTER" VALIGN="BOTTOM" COLSPAN="4"> <B>Direction of floor displacement with corresponding hex flags when using Relative Alignment</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align6.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align9.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align8.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align7.gif"></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 40</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 64</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 70</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 54</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align8.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align7.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align6.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align9.gif"></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 50</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 74</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 60</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 44</B></TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+
+<TABLE CELLPADDING="4" BORDER="1" WIDTH="100%">
+<CAPTION ALIGN="BOTTOM"><FONT SIZE="+1"><B>Table 2</B></FONT></CAPTION>
+<TR>
+<TD ALIGN="CENTER" VALIGN="BOTTOM" COLSPAN="4"> <B>Direction of floor displacement with corresponding hex flags without Relative Alignment</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align6.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align7.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align8.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align9.gif"></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 0</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 24</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 30</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 14</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align8.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align9.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align6.gif"></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><IMG BORDER="0" SRC="align7.gif"></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 10</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 34</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 20</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Floor Hex Flag = 4</B></TD>
+</TR>
+</TABLE>
+<BR>
+
+<UL>
+<FONT SIZE="+1">How to use the tables</FONT>
+<BR>
+<BR>
+<OL>
+<LI>Choose the wall you want to be the firstwall of the sector with the <B>&quot;Alt-F&quot;</B> key in 3D mode. Sometimes, the floor of the sector might have to be temporarily raised or lowered to be able to point at it. Remember, red lines have two walls, make sure you aim the cursor at the right one.<BR>
+<BR>
+</LI>
+<LI>At this point, it's up to you to decide if you need to use <B>relative alignment</B> or not. If you do, hit the <B>&quot;R&quot;</B> key, go back to 2D mode and refer to the values in <B>Table 1</B>. Otherwise, go straight to 2D mode and refer to the values in <B>Table 2</B>.<BR>
+<BR>
+</LI>
+<LI>Display the <B>sector attributes</B> by hitting the <B>&quot;TAB&quot;</B> key and note the value of the Floor hex flags. All the values in the tables are shown in their sequential order. When the last value is reached, another press of the <B>&quot;F&quot;</B> key will take the hex flags back to its first value.<BR>
+<BR>
+ </LI>
+<LI>So, if for example you chose to use relative alignment and the Floor hex flags in the sector attributes is at <B>74</B> and you want the floor to move towards the right side of the room when facing the firstwall, you need to change the hex flags to a value of <B>70</B>. To do this, go to 3D mode and hit the <B>&quot;F&quot;</B> key 5 times while pointing at the floor. Go back to 2D mode and hit the <B>&quot;TAB&quot;</B> key again to check if the hex flags is right and you're done.</LI>
+</OL>
+</UL>
+
+
+<BR>
+<BR>
+
+<UL>
+<FONT SIZE="+1">For the technically inclined</FONT>
+<BR>
+<BR>
+<UL>
+Here is a binary table describing the role of each of the bits in the <B>floor hex flags register</B> and two more to show the relation between the hex value and the binary value of the register for those who are bent on fine-tuning their floor properties.
+</UL>
+</UL>
+
+
+<BR>
+<TABLE BORDER="1" ALIGN="DEFAULT" WIDTH="100%">
+<CAPTION ALIGN="BOTTOM"><B>Floor Hex Flags register bit assignment</B></CAPTION>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="15%">BIT No.</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="15%"><B>B<SUB>15</SUB> - B<SUB>7</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%"><B>B<SUB>6</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%"><B>B<SUB>5</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%"><B>B<SUB>4</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%"><B>B<SUB>3</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%"><B>B<SUB>2</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%"><B>B<SUB>1</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%"><B>B<SUB>0</SUB></B></TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="15%">FUNCTION</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="15%">Reserved</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">Relative<BR>
+Alignment</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">Y-Flip</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">X-Flip</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">Smoosh<BR>
+Tile</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">Swap<BR>
+X &amp; Y</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">Sloped<BR>
+Floor</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">Parallaxing</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="15%">MODE</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="15%">N/A</TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="10%">1 = ON<BR>
+0 = OFF</TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="10%">1 = ON<BR>
+0 = OFF</TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="10%">1 = ON<BR>
+0 = OFF</TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="10%">1 = ON<BR>
+0 = OFF</TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="10%">1 = ON<BR>
+0 = OFF</TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="10%">1 = ON<BR>
+0 = OFF</TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="10%">1 = ON<BR>
+0 = OFF</TD>
+</TR>
+<TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="15%">BUILD<BR>
+COMMAND</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="15%">N/A</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">R</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" COLSPAN="2" WIDTH="20%">F</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">E</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">F</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">[ , ] , /</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%">P</TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+<BR>
+
+<CENTER><TABLE BORDER="0" ALIGN="center" WIDTH="100%">
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">
+<TABLE BORDER="1">
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" COLSPAN="7">BINARY</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">HEX</TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>6</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>5</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>4</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>3</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>2</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>1</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>0</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>40</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>64</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>70</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>54</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>50</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>74</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>60</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>44</B></TD>
+</TR>
+</TABLE>
+</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">
+<TABLE BORDER="1">
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" COLSPAN="7">BINARY</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">HEX</TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>6</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>5</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>4</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>3</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>2</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>1</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>B<SUB>0</SUB></B></TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>0</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>24</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>30</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>14</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>10</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>34</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>20</B></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">1</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE">0</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE"><B>4</B></TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>With Relative Alignment</B></TD>
+<TD ALIGN="CENTER" VALIGN="TOP"><B>Without Relative Alignment</B></TD>
+</TR>
+</TABLE></CENTER>
+
+<BR>
+<BR>
+<BR>
+
+<CENTER><TABLE CELLPADDING="0" ALIGN="center">
+<TR>
+<TD WIDTH="80%"></TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="10%">Page written by :</TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="10%"><A HREF="mailto:jfgrol@cam.org"><IMG SRC="jfanim.gif" BORDER="0" HEIGHT="96" WIDTH="110"></A>
+</TD>
+</TR>
+</TABLE></CENTER>
+
+<BR>
+<BR>
+
+<H3 ALIGN="center"><A HREF="local.htm">Download this page locally</A></H3>
+
+<BR>
+<BR>
+
+<HR SIZE="1">
+
+<CENTER><TABLE CELLPADDING="0" ALIGN="center">
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="32%">Duke Nukem 3D is copyright
+&copy;1996 </TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%"><A HREF="http://www.3drealms.com/"><IMG SRC="3drealms.gif" BORDER="0" HEIGHT="62" WIDTH="124"></A>
+</TD>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="18%">, All Rights reserved. </TD>
+</TR>
+</TABLE></CENTER>
+
+<H3 ALIGN="center">THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</H3>
+
+<CENTER><TABLE CELLPADDING="0" ALIGN="center">
+<TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="10%"><IMG SRC="duke.gif" HEIGHT="75" WIDTH="60">
+</TD>
+<TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="50%">Copyright &copy;1997 <A HREF="mailto:jfgrol@cam.org">Jean-Francois Groleau</A>, All Rights reserved.<BR>
+<A HREF="dukefaq.htm">Go back to my Duke FAQ BUILD page<BR>
+</A><A HREF="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</A>
+
+</TD>
+</TR>
+</TABLE></CENTER>
+
+</BODY>
+</HTML>

@@ -1,0 +1,650 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Build Keyboard Commands</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#ff6347" alink="#ff6347" vlink="40a0a0">   
+
+<font size=1>
+<center>This came straight out of the BUILDHLP program.  I'm duplicating it here for
+your reference.<br>
+Original Build Docs written by Allen H Blum III & Richard "Levelord" Gray.
+<br><br>
+<font size=3>
+
+<center><h1><font color="#0000ff">3d Edit Mode Keys</h1>
+<br><br>
+<font color="#000000">
+<table cellpadding="3" border="3">
+<tr>
+        <td>F1
+        <td>Help.  Brings up a display of some special keys to use in 3d mode.
+        Press F1 again to hide the display.
+</tr>        
+<tr>
+        <td>ESC
+        <td>Quit
+</tr>
+<tr>
+        <td>Keypad ENTER
+        <td>Flip to 2d mode
+</tr>
+<tr>
+        <td>Mouse
+        <td>Pointer movement
+</tr>
+<tr>
+        <td>Arrows
+        <td>Movement like in the game
+</tr>
+<tr>
+        <td>Caps Lock
+        <td>A and Z keys controls<br>
+        <dd>Mode 0:  Game mode (default)<br>
+        <dd>Mode 1:  Height lock mode<br>
+        <dd>Mode 2:  Float mode
+</tr>
+<tr>
+        <td>[/] and [*]
+        <td>Increase/Decrease size of thumbnail tiles when choosing.
+</tr>
+<tr>
+        <td>PgUp/PgDn
+        <td>Raise or Lower a ceiling or floor.  If you point at a wall, the
+        ceiling of that sector will move.  Highlighting multiple sectors in
+        2d mode will allow you to move all of those sectors simultaneously.
+</tr>
+<tr>
+        <td>Ctrl-PgUp/Dn
+        <td>For sprites only, puts sprites exactly on the floor or exactly
+        on the ceiling.
+</tr>
+<tr>
+        <td>V
+        <td>Tile selection.  Use the arrow keys to select a tile from your
+        map's tile group.  Press V again to bring up the entire tile listing.
+        Press ENTER to select a tile, or ESC to back out.
+</tr>
+<tr>
+        <td>ALT-V
+        <td>Height selection.  Works just like V, but this selects the groudraw
+        height map.
+</tr>
+<tr>
+        <td>2,4,6,8 (Keypad)
+        <td>Repeat values (tile smooshiness.)  Think of these keys as arrow
+        keys controlling the bottom-right corner of the bitmap.  Normally,
+        this is used for walls and sprites.  If you select a floor or ceiling,
+        the tiles will shift, but not smoosh.
+
+</tr>
+<tr>
+        <td>Shift + 2,4,6,8 (keypad)
+        <td>Panning values (offset into the tile.)  These keys are useful for
+        aligning tiles of multiple sectors.
+</tr>
+<tr>
+        <td>/
+        <td>Use this key to reset panning/smooshiness of a tile.
+</tr>
+<tr>
+        <td>5 (keypad)
+        <td>If you hold down this key while using the 2,4,6,8 keys on the
+        keypad, the values will align at multiples of 8.
+</tr>
+<tr>
+        <td>>
+        <td>This key attempts to match up all of the tiles along a wall. It
+        scans along the walls towards the right as long as the tiles are the
+        same as the chosen wall.  Some walls may not work right, especially
+        floor/ceiling steps.  Sometimes build will lock on machines with
+        lower amounts of memory when using this function.
+</tr>
+<tr>
+        <td>['] + [T]
+        <td>Sets the lotag for the object you're pointing at: sprites and sectors.
+        Point at the sector floor to set its lotag.
+</tr>
+<tr>
+        <td>['] + [H]
+        <td>Same as above, except it sets the hitag.
+</tr>
+<tr>
+        <td>['] + [S]
+        <td>Changes the shade value of a sprite, ceiling, floor, or wall.
+</tr>
+
+<tr>
+        <td>F
+        <td>Flip an obejct.  For sprites and walls, this flips the object x-wise.
+        For ceilings and floors, the objects are flipped in 8 possible ways.
+        Just keep pressing [F] to go through the 8 different ways.
+</tr>
+<tr>
+        <td>Alt-F
+        <td>When you use relative alignment mode on ceiling and floor textures,
+        you can press Alt-F to choose a new wall to align to.  It actually
+        rotates the walls of a sector by 1.
+</tr>
+<tr>
+        <td>Alt-P
+        <td>Changes the palette of a wall/ceiling/sprite.  Valid ranges are
+        0-25.  4 is solid black.  0 is the default color for that tile.  Not
+        all values change the color for certain tiles.
+</tr>
+
+<tr>
+        <td>O
+        <td>Wall orientation (whether it starts from the top or bottom.)
+        Normally, walls are oriented from the top.  For example, if
+        you hold down 2/8 on the keypad in 3d mode, the wall always starts
+        from the top.  Orientation works differently for white lines and
+        red lines, so if a wall doesn't look right, just press [O] anyways
+        to see if it fixes it.  This is especially true of glass walls- press
+        [O] once on the tile above the glass wall if it gets screwed up when
+        you shoot the glass in the game.
+</tr>
+<tr>
+        <td>TAB
+        <td>Copy.  Copies the attributes of the pointed-at sprite/tile into
+        the clipboard.  The attributes it remembers are: tile, shade,
+        x-repeat. y-repeat. and cstat values.
+</tr>
+<tr>
+        <td>Left ENTER
+        <td>Paste.  Paste the stored attributes over the pointed-at
+        sprite/tile.  Whenever you press ENTER, the y-repeat values stay the
+        same, and the x-repeat values are adjusted so the pixels of the
+        bitmaps have a square-aspect ratio.
+</tr>
+<tr>
+        <td>Ctrl + Left ENTER
+        <td>Pastes the attributes to every wall in a loop when a wall is
+        pointed-at.
+</tr>
+<tr>
+        <td>Shift + Left ENTER
+        <td>Pastes the shade only to the pointed-at wall or sprite.  
+</tr>
+<tr>
+        <td>Ctrl + Shift + ENTER
+        <td>Auto-shade a sector.  First make any wall of the loop as light
+        as the lightest shade you want.  Then make any other wall of the
+        loop as dark as the darkest shade you want.  Finally press Ctrl-Shift-ENTER
+        on the wall that should be the lightest.  Now the loop should be smoothly
+        shaded.  If it doesn't work, you may need to insert more points on the
+        walls.
+</tr>
+</table>
+</center>
+<br><br>
+
+<h2>Sector Flags:</h2>
+<center>
+<table cellpadding="3" border="3">
+<tr>
+        <td>P
+        <td>Make the ceiling of the given sector have a parallaxing sky.
+        Press [P] again to return it to normal.
+</tr>
+<tr>
+        <td>G
+        <td>Make the floor of the given sector have a Groudraw (floor with
+        height mapping.)  They do not recommend using this attribute extensively
+        yet.  (See the H key for selecting the height map)
+</tr>
+<tr>
+        <td>E
+        <td>An option for ceilings and floors.  If for some reason, you want
+        a tile to be smooshed into the normal 64*64 area, press [E] to unExpand
+        the tile.  Press [E] again, and the tile will be expanded, so the pixel
+        size is the same as the normal 64*64 ceiling/floor.
+</tr>
+<tr>
+        <td>R
+        <td>Relative alignment.  Allows floor/ceiling textures to align to
+        the first two points of a sector.  Textures will rotate/pan with
+        moving sectors properly.  This is especially useful for subway floors.
+</tr>
+</table>
+</center>
+<br><br>
+
+<h2>Wall Flags:</h2>
+<center>
+<table cellpadding="3" border="3">
+<tr>
+        <td>B
+        <td>Make an invisible wall, such as a window, block you from going
+        through.  Since the wall is invisible, you need to point at the
+        tile right above the window, or the tile below the window.  Note:
+        pressing B on a wall will take off any hitscan you may have placed
+        on it.
+</tr>
+<tr>
+        <td>T
+        <td>Press to make a maskable wall 50/50 translucent.  
+</tr>
+<tr>
+        <td>M
+        <td>Make a maskable wall.  Point at the tile below or above the
+        window to set.  The wall takes all of its attributes from the front
+        of the wall, so it must have the same repeat, panning, and cstat
+        values as the walls above or below it.  The masking is added to the
+        other side as well, with the image flipped.
+</tr>
+<tr>
+        <td>Shift-M
+        <td>Same as above, except the wall is one-sided.
+</tr>
+<tr>
+        <td>1
+        <td>Make a 1-way wall. 
+</tr>
+<tr>
+        <td>2
+        <td>Some walls have two different sections (like the tiles above
+        and below a window.)  Normally they always have the same attributes.
+        It is possible though to give both the top and bottom different
+        attributes by pressing 2 on that wall.  They then become separately
+        editable.
+</tr>
+<tr>
+        <td>H
+        <td>Toggle the hitscan bit.  Default is pass-through.  Very useful
+        for glass walls.  
+</tr>
+</table>
+</center>
+<br><br>
+
+<h2>Sprite Flags:</h2>
+<center>
+<table cellpadding="3" border="3">
+
+<tr>
+        <td>S
+        <td>Press S to insert a sprite.  Pointing at a wall will create the
+        sprite so that it's flat against the wall.
+</tr>
+<tr>
+        <td>R
+        <td>Press R on a sprite to change its fixation.  Pressing R once will
+        make the sprite fixate vertically, like a poster.  Pressing R again
+        will make the sprite fixate horizontally, like a flat rug.  Pressing
+        R a third time will make the sprite follow your viewpoint.
+</tr>
+<tr>
+        <td>B
+        <td>When the mouse cursor is on a sprite, this makes the sprite block
+        you from walking through.  Also makes the sprite sensitive to hitscan.
+        Sprites with the [B] attribute will appear pink in 2d edit mode.
+</tr>
+<tr>
+        <td>T
+        <td>Press to make a sprite 50/50 translucent.  Press T again to put
+        sprite back to normal mode.
+</tr>
+</table>
+
+<br><br>
+<hr>
+<font color="#0000ff"><h1>2d Edit Mode Keys:</h1>
+<br><br>
+<center>
+<font color="#000000">
+<table cellpadding="3" border="3">
+
+<tr>
+        <td>ESC
+        <td>Brings up the file menu - (N)ew (L)oad (S)ave (Q)uit.  Press ESC
+        again to exit the menu.
+</tr>
+<tr>
+        <td>F5
+        <td>Weapons/Health sprite summary for your map.
+</tr>
+<tr>
+        <td>F6
+        <td>Alien sprite summary for your map.
+</tr>
+<tr>
+        <td>F7
+        <td>Small listing of the different Sector Tags... sometimes it will
+        display the Sector Effectors.
+</tr>        
+
+
+
+<tr>
+        <td>Keypad ENTER
+        <td>Flip to 3d mode
+</tr>
+<tr>
+        <td>Mouse
+        <td>Move mouse cursor
+</tr>
+<tr>
+        <td>Left mouse button
+        <td>When holding this button down, you can drag existing points and
+        sprites.
+</tr>
+<tr>
+        <td>Right mouse button
+        <td>Moves the player's viewpoint (white arrow).  Press this button
+        anywhere in your level and the player's viewpoint for 3d mode will
+        be at that spot.  
+</tr>
+<tr>
+        <td>Right Shift
+        <td>Select a bunch of points to drag around.  Press and hold right
+        shift then move the mouse cursor to enlarge the box.
+</tr>
+<tr>
+        <td>Ctrl + Right Shift
+        <td>Press this combo within a room to highlight all points of that
+        room, so that you can drag them all in one motion.
+</tr>
+<tr>
+        <td>Right Alt
+        <td>Select a bunch of sectors for either duplication or dragging
+        around.  Press and hold right alt then move the mouse cursor to
+        enlarge the box.
+</tr>
+<tr>
+        <td>Arrows
+        <td>Move player's viewpoint in the appropriate directions.  The
+        player will be clipped.  To move to another portion of the map,
+        use the right mouse button.
+</tr>
+<tr>
+        <td>Space
+        <td>Press to begin drawing of a new sector.  There are several ways
+        to draw a new sector:<br>
+        <dd>1.  Drawing a full loop- that is, whenever the new sector meets
+        the old sector, draw over that line again.  In full loop mode the
+        new sector must not already be in another sector.  The loop is done
+        when you press the space bar at the first point again.
+        <br>
+        <dd>2.  Splitting a sector - press space bar to draw points at which
+        you want to split a sector.  The points (aka vertices) must already
+        be in place to split a sector.  Press INSERT to add points on an
+        existing line.  You must end the split on another wall of the
+        starting point's sector, and you cannot cross any red lines when
+        drawing.  
+        <dd>3.  Drawing a sector completely inside a sector (like columns.) To
+        do this, just press space bar at every point in the loop.  Do not make
+        the column valid player space (Alt-S) if the column is never to be
+        walked over/under.  
+</tr>
+<tr>
+        <td>Backspace
+        <td>When plotting points with the space bar, you can use backspace
+        to get rid of the last point plotted.  You can press the backspace
+        key all the way to the beginning point, if you decide not to make
+        the sector at all.
+</tr>
+<tr>
+        <td>Insert
+        <td>Inserts a new point at the midpoint of the highlighted line.  Then
+        you can drag the point to wherever you want, or draw a sector from that
+        point.  If a bunch of points are selected (see right Alt) then instead
+        of inserting points, the selected sector bunch will be duplicated
+        (stamped.)  Don't forget to drag the selected sectors after stamping.
+</tr>
+<tr>
+        <td>Delete
+        <td>Use this to delete sprites (blue/purple circles.)  To delete
+        points of a sector border, you can't use delete.  Instead, drag the
+        point to be deleted onto one of its 2 neighbor points on the loop.
+        This is only possible with grid-locking on.  
+</tr>
+<tr>
+        <td>Right Ctrl-Delete
+        <td>This deletes the whole sector that the mouse cursor is in.  Note
+        that the right Ctrl for protection.  Do not attempt to use this on
+        sectors inside sectors, you may end up deleting the parent sector.
+        Instead, join (see J) that inner sector with its parent, then delete them
+        both.
+   
+</tr>
+<tr>
+        <td>J
+        <td>Use to join neighboring sectors.  They must share at least one
+        red line.  Press J when the mouse cursor is over the first sector,
+        then press J again on the second sector.  The attributes of the
+        new combined sector will be taken from the first sector selected.
+</tr>
+<tr>
+        <td>Alt-S
+        <td>When you have a white loop inside a sector, you can press Alt-S
+        when the mouse cursor is inside it to turn the sector into valid
+        player space (red lines.)
+</tr>
+<tr>
+        <td>S
+        <td>Inserts a sprite in the location under the mouse cursor.  Pay
+        attention to areas with sectors over sectors.  The newly inserted
+        sprite will default to the lowest physical sector if your cursor
+        is positioned in a spot where two sectors overlap.
+</tr>
+<tr>
+        <td>B
+        <td>Blocks/Unblocks the player from walking through a wall or sprite.
+        A blocked wall or sprite will appear pink in 2d edit mode.  
+</tr>
+<tr>
+        <td>C
+        <td>Turn a line into a circle defined by the short line segments.
+        First press C on the highlighted wall, then move the cursor to the
+        furthest radius position.  Pressing C again will cancel the circle.
+        Pressing +/- will change the number of points on the circle.  Press
+        the space bar to finally create the sector.
+</tr>
+<tr>
+        <td>+/-
+        <td>Increase/Decrease the number of points on a circle (only works
+        when you're creating the circle.)
+</tr>
+<tr>
+        <td>T
+        <td>Type in the lotag for a sector.  Move the cursor to the inside
+        of the sector to be tagged.
+</tr>
+<tr>
+        <td>Alt-T
+        <td>Changes the lotag for sprites and walls.
+</tr>
+<tr>
+        <td>H
+        <td>Type in the hitag for a sector.  Move the mouse cursor to the inside
+        of the sector to be tagged.
+</tr>
+<tr>
+        <td>Alt-H
+        <td>Changes the hitag for sprites and walls.
+</tr>
+<tr>
+        <td>E
+        <td>Change the sprite's status list number. (Not sure on the functionality
+        of this.)
+</tr>
+<tr>
+        <td>> and <
+        <td>Change angle of sprites.  Move the cursor over the sprite to
+        be angled.  Use shift-> and shift-< for more precise angles.  If you
+        highlighted sectors, the sectors will be rotated.
+</tr>
+<tr>
+        <td>Ctrl-T
+        <td>Turn tag display on/off.
+</tr>
+<tr>
+        <td>TAB
+        <td>Shows the attributes of a sector.  Move the mouse cursor inside
+        the sector to be viewed.  Press TAB again to hide the attributes.
+</tr>
+<tr>
+        <td>Alt-TAB
+        <td>Same as above, except for sprites and walls.
+</tr>
+<tr>
+        <td>Scroll Lock
+        <td>Sets the player start position (brown arrow) to your current
+        viewpoint position (white arrow.)
+</tr>
+<tr>
+        <td>A,Z
+        <td>Zoom in/out.  
+</tr>
+<tr>
+        <td>G
+        <td>Change grid resolution.  The grid cycles through this sequence:
+        off, 1x, 2x, 4x (default), 8x and 16x.
+</tr>
+<tr>
+        <td>L
+        <td>Turns grid-locking on or off.  If the mouse cursor is pink then
+        grid locking is on.  If it is white then grid locking is off.  There
+        is no grid locking if the grid is turned off.  
+</tr>
+</table>
+<br><br>
+<hr>
+<br><br>
+
+<font color="#0000ff"><h1>EditArt Keys</h1>
+<font color="#000000">
+<table cellpadding="3" border="3">
+
+<tr>
+        <td>U
+        <td>Use this to import a section of a 320x200x256 .BMP, .PCX, or
+        .GIF image.  GIF images import best.
+        <br>
+        <dd>Enter - Convert the image that is inside the rectangular
+        selection box to the Build Palette.<br>
+        <dd>Space - Convert the image that is inside the rectangular
+        selection box without remapping the palette.
+        <dd>P - If in the picture selecting screen (after pressing U and
+        loading the picture) you press P, then the palette of Build can be
+        replaced by the palette of the displayed picture.
+</tr>
+<tr>
+        <td>PgUp/Dn
+        <td>Select tile to edit (4096 tile maximum)
+</tr>
+<tr>
+        <td>G
+        <td>Goto a tile by typing in the tile number.
+</tr>
+<tr>
+        <td>S
+        <td>Re-size a tile.  The X and Y sizes can be any unsigned short integer.
+        X ranges from 0 to 1024, and Y ranges from 0 to 240.
+</tr>
+<tr>
+        <td>Delete
+        <td>Shortcut key to set both the X and Y sizes to 0.
+</tr>
+<tr>
+        <td>+,-
+        <td>Change the animation setting.  Default is 0: NoAnimation.  To
+        change the animation type, press - when the value is 0.  Example:
+        if you want an object to have four tiles of animation, you can
+        animate it in 4 different sequences: (0 is the first tile)<br>
+        <dd>NoAnm=4 - sequence: 0,0,0,0...<br>
+        <dd>Oscis=4 - sequence: 0,1,2,3,2,1,0,1,2,3 (Oscillate)<br>
+        <dd>AnmFD=4 - sequence: 0,1,2,3,0,1,2,3,0,1 (Forwards)<br>
+        <dd>AnmBK=4 - sequence: 0,-1,-2,-3,0,-1,-2,-3 (Backwards)<br>
+        See the <a href="editart.htm">EditArt basics</a> page for more info.
+
+</tr>
+<tr>
+        <td>A
+        <td>Set the animation speed of the tile.  Press + and - to change the
+        animation speed.  There are 16 different animation speeds.  The
+        animation speed set in EditArt sets the speed for Build and the Game.
+</tr>
+<tr>
+        <td>~
+        <td>Centers a sprite.  Simply use the arrow keys to get to the desired
+        position.  
+</tr>
+<tr>
+        <td>N
+        <td>Name a tile.  The sprites will have their name appear in 2d edit
+        mode if Tag Boxes are turned on (Ctrl-T)
+</tr>
+<tr>
+        <td>O
+        <td>Optimize the size of an individual piece of artwork.  Use this
+        for tiles with invisible (masking) pixels on the sides.
+</tr>
+<tr>
+        <td>V
+        <td>View and select a tile to edit.<br>
+        <dd>Space - To swap 2 tiles simply press space bar on the first tile,
+        then space bar on the second.  Doesn't work too well across TILE
+        boundaries... ie TILES013.ART to TILES014.ART.<br>
+        <dd>1,2,3 : To swap a group of tiles, press 1 on the first tile, press
+        2 to remember the region between where you pressed 1 and 2.  Press
+        3 at the place to where you want to swap all the tiles.
+</tr>
+<tr>
+        <td>Alt-U
+        <td>Re-grab artwork from original pictures according to the CAPFIL.TXT
+        file.  If you press Alt-U in the main screen, everything will be
+        re-grabbed.   If you press Alt-U in 'V' mode, then you should first
+        select the range by pressing 1 and 2 on the range boundaries.
+</tr>
+<tr>
+        <td>Alt-R
+        <td>Generate a tile frequency report by scanning all maps in directory.
+        Use in 'V' mode only.
+
+</tr>
+<tr>
+        <td>F12
+        <td>Screen capture.  Saves image as a *.PCX file, starting as file
+        name CAPTxxx.PCX and incrementing by 1 each time F12 is pressed.
+</tr>
+<tr>
+        <td>ESC
+        <td>Quit
+</tr>
+
+
+
+
+</table>
+
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+
+<h3>
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

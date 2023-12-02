@@ -1,0 +1,68 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Teleporters</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Teleporters</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start out making two sectors, each 15 units or so on a side.  Then make two
+"island" sectors within them, one island in each of the two bigger ones.  As
+a reminder, you make an island sector by drawing a sector completely within
+a bigger sector, then hitting ALT-S with the mouse pointing inside the smaller
+sector.  The inner sector walls will turn red.  The island sectors do not
+have to be the same size, even though this picture shows them as being so.
+<tr>
+<td>
+<img src="telport1.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert a <b>Sector Effector (SE)</b> <i>within</i> each of the two island
+sectors.  Change both of the SE's <b>lotags</b> to <b>7</b>, which is for
+transport.  Finally, change both of their <b>hitags</b> to a unique transport number,
+just make sure both hitags are equal.  This is how they know which sector
+to transport to.  Early on in your build process you should keep track of what
+numbers you have used as transporters.  I don't know what would happen if
+you set three or more SE-7 hitags to the same number, but I have a feeling it
+won't be pretty.
+<td>
+<tr>
+<td>
+<img src="telport2.gif">
+<tr>
+</table>
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

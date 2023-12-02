@@ -1,0 +1,490 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Sector Tag Reference Guide</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+<center>
+<img src="st.gif" align=left>
+<h1>Sector Tag Reference Guide</h1>
+</center>
+<br>
+
+<HR SIZE=0>
+<font size=1>
+<center>This came straight out of the BUILDHLP program.  I'm duplicating it here for
+your reference.<br>
+Original Build Docs written by Allen H Blum III & Richard "Levelord" Gray.
+<br><br>
+<font size=3>
+For those ST that I have tutorial pages on, you'll see a link to the
+corresponding page.
+
+
+<table cellpadding="0">
+<td><font size=5>1 :<td><font size=5><a href="#ST1">Water (SE 7)</a><tr>
+<td><font size=5>2 :<td><font size=5><a href="#ST2">Underwater (SE 7)</a><tr>
+<td><font size=5>9 :<td><font size=5><a href="#ST9">Star Trek Doors</a><tr>
+<td><font size=5>15 :<td><font size=5><a href="#ST15">Elevator Transport (SE 17)</a><tr>
+<td><font size=5>16 :<td><font size=5><a href="#ST16">Elevator Platform Down</a><tr>
+<td><font size=5>17 :<td><font size=5><a href="#ST17">Elevator Platform Up</a><tr>
+<td><font size=5>18 :<td><font size=5><a href="#ST18">Elevator Down</a><tr>
+<td><font size=5>19 :<td><font size=5><a href="#ST19">Elevator Up</a><tr>
+<td><font size=5>20 :<td><font size=5><a href="#ST20">Ceiling Door</a><tr>
+<td><font size=5>21 :<td><font size=5><a href="#ST21">Floor Door</a><tr>
+<td><font size=5>22 :<td><font size=5><a href="#ST22">Split Door</a><tr>
+<td><font size=5>23 :<td><font size=5><a href="#ST23">Swing Door</a><tr>
+<td><font size=5>25 :<td><font size=5><a href="#ST25">Slide Door (SE 15)</a><tr>
+<td><font size=5>26 :<td><font size=5><a href="#ST26">Split Star Trek Door</a><tr>
+<td><font size=5>27 :<td><font size=5><a href="#ST27">Bridge</a><tr>
+<td><font size=5>28 :<td><font size=5><a href="#ST28">Drop Floor (SE 21)</a><tr>
+<td><font size=5>30 :<td><font size=5><a href="#ST30">Rotate Rise Bridge</a><tr>
+<td><font size=5>31 :<td><font size=5><a href="#ST31">2-way train (SE 30)</a><tr>
+<td><font size=5>10000+ :<td><font size=5><a href="#ST10000">One-time sound</a><tr>
+<td><font size=5>32767 :<td><font size=5><a href="#ST32767">Secret Room</a><tr>
+<td><font size=5>65535 :<td><font size=5><a href="#ST65535">End of Level</a><tr>
+</table>
+</center>
+
+<br><br>
+<hr size=0>
+<br><br>
+
+
+
+
+<a name="ST1"></a>
+<table border=1>
+<td><b><a href="water.htm">ST 1</a>:
+<td>Water <tr>
+<td><td>:Used as <a href="water.htm">Water Effect</a> when the player walks on sector.  If used with
+a <a href="teleport.htm">SE 7 (Transport)</a> sprite, then it will move the
+player to the underwater sector with ST 2.<tr>
+
+<td>SE 7 Hitag :
+<td>Set equal to <b>one</b> other SE 7 to Transport to.<tr>
+<td>Sector Lotag :
+<td>0 = Teleporter<tr>
+<td><td>1 = On top of water<tr>
+<td><td>2 = Underwater<tr>
+
+<td>Angle :
+<td>none<tr>
+<td><td> <tr>
+<td>Shade :
+<td>none<tr>
+<td>Palette :
+<td>0 = Water<tr>
+<td><td>8 = Green Slime<tr>
+
+<td>Comments :
+<td>When using with Sector Lotag 1 and 2 as water, the two sectors must
+be <b>exactly</b> the same size or you will teleport to death.
+
+</table><br><br>
+
+<a name="ST2"></a>
+<table border=1>
+<td><b><a href="water.htm">ST 2</a>:
+<td>Underwater <tr>
+<td><td>:Used as <a href="water.htm">Underwater Effect</a> when the player
+moves in sector.  If used with a <a href="teleport.htm">SE 7 (Transport)</a>
+sprite, then it will move the player to the above water sector with ST 1 <tr>
+
+<td>SE 7 Hitag :
+<td>Set equal to <b>one</b> other SE 7 to Transport to. <tr>
+<td>Sector Lotag :
+<td>0 = Teleporter<tr>
+<td><td>1 = On top of water<tr>
+<td><td>2 = Underwater<tr>
+
+<td>Angle :
+<td>none<tr>
+<td><td> <tr>
+<td>Shade :
+<td>none<tr>
+<td>Palette :
+<td>0 = Water<tr>
+<td><td>8 = Green Slime<tr>
+
+<td>Comments :
+<td>When using with Sector Lotag 1 and 2 as water, the two sectors must
+be <b>exactly</b> the same size or you will teleport to death.
+
+</table><br><br>
+
+<a name="ST9"></a>
+<table border=1>
+<td><b><a href="sttd.htm">ST 9:</a>
+<td><a href="sttd.htm">Star Trek Doors</a> <tr>
+<td><td>:Doors that spread apart when opened like on Star Trek.  Note that
+the wall tile on the doors will squish when opened.<tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX Sprite Lotag for door open sound.<tr>
+<td><td>Use SPEED Sprite Lotag for opening speed.<tr>
+
+</table><br><br>
+
+
+<a name="ST15"></a>
+<table border=1>
+<td><b><a href="elevator.htm">ST 15</a>:
+<td>Elevator Transport<tr>
+<td><td>:Used as an <a href="elevator.htm">Elevator</a> that transports from
+one elevator shaft to another to simulate going staight up from one floor
+to another.<tr>
+
+<td>SE 17 Hitag :
+<td>Set equal to one other SE 17 <tr>
+<td>Sector Lotag :
+<td>15<tr>
+<td>Sector Hitag :
+<td>0 = Bottom Floor<tr>
+<td><td>1 = Top Floor<tr>
+
+<td>Angle :
+<td>none<tr>
+<td><td> <tr>
+<td>Shade :
+<td>Darkest shade of the two SE 17 with equal Hitag is the starting floor
+for the elevator.  Set the shade to at least 30 clicks.  Check in 2d mode
+by hitting ALT-TAB on the SE 17 to be sure.<tr>
+<td>Palette :
+<td>none<tr>
+<td>Comments :
+<td>Maximum of 2 floors<tr>
+<td><td>Sounds are set automatically<tr>
+<td><td>Top and Bottom floors must be physically built at proper height
+difference to work properly<tr>
+<td><td>Both Elevators must be <b>exactly</b> the same size<tr>
+<td><td>Put the SE 17 sprite in the same grid location on both elevator cars.
+
+</table><br><br>
+
+<a name="ST16"></a>
+<table border=1>
+<td><b><a href="platform.htm">ST 16</a>:
+<td><a href="platform.htm">Elevator Platform Down</a> <tr>
+<td><td>:Used to Lower the sector floor from current height down to the
+next sector of lower height.  On next activation, the sector floor
+will rise up to the next sector floor.<tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX sprite lotag for sound.<tr>
+<td><td><dd>Lotag = start sound<tr>
+<td><td><dd>Hitag = stop sound<tr>
+<td><td>Use SPEED sprite lotag for rate of movement.<tr>
+
+</table><br><br>
+
+
+<a name="ST17"></a>
+<table border=1>
+<td><b><a href="platform.htm">ST 17</a>:
+<td><a href="platform.htm">Elevator Platform Up</a> <tr>
+<td><td>:Used to raise the sector floor from current height up to the
+next sector of greater height.  On next activation, the sector floor will
+drop down to the next sector.<tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX sprite lotag for sound.<tr>
+<td><td><dd>Lotag = start sound<tr>
+<td><td><dd>Hitag = stop sound<tr>
+<td><td>Use SPEED sprite lotag for rate of movement.<tr>
+
+</table><br><br>
+
+
+<a name="ST18"></a>
+<table border=1>
+<td><b><a href="platform.htm">ST 18</a>:
+<td><a href="platform.htm">Elevator Down</a> <tr>
+<td><td>:Used to lower the sector floor and ceiling from current height down
+to the next sector of lesser height.  On next activation, the sector floor
+and ceiling will rise up to the next sector.<tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX sprite lotag for sound.<tr>
+<td><td><dd>Lotag = start sound<tr>
+<td><td><dd>Hitag = stop sound<tr>
+<td><td>Use SPEED sprite lotag for rate of movement.<tr>
+
+</table><br><br>
+
+
+<a name="ST19"></a>
+<table border=1>
+<td><b><a href="platform.htm">ST 19</a>:
+<td><a href="platform.htm">Elevator Up</a> <tr>
+<td><td>:Used to raise the sector floor and ceiling from current height up
+to the next sector of greater height.  On next activation, the sector floor
+and ceiling will drop down to the next sector.<tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX sprite lotag for sound.<tr>
+<td><td><dd>Lotag = start sound<tr>
+<td><td><dd>Hitag = stop sound<tr>
+<td><td>Use SPEED sprite lotag for rate of movement.<tr>
+</table><br><br>
+
+
+<a name="ST20"></a>
+<table border=1>
+<td><b><a href="doors.htm">ST 20</a>:
+<td>Ceiling Door<tr>
+<td><td>:Used to raise and the lower the sector ceiling from level with
+the sector floor up to the height of the next sector ceiling height, basically
+a <a href="doors.htm">Doom door</a><tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX sprite lotag for open and close sound.<tr>
+<td><td>Use SPEED sprite lotag for rate of movement<tr>
+<td><td>Use SE 10 to make the door auto-close<tr>
+
+</table><br><br>
+
+
+<a name="ST21"></a>
+<table border=1>
+<td><b><a href="doors.htm">ST 21</a>:
+<td><a href="doors.htm">Floor Door</a><tr>
+<td><td>:Used to raise and lower the sector floor from level with the
+sector ceiling down to the height of the next sector floor height.<tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX sprite lotag for open and close sound.<tr>
+<td><td>Use SPEED sprite lotag for rate of movement<tr>
+<td><td>Use SE 10 to make the door auto-close<tr>
+
+</table><br><br>
+
+
+<a name="ST22"></a>
+<table border=1>
+<td><b><a href="doors.htm">ST 22</a>:
+<td><a href="doors.htm">Split Door</a><tr>
+<td><td>:Used to raise and lower the sector floor and ceiling from level with
+the next sector floor and ceiling, then together until the floor and ceiling
+match height.<tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX sprite lotag for open and close sound.<tr>
+<td><td>Use SPEED sprite lotag for rate of movement<tr>
+<td><td>Use SE 10 to make the door auto-close<tr>
+
+</table><br><br>
+
+
+<a name="ST23"></a>
+<table border=1>
+<td><b><a href="swngdoor.htm">ST 23</a>:
+<td>Swing Door <tr>
+<td><td>:Used as <a href="swngdoor.htm">doors that swing</a> the sector 90 degrees when activated.
+Note that you can activate multiple ST 23 by giving the SE 11 sprites
+equal hitag values.<tr>
+
+<td>SE 11 Hitag :
+<td>Set equal to all other SE 11 doors to open together <tr>
+
+<td>SE 11 Angle :
+<td>Up = counter-clockwise<tr>
+<td><td> Down = clockwise<tr>
+<td>Shade :
+<td>none<tr>
+<td>Palette :
+<td>none<tr>
+<td>Comments :
+<td>Sector will also rise to height of SE 11 Sprite if it is off the floor.<tr>
+<td><td>Use MUSICANDSFX sprite lotag and hitag to door open and close sound,
+respectively.
+</table><br><br>
+
+
+<a name="ST25"></a>
+<table border=1>
+<td><b><a href="slide.htm">ST 25</a>:
+<td>Slide Door <tr>
+<td><td>:Used as a <a href="slide.htm">door that slides</a> when opened<tr>
+
+<td>SE 15 Hitag :
+<td>Set equal to all other doors to be opened at the same time <tr>
+<td>SE 15 Angle :
+<td>Set to direction when door is <b>closed</b><tr>
+<td><td> <tr>
+<td>Shade :
+<td>none<tr>
+<td>Palette :
+<td>none<tr>
+<td>Comments :
+<td>SPEED sprite sets distance for door to open.<tr>
+<td><td>Use MUSICANDSFX sprite for sound<tr>
+</table><br><br>
+
+
+<a name="ST26"></a>
+<table border=1>
+<td><b><a href="sttd.htm">ST 26</a>:
+<td><a href="sttd.htm">Split Star Trek Door</a> <tr>
+<td><td>:Used to do the effects of both ST 9 (Star Trek Door) and
+<a href="doors.htm">ST 22 (Split Door.)</a>  Doors will spread apart when opened like on
+Star Trek.  Not that the wall tile on the doors will squisk when
+opened.  Will also raise and lower the sector floor and ceiling from
+level with the next sector floor and ceiling, then together until the
+floor and ceiling match height.<tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX sprite lotag for open and close sound.<tr>
+<td><td>Use SPEED sprite lotag for rate of movement<tr>
+<td><td>Use SE 10 to make the door auto-close<tr>
+</table><br><br>
+
+
+<a name="ST27"></a>
+<table border=1>
+<td><b><a href="bridges.htm">ST 27</a>:
+<td><a href="bridges.htm">Bridge</a> <tr>
+<td><td>:Used to stretch a sector when activated.<tr>
+
+<td>Sector Lotag :
+<td>27<tr>
+
+<td>Angle :
+<td>Set to direction to stretch sector<tr>
+<td><td> <tr>
+<td>Shade :
+<td>none<tr>
+<td>Palette :
+<td>none<tr>
+<td>Comments :
+<td>Set relative alignment (R key) on sector to move floor.<tr>
+<td><td>Use SPEED sprite for distance.<tr>
+</table><br><br>
+
+
+<a name="ST28"></a>
+<table border=1>
+<td><b>ST 28</a>:
+<td>Drop Floor<tr>
+<td><td>:Used to make a floor or ceiling drop to the height of the SE sprite
+when activated by a Masterswitch<tr>
+
+<td>Hitag :
+<td>Set equal to others that activate at the same time <tr>
+<td>Sector Lotag :
+<td>28<tr>
+
+<td>Angle :
+<td>Up = Drop Ceiling<tr>
+<td><td>Down = Drop Floor<tr>
+
+<td>Shade :
+<td>none<tr>
+<td>Palette :
+<td>none<tr>
+<td>Comments :
+<td>Floor or ceiling matches height of SE sprite at pre-map then
+drops to set position when activated.<tr>
+<td><td>To do opposite, the SE sprite must be put into sector.
+</table><br><br>
+
+
+
+
+<a name="ST30"></a>
+<table border=1>
+<td><b>ST 30</a>:
+<td>Rotate Rise Door<tr>
+<td><td>:Used to rotate the sector floor 90 degrees and rise to the height of
+the SE 0 sprite.  Use SE 1 as the pivot point for the sector.<tr>
+
+<td>Comments :
+<td>Use MUSICANDSFX sprite lotag for sound<tr>
+<td><td>Use SPEED for rate of turning<tr>
+<td><td>Use SE 0 sprite palette for direction<tr>
+<td><td><dd>Palette 0 = clockwise<tr>
+<td><td><dd>Palette 1 = counter-clockwise<tr>
+</table><br><br>
+
+
+<a name="ST31"></a>
+<table border=1>
+<td><b><a href="2way.htm">ST 31</a>:
+<td><a href="2way.htm">Two-way train</a><tr>
+<td><td>:Used as a train that only goes back and forth from point A to
+point B<tr>
+
+<td>Hitag :
+<td>Set equal to a switch to activate <tr>
+<td>Sector Lotag :
+<td>31<tr>
+
+<td>Angle :
+<td>Set to direction of front of car<tr>
+<td><td> <tr>
+<td>Shade :
+<td>none<tr>
+<td>Palette :
+<td>none<tr>
+<td>Comments :
+<td>Use with two locator sprites to define track<tr>
+<td><td>Activator with equal hitag+1 activates when car stops at point A<tr>
+<td><td>Activator with equal hitag+2 activates when car stops at point B<tr>
+</table><br><br>
+
+
+<a name="ST10000"></a>
+<table border=1>
+<td><b>ST 10000+</a>:
+<td>One-time sound<tr>
+<td><td>:Used to play a sound one time when the player walks on the
+sector floor.  Tag the sector lotag with 10000 + sound number.<tr>
+</table><br><br>
+
+
+<a name="ST32767"></a>
+<table border=1>
+<td><b>ST 32767</a>:
+<td>Secret Room<tr>
+<td><td>:Used to tag the sector as a secret place to be counted at the
+end of the level stats.<tr>
+
+</table><br><br>
+
+
+<a name="ST65535"></a>
+<table border=1>
+<td><b>ST 65535</a>:
+<td>End Level<tr>
+<td><td>:Used to end the level when the player walks on the sector floor.<tr>
+</table><br><br>
+
+
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

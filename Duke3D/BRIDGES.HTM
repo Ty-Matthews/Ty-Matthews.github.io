@@ -1,0 +1,97 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Bridges</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#ff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Bridges</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start out making three sectors, like the image.  The top peninsula sector
+will become the actual bridge.  The little island sector is just a place
+to put our switch so we can watch the bridge move.
+<td>
+<img src="bridge1.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert a Sector Effector, Activator, and GPSpeed sprite within the
+peninsula sector.  Change the <b>sector lotag</b> of the peninsula sector
+to <b>27</b>.  Change to 3d mode and raise the floor of the peninsula sector up
+2 or 3 clicks to make it stand out.  Raise the little island sector up 12 or
+13 clicks so you can place a switch at Duke's level.  Insert a
+sprite flat against one wall of the island sector, and change its tile to
+some switch tile (I'll use Dipswitch, tile #162.)  Change the <b>switch's
+lotag</b> to a unique switch number (I'll use 1 in this example.)  Give that
+same number to the <b>Activator Lotag</b> and <b>Sector Effector hitag</b>.
+Change the <b>Sector Effector lotag</b> to <b>20</b>.  Move the Sector
+Effector near the wall you wish to have the bridge extend from.  The bridge
+will use the wall closest to the SE-20 as its point of origin.  Change the
+<b>angle</b> of the SE-20 to point in the direction you want the bridge to
+go.  We want our bridge to extend towards the switch, so the angle is set
+to point downwards.
+<br>
+<br>
+The GPSpeed sprite will determine the distance the sprite will move.  When
+you first start Build, the default grid size is 256x256 units.  So, to make
+the bridge move two grid spaces, you'd set the <b>GPSpeed lotag</b> to 2x256,
+or <b>512</b>.  The little green arrows in the image are my additions; they
+only show the distance being marked off.
+<td>
+</table>
+
+<br>
+<center>
+<img src="bridge2.gif">
+</center>
+
+<br><br>
+
+Change to 3d mode and point the cursor at the floor of the peninsula sector.
+Hit <b>[R]</b> once to set <b>Relative Alignment</b>, which will make the floor expand as
+the sector stretches out.  Please note the ceiling will also expand, so the
+tiles will look offset to the rest of the ceiling around it.  By using
+Relative Alignment, the tiles will appear to expand from the Sector's Firstwall.
+To change the FirstWall assignment, change to 2d mode and move the cursor
+<b>inside</b> the sector to be modified.  Move the cursor close to the desired
+wall so that it starts to flash.  With the cursor still inside the sector,
+hold down the [ALT] key, and hit [F].  You can also do this in 3d mode, by
+pointing at the wall inside the sector, then hitting [ALT] +F.  But there's
+not always a wall there, ie if another sector shares that wall, and the
+ceiling and floor are flush between both sectors.
+
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

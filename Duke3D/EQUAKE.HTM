@@ -1,0 +1,87 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Earthquakes</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Earthquakes</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>Make one large sector, and place two island sectors within it.  Make
+one of the island sectors only a few units to a side.  Make the other
+nearly as large as the outer sector.  Insert two vertices, one on both
+the top and bottom lines of the inner, larger sector.  Split that sector
+and make some jagged edges, like the picture.  This will be the sector our
+earthquake will happen to.
+<td>
+<img src="equake1.gif">
+<tr>
+</table>
+  
+<br><br>
+
+<table cellpadding="0">
+<td>
+Switch over to 3d mode and change the floor slope of one of the jagged sectors
+so that it drops below the floor height of the surrounding sector.  You may
+have to change the wall alignment of that sector by pointing at the "pivot"
+wall and hitting ALT-F.  This will cause the slope of that sector to start
+from that particular wall.
+<td>
+<img src="equake2.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert a SE within the dropped-down sector.  Change that <b>SE lotag</b> to
+<b>2</b>.  Insert a <b>MASTERSWITCH sprite</b> within that same sector.  Change
+the <b>MASTERSWITCH lotag</b> to <b>1</b>, our unique earthquake number.  Insert
+a <b>TOUCHPLATE</b> sprite within the smaller island sector.  The earthquake
+will trigger when the player walks across this little sector.  Change the
+<b>TOUCHPLATE lotag</b> to <b>1</b> as well.  Turn off gridlocking and move
+both the SE-2 and MASTERSWITCH sprites close to the one of the jagged points,
+but not outside the sector.  Make sure the SE-2 and Masterswitch are on the
+floor by hitting CTRL-PgDn on them.  I've also put in three SE-33 sprites,
+which are used to spawn little bits of rock when the earthquake occurs.
+Switch to 3d mode and move them to the ceiling by hitting CTRL-PgUp.
+</table>
+
+<center>
+<table cellpadding="0">
+<td>
+<img src="equake3.gif">
+</table>
+</center>
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

@@ -1,0 +1,98 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Doors that Open Via a Switch</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#ff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Switch Doors</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start out making three sectors as in the image.  The middle sector will
+be our door, and the other two simply rooms.
+<td>
+<img src="swtchdr1.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert a SectorEffector, Activator, and MusicAndSFX sprite within the
+middle, door sector.  Change the SectorEffector <b>lotag</b> to <b>32</b>.
+Set the MusicAndSFX <b>lotag</b> and <b>hitag</b> to 166, or whichever
+door sound you prefer.  Leave the Activator tags as is for now.
+<td>
+<img src="swtchdr2.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Switch to 3d mode and place a switch sprite <b>on the wall</b>.  It's easier
+to place sprites in 3d mode and make them fixated in a certain plane.  If
+you place a sprite in 2d mode, by default the sprite will follow you as
+you walk around it.  Obviously, this won't work for our switch.  You can
+press [R] on the sprite in 3d mode to fixate it, but if you insert the sprite
+in 3d mode while first pointing at the wall, it will start fixated :).
+Change the switch <b>lotag</b> to a unique switch number (I'll use 1 in this
+case).  Give that same switch lotag number to the <b>activator lotag</b>.
+<tr>
+</table>
+<center>
+<table cellpadding="0">
+<td>
+<img src="swtchdr3.gif">
+<img src="swtchdr4.gif">
+</table>
+</center>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Lower the ceiling of your door sector so that you can change the door tiles.
+We're not going to lower the ceiling of the door down to the floor, as the
+SE-32 sprite will allow us to start the sector ceiling at the same height
+of the SE sprite.  Change the angle of the SE-32 to point downwards, and
+make sure the sprite is all the way on the floor (use [CTRL]-[PgDn] in 3d
+mode to ensure this.)  With the SE-32 pointing downwards, the ceiling will
+start at the SE height.  It's much easier editing tiles, moving sprites, and
+the like if the door is open in Build :)
+<td>
+</table>
+<center>
+<img src="swtchdr5.gif">
+</center>
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

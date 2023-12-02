@@ -1,0 +1,79 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Elevators</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#ff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Elevators</h1>
+<img src="build.gif">
+<br><br>
+<table cellpadding="0">
+<td>
+Start out making four sectors, two large ones of varying size, and two smaller
+ones (each attached to one of the bigger ones) which will become the actual
+elevator.  Each smaller sector must be <b><i>exactly</i></b> the same size.
+<td>
+<img src="elevatr1.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert an <b>SE</b> within each of smaller sectors and change the <b>SE lotags</b>
+to <b>17</b>, which is for an elevator.  Assign a unique elevator number and put that
+in both of the <b>SE hitags</b>.  Change both of the smaller <b>sector lotags</b> 
+to <b>15</b>.  Pick one of the two to be the higher floor, and change that <b>sector
+hitag</b> to 1.  Leave the other at 0.  It's a good idea to put the SE sprites
+on the same coordinates of both sectors; that way Duke won't shift when he
+goes up and down it.
+<td>
+<img src="elevatr2.gif">
+<tr>
+</table>
+
+<br><br>
+
+<center>
+<table cellpadding="0">
+<td>
+That's it for tags and such, now you must go into 3d mode and change the <b>shades</b>
+of the SEs, as well as the floor/ceiling heights of the two elevator sectors.  The <b>ceiling
+height</b> of the lower floor <b>must be</b> lower than <b>floor height</b> of the
+upper floor, or it won't work.  You'll get in the elevator and either rise or
+fall for an eternity.  Put the white arrow in the lower sector and switch over
+to 3d mode.  The <b>darker shaded</b> SE-17 is the floor where the elevator
+will start.  I found this shade <i>must be at least 32 shades dark</i>.  To darken
+the SE, point at it in 3d mode, hold down the ['] key and hit [S].  Enter the
+number 32 and hit [ENTER].  
+<tr>
+<td>
+<img src="elevatr4.gif" align=left> <img src="elevatr3.gif" align=right>
+</table>
+</center>
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

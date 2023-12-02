@@ -1,0 +1,45 @@
+   Yes, you can put in your own .WAV and .VOC files.  It requires a little .CON hacking to do so.  You'll need to edit two files:  USER.CON and DEFS.CON.  In these files towards the bottom, there are numerous listings like the following:
+
+user.con
+definesound WIND_REPEAT         wind54.voc         0   0   0   3   0
+
+defs.con:
+define WIND_REPEAT                    308
+
+ 
+    The DEFS.CON file simply puts a name to a number, for use in the game.  For your custom sound files, you will need to place them at the end of this list, starting with the number 309.  Assign a unique name to your sound.  Each name must have a unique number attached to it.  Follow the syntax of the lines in there, ie 'define MY_SOUND  309'
+
+    The USER.CON file links the name (from DEFS.CON) to a .VOC or .WAV file, and supports some parameters.  From here, you'll need to add your name as you put it into DEFS.CON, the actual sound file name, and any special settings that you'd like.  In our example, you'd type in 'definesound MY_SOUND   mysound.wav  0 0 0 3 0'.  The 5 numbers at the end represent the different tags.  From left to right, their usage is as follows:
+
+1 : min frequency adjustment
+2 : max frequency adjustment
+    A random value between these two limits is chosen each time the sound is played
+3 : priority  If there are too many sounds to be played at once the higher (I think) priority sounds get played
+4 : attributes
+   -  bit 0 (%) Repeat
+        This sound will be played over and over
+   -  bit 1 ($) Ambient Sound
+        This sound can be used as an ambient sound
+   -  bit 2 (#) Duke Talk
+        This sound will follow the player
+   -  bit 3 (@) Adult Mode
+        This sound will only be played if adult mode is on
+   -  bit 4 (!) Random Ambient Sound
+        This sound can be used as a random ambient sound
+5 : volume adjustment.  Used to make the sound louder or softer
+
+     Once you've got the two files changed, you can then use them in your level.  Simply change the MSFX tags or a switch hitag to your new sound number (309 in our example) and that sound will be played.  Now, if you want to publish this level, you'll need to do two things: 1) send the .WAV and .VOC files with the level, and 2) create your own custom .CON files, following these steps:
+
+  1.  Rename your customized USER.CON and DEFS.CON to alternate names, such as MYUSER.CON and MYDEFS.CON
+  2.  Copy GAME.CON to MYGAME.CON and edit it.
+  3.  At the top,  you'll see two lines:
+
+        include DEFS.CON
+        include USER.CON 
+
+      Change these to 'include MYDEFS.CON' and 'include MYUSER.CON'.
+  4.  Specify in your README file (or better yet batch file) that in order to hear the custom sounds, users will have to use the /X switch when launching the game, like so:
+
+       duke3d /xmygame.con
+
+      This will load your custom .CON files in automatically, and save the user from overwriting their default .CONS.

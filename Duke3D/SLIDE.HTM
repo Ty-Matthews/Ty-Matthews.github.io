@@ -1,0 +1,145 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Sliding Doors</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Sliding Doors</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start out by making 6 sectors like the picture shown.  Set the <b>Sector Tag</b>
+of the two smaller sectors to <b>25</b>.  For the rest of this page, I'm going
+to refer to these two sectors as the <b>"Tagged Sectors"</b>.  Do not change any of the
+floor heights of these sectors you've created, they should all be the same.  What
+basically is going to happen is the game will shift any non-player space
+(marked by the white lines) in each sector to either the left or the right
+depending on how we've set it up.  Therefore, the ceiling and floor should be
+at where you want it to look when the door is <b>open</b>.  The two sectors
+directly to the top and bottom of our tagged sectors are going to be used
+in a step later on; they are important to place.
+
+<td>
+<img src="slide1.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Insert two <b>SE sprites</b>, one in each of the tagged sectors.  Change their
+<b>hitags</b> to a number not used elsewhere by any sliding door.  We want to
+make them the same hitag so both doors will open at the same time.  Change the
+<b>SE lotag</b> to <b>15</b>.  Insert a <b>GPSPEED</b> sprite within each of
+these two sectors.  Change the <b>GPS lotag</b> to <b>512</b>.  The GPS lotag is
+the distance the doors will open.  This will probably take a lot of adjusting
+as you test your level.  The last thing to insert is a MusicAndSndFx sprite.
+You only need to insert one, as both doors will open simultaneously.   Just
+make sure the MSFX is within one of those two sectors.  Change the <b>MSFX
+lotag</b> to 170, which is a long, dragging sound.
+<tr>
+</table>
+
+<center>
+<table cellpadding="0">
+<td>
+<img src="slide2.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Change the angle of the left-most SE-15 to point right.  Change the angle of
+the right-most SE-15 to point left.  They should point in the direction the
+door will close to.  Take grid-locking off and move all of our Sector-Effectors,
+GPSPEEDs, and MSFX sprites as close to the dividing line as possible.  It
+also helps to take off showing of tags by hitting [CTRL] - [T].
+<tr>
+</table>
+
+<center>
+<table cellpadding="0">
+<td>
+<img src="slide3.gif">
+<tr>
+</table>
+</center>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+The next few steps are a little difficult to explain, so I'm going to show
+them in little increments.  With grid-locking off, insert three vertices on
+the two white lines of our tagged sectors.
+<td>
+<img src="slide4.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Turn grid-locking back on, and move the top points (which are now our "doors")
+onto the tagged sectors' lines, making sure not to leave the sprites outside of
+player space.  Move the two middle points to the very center spot.  They will
+occupy the same space, but will not be deleted.
+</table>
+<center>
+<img src="slide5.gif"> <img src="slide6.gif">
+</center>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Move the adjacent top sectors' vertice to the tagged sector's top line.  
+<td>
+<img src="slide7.gif">
+<tr>
+<td>
+Move it right on top of the tagged sector's top line.
+<td>
+<img src="slide8.gif">
+<tr>           
+<td>
+Do the same for the other three.  They should all be on the tagged sectors'
+lines.<td>
+<img src="slide9.gif">
+<tr>
+<td colspan=2>
+These last few steps were necessary to avoid texture warping; that nasty
+little effect when sectors are getting pushed around.  The warping is
+still there, the player just can't see it :)
+</table>
+
+
+<br><br><br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

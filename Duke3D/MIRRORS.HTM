@@ -1,0 +1,105 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Mirrors</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Mirrors</h1>
+<img src="build.gif">
+<br><br>
+
+<table cellpadding="0">
+<td>
+Start out making three sectors: one large room on the bottom which will be our
+room to be mirrored, one middle sector which will hold the mirror, and the
+third which will be used by the game to generate the mirrored image.  Make
+the third room is <b>bigger</b> than the to-be-mirrored sector, but make sure
+it is the same floor/ceiling height as the sector which "holds" the mirror.
+For some reason, if the larger room is at different heights, you'll get HOM
+when Duke ducks down.  It is <b>crucial</b> that the room be larger than any
+space the mirror could possibly see.
+<td>
+<img src="mirror1.gif">
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Switch to 3d mode and alter the floor/ceiling heights so they resemble the
+picture.  Make the floor of the top sector higher than the other two for
+right now.  Make the mirror sector wherever you wish; here I've made it a few
+notches higher than the main room, and a little bit lower.  I've also changed
+the tile of the top sector so that we can discern more easily from the other
+walls.<td>
+<img src="mirror2.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+Point at the wall (which I've made red here) of the top sector and hit <b>'1'</b>.
+This will make it a <b>one-way wall</b>.  You should see a tile fill the gap
+between the floor and ceiling of the top sector.  Point at this wall and
+change its tile to tile number <b>560</b>, which isn't very easy to spot,
+even in 320x200 mode.  It is named mirror, fortunately.
+<td>
+<img src="mirror3.gif">
+</table>
+
+<br><br>
+
+<table cellpadding="0">
+<td colspan=2>
+While still pointing at the wall, hit both <b>'B'</b> and then <b>'H'</b>.
+This will make that wall both <b>blocking</b> and <b>hitscan</b>, which
+will prevent us from walking through it, and also make it sensitive to
+ammo hits.  If you switch back over to 2d mode, you will see the wall appear
+a bright pink.
+<tr>
+<td>
+<img src="mirror4.gif">
+<td>
+<img src="mirror6.gif">
+</table>
+
+<table cellpadding="0">
+<td>
+Move your white pointer into the top sector (which you'll no longer be
+able to do in 3d mode with the wall blocked) and switch back over to 3d mode.
+Move the floor of the top sector down below the bottom sector, and make sure
+the ceiling is higher than the bottom sector as well.
+<td>
+<img src="mirror5.gif">
+</table>
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

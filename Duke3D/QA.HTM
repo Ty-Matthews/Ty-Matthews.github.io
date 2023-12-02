@@ -1,0 +1,478 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Questions and Answers</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<center><h1>Q & A</h1></center>
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td width=100%><b>Q.</b>
+I'm trying to run Build, but my screen is all full of junk, and the mouse
+trails echo all over the screen.  Could it be my video card?
+<tr>
+<td>
+<b>A.</b>
+This is the number one problem I've been asked from first time users.  You
+have to copy all of the files from the goodies\build directory of your CD
+to your main duke3d directory on your hard drive.  Build looks in the current
+directory for the duke3d.grp file... which contains all of the art, sprites,
+etc.   <b>Do not</b> use Windows to copy the files, as it sometimes retains
+the file attributes (namely read-only), which prevents you from saving any
+changes.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+How do I make Sector Effectors?  How to I change their HiTags/LoTags?
+<tr>
+<td>
+<b>A.</b>
+Sector Effectors are just another sprite, with the Sector Effector tile.
+All of the neat effects with Build are special sprites.  The tile set is
+tile numbers 1 through 9.  You've probably seen them a million times, but
+didn't know what they were for.  A Sector Effector is tile number 1.  To 
+change its hi/lotag in 3d mode, point at the sprite, hold down the ['] key, and 
+hit the [H] or [T] keys for Hitag/Lotag, respecitvely.  To change the hi/lotag
+in 2d mode, point at the sprite, hold down [ALT], then hit the [H] ot [T] keys
+for Hitag/Lotag, respectively.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+How do I make a sector inside a sector?
+<tr>
+<td>
+<b>A.</b>
+When you draw a sector inside another sector, it starts out with white walls (non-player space.)
+Press [ALT-S] on the inside sector to change it into valid player space (red walls.)
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td>
+<b>Q.</b> My subways keep launching rockets at me!  Help!
+<tr>
+<td>
+<b>A.</b> Take parallaxing off of the ceiling, this is the only known total fix.  You
+can make the rockets not hit you by either "pushing" the SE-6 or SE-14 below the
+floor by a sizable amount or extend it through the ceiling.  This will cause
+them to hit a void area, but you'll still hear the explosions.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td>
+<b>Q.</b> I put a sector within another sector then moved it against the wall... now
+I get really weird HOM when looking at it.
+<tr>
+<td>
+<b>A.</b> To make a "penisula" sector (ie a bookcase extending from the wall) simply
+split the existing white wall or insert two vertices along it.  Then draw a
+new sector <b>into</b> the inner sector using those points as the starting and
+consequently ending points of your sector.  Build does <b>not</b> like to
+have sectors moved on top of existing lines or vertices.  This wreaks havoc
+with the engine.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td colspan=2>
+<b>Q.</b>  My framerate has made the game unplayable.  What can I do to improve it?
+<tr>
+<td colspan=2>
+<b>A.</b>  Try the following to bring your frame rate back to Earth:
+<tr>
+<td width=80><td>1.  Reduce the number of unique sprites within any given area... too
+many being loaded causes the engine to slow down when loading.<tr>
+<td width=80><td>2.  Don't use groups of sectors to make stairs.  Use slopes instead.
+Too many sectors within any viewable area causes the engine to slowdown when
+calculating the image Duke sees.<tr>
+<td width=80><td>3.  Avoid very large, expansive sectors.  If the engine has to load too many
+sprites/tiles in any given image, the frame rate drops dramatically.<tr>
+<td width=80><td>4.  Cut down on the number of monsters in one area.  Too many actors again
+will drop the FPS.<tr>
+<td width=80><td>5.  Avoid putting in lots of monsters that fire rockets.  RPG really tax
+the engine.<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td>
+<b>Q.</b>  I've made my water sector, but I die when I either enter the water or
+try to exit.  Both sectors are the same size.
+<tr>
+<td>
+<b>A.</b>  The SE-7 sprites have to be in the exact same location on both water
+sectors, and at the same angle.
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td>
+<b>Q.</b>  Okay, my water sectors are identical, the sprites are in the same place,
+and pointing at the same angle.  I can't enter the water or come out of it.
+<tr>
+<td>
+<b>A.</b>  Make sure the ceilings/floors of both above-water and underwater sections
+don't have any slope to them.  To clear the slope of a ceiling/floor, point
+at it in 3d mode and hit '/'.  Also make sure the SE-7 sprites are placed on
+the floor.  If you've put an island sector within your above water sector,
+that <b>must</b> be duplicated on the underwater section.  Take a look at
+E1L3, the submarine level, and you'll see what I mean.
+<tr>
+</table>
+
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td>
+<b>Q.</b>  I made a sprite with my paint program using the correct Duke palette, and
+imported it into EditArt.  But when I use the sprite in Build, the "clear"
+space I had colored like the other masking sprites appears pink.
+<tr>
+<td>
+<b>A.</b> 
+Load EditArt, find your tile, point at any one of the pixels that
+represent the color you'd <b>like</b> to make masking, and hit <b>Backspace</b> then
+'C'.  Backspace turns your drawing color to the masking color, and 'C' will
+turn any pixel matching the color of the current pixel (the one you have pointed
+at) to that drawing color.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+I've made a ceiling parallaxed, with the tile being Big Orbit.  Every time I
+play the level, and walk into that room, I die.  What's up?
+<tr>
+<td>
+<b>A.</b>
+The Big Orbit (and Moonsky) tile is meant to simulate actual space... ie no
+oxygen.  Duke can't live without oxygen, man!  You can avoid this dilemma
+by setting the ceiling palette to 3.  Alt-P is the key command in 3d
+mode to change palettes.
+<tr>
+</table>
+
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>How do I change the palette of sprites/tiles?
+<tr>
+<td>
+<b>A.</b>This can be done only in 3d mode.  Point at the sprite or tile
+and hit [ALT]-[P].
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>I'm trying to slope my floor, but it's sloping at the wrong 
+angle.
+<tr>
+<td>
+<b>A.</b>Build slopes to the first wall of a sector, making it the pivot
+point.  To change the first wall property, you can either hit [ALT]-[F] in
+2d mode when your cursor is over the sector to rotate the first wall over one,
+or hit [ALT]-[F] in 3d mode when pointing at the wall you wish to make the
+new pivot point.  Be careful when using that in 3d mode, as you have to 
+be pointing at a wall that is "inside" the sector.  Think of it this way...
+pretend you're in a vertical cylinder, and you can only see the inner walls.
+Well, the same applies to the [ALT]-[F] key... you can only point at walls
+that are inside the sector.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>How do I copy sectors?
+<tr>
+<td>
+<b>A.</b>Check out my <a href="copy.htm">tutorial on copying sectors</a>.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>Can I copy sectors between maps?
+<tr>
+<td>
+<b>A.</b>Yes, you can.  The target map has to exist first, however.  You
+cannot copy a sector to a totally new map.  To copy between maps, highlight
+the sector(s) you wish to copy with the right [ALT] key.  Hit [ESC] to bring 
+up the file menu.  Hit [L] to load in your target map.  The highlighted 
+sector(s) will appear in the same spot as they were in your source map, so
+you may have to zoom out to find them.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+How do I make my weapons respawn?
+<tr>
+<td>
+<b>A.</b>
+Weapons respawn by themselves when you're playing a DukeMatch game with Respawning enabled.
+There is no way to have weapons respawn in Solo play.  
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+I load up EditArt, but all I get is a blank screen.
+<tr>
+<td>
+<b>A.</b>
+Make sure you've done these two things:  1) copy all of the files from the goodies\build 
+directory off of your CD to your Duke directory and 2) extract all of the art files from 
+the .grp file by typing 'kextract duke3d.grp *.art' at the command prompt.  If those two
+don't get you in, try running 'bsetup.exe' at the command prompt and change your video settings
+to 320x200 Standard VGA.  This only affects the Build/EditArt engine, not your normal Duke
+games.  If you can't save settings, try removing any read-only attributes which may be
+set, using 'attrib *.* -r'.
+<tr>
+</table>
+
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+I've made my first map, now how the heck do I play it?
+<tr>
+<td>
+<b>A.</b>
+There are two methods for playing user maps:  1) type 'duke3d -map mylevel.map' at the 
+command prompt or 2) run 'setup.exe' at the command prompt to bring you into the Duke setup
+screen.  From here, you can select user maps.  The command-line option allows you to select
+difficulty settings as well.  If you'd like a copy of the batch file I use to load/play maps,
+<a href="d.zip">download the batch file</a> and type 'd mylevel' at the command prompt.  
+<tr>
+</table>
+
+
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+I've made a door separating a small room with a larger, taller second room.  When I open
+the door and let it close on my head, the door proceeds to go all the way to the ceiling of
+the larger room.  
+<tr>
+<td>
+<b>A.</b>
+Insert a small sector in between your door and the larger room.  Set its floor and ceiling 
+to the same of your smaller sector, so that the door only has a single height to rise
+to.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+How do I make a door open via a switch, and only with that switch?
+<tr>
+<td>
+<b>A.</b>
+A special sprite, SE-32, will allow you to create a door that opens via
+an activator.  Check out the <a href="swtchdor.htm">Switch Doors</a> tutorial.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+I've made a glass wall.  When I play the level, and shoot the glass, the
+tiles on top get messed up.
+<tr>
+<td>
+<b>A.</b>
+Press [O] on the step tile (not the glass) to align it to the ceiling,
+instead of the floor.  This should fix the problem.  If you still
+have the problem, you can create a "buffer" sector in front of the
+glass wall so that the above and below tiles don't show.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+I've made a Star Trek door, but the darn thing won't open.  When it tries,
+the tiles start to stretch, and nothing happens.
+<tr>
+<td>
+<b>A.</b>
+Make sure the white lines of your inner doors are <b>exactly</b> on the red lines of
+the tagged sectors.  If you've made two parts to the door, they must meet in
+the middle so that there's no gap.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+How do I change the angle of my camera?
+<tr>
+<td>
+<b>A.</b>
+The angle of the camera is set by the shade value of the sprite.  Check
+out my <a href="camera.htm">camera tutorial</a> for a more thorough
+explanation.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+I've made an animated sprite set, but it animates way too fast, or slow.
+How do I change the animation speed?
+<tr>
+<td>
+<b>A.</b>
+Run EditArt, change to the first tile of your animation set, and press the
+[A] key.  The animation sequence should start animating.  Use the -/+ keys
+on the keypad to change the speed of the animation.  Once the desired speed
+is found, hit the [ENTER] key to confirm it.  Change to a different tile
+using PgUp, and say Yes when it asks if you want to save the current tile.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+How do I use access cards?  How do I change them to red, or yellow?
+<tr>
+<td>
+<b>A.</b>
+The Access Switch (tile #130) is what the Access Cards (sprite #60) are
+used for.  The palettes must match for the Card/Switch combo.  The default
+for both is palette 0, or blue.  To change them to yellow, change the
+palette of both card and switch to 23.  To change them to red, change both
+to 21.  To change a palette, use [ALT-P] in 3d mode.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+How do I make breakable vents?
+<tr>
+<td>
+<b>A.</b>
+Vents (tile #595) and Fans (tile #407) are blocked sprites, centered over a hole in a 
+wall, and sized to match the opening.  Use [B] in either 3d or 2d mode to make the sprite
+blocking (shows up purple in 2d mode.)  To fixate your sprite horizontally, use the [R] 
+key on it in 3d mode.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+How do I turn a forcefield on/off with a switch?
+<tr>
+<td>
+<b>A.</b>
+Assign a unique number to your switches' lotag.  Change the lotag of your
+forcefield wall to that same number.  The easiest way to change wall tags
+is in 3d mode with the ['] [T] combination.
+<tr>
+</table>
+
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+What are Wall tags for?
+<tr>
+<td>
+<b>A.</b>
+The most common usage for Wall tags is for exclusion with SE-8 (Up Open
+Door Light.)  Setting a Wall hitag to 1 prevents that Wall from lighting
+up when its parent sector has an SE-8 in it.  Another use for Wall tags
+is with Activators that move a sector.  Say you have an SE-31 or SE-32
+within a sector, and you want them to activate when Duke pushes on the
+wall.  You'd set the Wall Hitag to the Activator Lotag, and the two would
+be linked.  
+<tr>
+</table>
+
+
+<!--
+<br><br>
+
+<table cellpadding="1" border=1 width="100%">
+<td><b>Q.</b>
+
+<tr>
+<td>
+<b>A.</b>
+
+<tr>
+</table>
+-->
+
+
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0" border=0>
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

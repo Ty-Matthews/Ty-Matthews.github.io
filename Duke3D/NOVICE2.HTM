@@ -1,0 +1,152 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Let's make something!</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#ff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Let's make something!</h1>
+<img src="build.gif">
+<br><br>
+
+<h2>Your First Sector</h2>
+<br>
+By now you should be itching to start Building.  If you followed the steps
+outlined in <a href="novice1.htm">Getting Started</a> you should be in 2d mode, with a red crosshair,
+white arrow, and lots of grid lines.  Move the crosshair to the edges of the
+screen and all around the border.  You'll notice the space you can move
+the crosshair is not very large.  This is because the white arrow is where
+the screen border is drawn around.  To move the white arrow to a new location,
+hold down the Right-mouse button and drag the arrow to a new spot.  This is
+how you can move to new spots of the map.  Use the [A] and [Z] keys to
+zoom in and out on the map.
+<br>
+<br>
+With the crosshair in the desired position, press the Spacebar to begin
+drawing your first sector.  A vertice will plant itself on the grid
+coordinates where the crosshair is located.  Move the crosshair to any other
+location.  You'll notice a line extending from the first vertice to your
+crosshair will appear.  You are now in Line Drawing Mode. Move the crosshair
+to the next location and hit the Spacebar again.  Another vertice will plant
+itself.  Move in a square-like fashion and insert two more vertices.  After
+you have four vertices planted, you need to close the sector by moving the crosshair
+over the very first point again and hitting the Spacebar.  This will automatically
+turn off Line Drawing Mode, and close the sector. If the sector was completed
+successfully, the line coming off the crosshair will disappear.
+<br><br>
+<center><img src="novice2.gif"></center>
+<br><br>
+
+<h2>Changing tiles</h2>
+<br>
+Your very first sector is now complete!  Let's move to 3d mode and change
+some of the tiles.  In order to change to 3d mode, the white arrow must
+be in valid player space.  Valid player space is inside any sector.  Move
+the crosshair inside the sector you just created and click the Right-mouse
+button to move the white arrow to that spot.  Hit the keypad ENTER key
+to switch over to 3d mode.  You should be in a square, bland room with
+that very ugly olive-green floorboard all over the place.
+<br><br>
+<center><img src="novice3.gif"></center>
+<br><br>
+Point the white crosshair at one of the walls and hit the [V] key.  This will
+bring you into the tile summary screen of your map.  You'll only see a
+single tile at this screen, because it's the only tile you're using.  Hit
+[V] again to jump to the entire tile display.  
+<br><br>
+<center><img src="novice4.gif"></center>
+<br><br>
+Use the arrow keys of the keypad to select a tile.  Notice that as you
+move around between tiles, the lower left-hand corner will display the
+tile number, and the lower right-hand corner will display the tile name, if
+there is one.  You can use the PgUp and PgDn keys here to jump a screen at a
+time.  Pick a nice looking tile and hit the regular ENTER key to select
+it.  If you choose not to select a tile, use the [ESC] key to back out.
+Once you select a tile, it will bring you back into 3d mode.  A very handy
+feature with Build is the ability to copy tiles.  Point at the wall you
+just changed tiles for and hit the [TAB] key.  The tile for that wall will
+be copied into the Build "clipboard".  Point at another wall, then hit
+the regular ENTER key.  Voila, that wall will change tiles.  Very neat :)
+<br><br>
+
+<h2>Backtracking in Line Draw Mode</h2>
+<br>
+If you make a mistake while in Line Draw Mode and want to backtrack a line or
+more, then simply hit the <b>Backspace</b> key.  You'll see the last placed
+point erased and the line it made removed.  You can completely undo all of
+your lines and cancel Line Draw Mode by backspacing all the way back to your
+first point.
+<br><br>
+
+<h2>Single-Sided and Double-Sided Walls</h2>
+<br>
+You'll notice, upon returning to 2D mode, that your sector is made of white
+lines.  These white lines are single-sided walls.  A single-sided wall only
+has player space on one side; the other side is "null" and can never be
+occupied by the player or anything else.  Your new sector has player space
+on the inside, but not on the outside.
+<br><br>
+Double-sided walls are red in 2D mode and they have player space on both
+sides.  Double-sided lines always separate two sectors.
+<br><br>
+
+<h2>Placing the Player's Start Position (IMPORTANT)</h2>
+<br>
+It is important to make sure that the player's start position, indicated
+by the brown arrow in 2D mode is within a sector (user space.)  The game
+will behave very strangely if it tries to start the player in null space.
+<br><br>
+To place the player's start position, move the white arrow to where you
+would like it to be, and then hit the <b>ScrollLock</b> key.  The player's
+starting direction will be the same as the brown arrow's.
+<br><br>
+
+<h2>Quitting Build-  Saving, Loading, and Renaming Levels</h2>
+<br>
+Before we get too far, you should learn how to save your map so that you can
+test it.  It's <b>always</b> a good idea to make frequent saves, and test
+your level out before Building too much.  Hitting <b>[ESC]</b> when in 2D mode
+will bring up the Exit Menu, and you'll be prompted with the File Menu.
+Options here are (<b>N</b>)ew, (<b>L</b>)oad, (<b>S</b>)ave, save (<b>A</b>)s,
+and (<b>Q</b>)uit.
+<br><br>
+The New option will start with a completely new map.  Be careful if you hit (<b>Y</b>)es
+after it warns you, because any changes you've made to the current map will
+be lost.  The same holds true for (<b>L</b>)oad; it will load in another map,
+but any changes you've made to the current map will be lost.
+<br><br>
+The (<b>S</b>)ave option will save your current map.  The save (<b>A</b>)s option will save
+as a different name.  Let's do save (<b>A</b>)s, as we haven't named our map
+yet.  Type in a good name for your map (no .MAP extension needed) and hit
+ENTER.  The next time you run Build, you can specify that map when launching
+the program... ie <b>Build mymap</b>.
+<br><br>
+The (<b>Q</b>)uit option obviously will end your session.  You will then
+be prompted if you'd like to save your changes.  Hit (<b>Y</b>)es or (<b>N</b>)o.
+
+
+<br><br>
+<center>
+<a href="novice1.htm"><img src="prevpage.gif" border="0"></a><a href="novice3.htm"><img src="nextpage.gif" border="0"></a>
+<br><br>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1997 <a href="mailto:ty@synet.net"><img src="tysig.gif" border="0"></a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

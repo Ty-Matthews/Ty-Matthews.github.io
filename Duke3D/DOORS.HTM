@@ -1,0 +1,79 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Making Doors</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<h1>Floor, Ceiling, and Split Doors</h1>
+<img src="build.gif">
+
+<table cellpadding="0">
+<td>
+Start up BUILD and make two separate sectors, one sector (10 units per side
+for now) and the other right above it, its bottom wall running parallel to the
+top wall of the lower sector.  Insert two vertices 6 or 7 grid spaces apart on
+each of the walls of the two sectors.  Make another sector (basically joining
+your two sectors) using the four vertices you just inserted.  Your design
+should be close to the picture shown.
+<td><img src="door1.gif"><tr>
+</table>
+
+
+<br><br>
+
+<table cellpadding="0">
+<td>
+While in 2d mode, point the mouse pointer inside the new "door" sector (the
+one sandwiched between the two bigger sectors) and insert a sprite.  Move
+the pointer over a little ways and insert another sprite.  It is critical
+that these sprites be inside that sector.  Switch over to 3d mode and change
+one of the sprites to a <b>Sector Effector (SE)</b>, and the other to a <b>MusicAndSndFX</b>.
+Switch back to 2d mode and set the tags for the <b>SE</b> to <b>64 hitag</b>, and
+<b>10 lotag</b>.  The hitag is used for the length of time the door will stay
+open.  64 is about 2 seconds.  The lotag is for Door Auto Close.  Change the
+<b>MusicAndSndFX</b> sprite's lotag to 166, which is the Doom-like sound of
+a door opening.  Set the <b>door sector's</b> lotag to <b>20</b>, which is
+for a ceiling door.  Finally, when all that is complete, switch back again to
+3d mode and lower the door's ceiling all the way to its floor.  Just make
+sure you've picked the tiles you like first :)
+<tr>
+</table>
+
+<center>
+<table cellpadding="0">
+<img src="door2.gif">
+</center>
+
+
+To make the door come down from the ceiling, simply change the <b>sector lotag</b>
+from 20 to 21, and move the <b>door sector's</b> floor and ceiling to the
+surrounding sector's ceiling.<br><br>
+To make the door split from the middle, simply change the <b>sector lotag</b>
+from 20 to 22, and move the <b>door sector's</b> floor and ceiling to
+the middle of the door.
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+

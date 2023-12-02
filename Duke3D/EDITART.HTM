@@ -1,0 +1,126 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>EditArt</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#ff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+
+<h1>EditArt</h1>
+<center><img src="editart.gif"></center>
+<br><br>
+
+<dd>1.  Extract all of the art from the original .GRP file.  Type "kextract duke3d.grp *.art"
+in your Duke directory.<br>
+
+<dd>2.  Run EditArt, it will go in and load all of the tiles (14 to start)<br>
+
+<dd>3.  You'll start out on the first tile.  Hit 'V' once and you'll see something
+very similar to Build when looking at tiles.  Move to the tile you want to edit
+by using the arrow keys.  Hit Enter on any tile and it will bring you back to
+the editing screen.  Hit PgUp or PgDn to cycle through the tiles.<br>
+
+<dd>4.  To jump to a specific tile, hit 'G' at any time.    The user art
+starts at tile number 3584.  Jump to this, and you'll see a little User Art
+tile.<br>
+
+<dd>5.  To start a new tile, select one that's empty (3585 sounds
+good), and hit 'S'.  This will let you enter the X and Y dimensions.  <br>
+
+<dd>6.  You'll start with a tile that is shaded entirely pink... it's not really
+pink; it is the masking color, which shows up as invisible during the game.<br>
+
+<dd>7.  You probably won't want to do any actual editing in EditArt.
+It's really a pain in the butt.  I use Paintshop Pro to do all of my
+editing... it's much easier.  Save all of your files in the .GIF format...
+EditArt really doesn't like anything else.  Also, save them to your Duke
+directory.  It makes loading the images in much easier.<br>
+
+
+<dd>8.  The best thing about EditArt is its import capability.  Make a
+new tile, and size it to match the original image.  Hit 'U', and you'll be
+presented with a list of image files in your Duke directory.  Select your
+original, and hit ENTER.  Note... sometimes EditArt will pick up a tile
+automatically and display it.  If this happens, just hit ESC and you'll
+see the directory listing.<br>
+
+<dd>9.  You'll see your full image, with a white-bordered box flashing
+around it.  This is the actual size of your new tile, which should match
+your original image.  Hit ENTER to load that image in.<br>
+  
+<dd>10.  Hit PgUp to select the next tile, it will ask you if you want
+to save the current tile.  Hit 'Y' and you're done.  Hit ESC then 'Y' in the
+main editing screen and it will update the corresponding .ART file.  It is
+pretty standard policy among Duke Builders to put any custom art in
+TILES014.ART, which begins with tile #3584.    You can distribute this file
+with your levels (named to something other than TILES014.ART,)  just tell
+the players to rename any current TILES014.ART as a backup.  Then rename
+your file to TILES014.ART and they're all set.<br>
+
+<dd>11.  Most of the time, EditArt won't correctly import your image's
+"invisible", or masking color.  If this happens, and your sprite has pink
+stuff all over it, you need to actually use EditArt to go in and change your
+tile.  Find your tile, move the little pixel pointer (mouse works here, or
+the arrow keys) to any one of the pixels representing the color you wish to
+make masking.  Hit BACKSPACE, which will select the masking color (the palette
+is down in the lower-right.)  Then hit 'C', which will change all of the
+pixels matching the pixel color you have pointed-at to the color you have
+selected from the palette.  To manually select a color, hold down shift and
+use the arrow keys to move around the palette.<br>
+
+<dd>12.  To get the correct Duke palette for programs such as
+PaintShop Pro, find any original tile and hit F12.  This will create a
+screenshot named CAPT000.PCX, which you can then load into your Paint
+program, and save the palette.  You can also <a href="dukepal.zip">download
+the palette here</a>.<br><br>
+
+<h1>Animation:</h1>
+<dd>To create animated sprites, place your tiles in sequence someplace in
+TILES014.ART.  They must be together as a group in order for animation to
+work.  For example, if you have a four-tile animation sequence, and you've
+placed the first tile at 3584, the last one must be 3587.  Run EditArt and
+find the first tile you wish to animate.  The first tile is the only tile
+which needs to be changed to allow animation.  Leave the others alone. Hit
+the [-] key to cycle through the different animation options:  NoAnimation,
+Oscillate, Forwards, and Backwards.  Once you've got the animation option
+you'd like, hit the [+] key to change the number of tiles in the animation
+sequence.  This number must be <b>one less</b> than the total number of
+tiles.  Hitting the [-] key here will decrement the number of tiles to
+animate until it reaches 0.  Once it reaches 0, it will begin to change the
+animation type again.  In our example here, because we have four tiles, the number
+must be set at 3.  If you want to test the animation out, hit the [A] key on
+your first tile.<br><br>
+
+That's about all you really need to know to get in and make your own art.
+I suggest highly that you use a separate paint program to make/edit your
+tiles.  EditArt just isn't very powerful or friendly.  You must use it to
+actually load and create the .ART files, but that should be it.  Also, be
+careful when running EditArt and Build in another DOS box (if you run in
+Win95)... messing with the tiles can sometimes wreak havoc with Build.
+
+<br><br>
+<h3><center><a href="local.htm">Download this page locally</a></center></h3>
+<br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+
+

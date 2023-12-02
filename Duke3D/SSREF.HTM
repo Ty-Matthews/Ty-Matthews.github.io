@@ -1,0 +1,705 @@
+<html>
+<meta name="description" content="Online Duke3d Build Tutorial.  Clear,
+step-by-step instructions on creating the advanced effects of the Build level
+editor for Duke Nukem 3d.">
+
+<meta name="keywords" content="duke3d,build,duke,level editors,tutorial">
+
+<TITLE>Special Sprite Reference Guide</TITLE>   
+<BODY BGCOLOR="#FFFFFF" link="#fff6347" alink="#ff6347" vlink="40a0a0">   
+<font size=3>
+
+<center>
+<img src="ssref.gif"><br>
+<h1>Special Sprite Reference Guide</h1>
+<br><br>
+
+<HR SIZE=0>
+<font size=1>
+<center>This came straight out of the BUILDHLP program.  I'm duplicating it here for
+your reference.<br>
+Original Build Docs written by Allen H Blum III & Richard "Levelord" Gray.
+<br><br>
+<font size=3>
+For those SS that I have tutorial pages on, you'll see a link to the
+corresponding page.
+
+
+<table cellpadding="0">
+<td align=right><font size=5>Sector Effector :<td align=left><font size=5><a href="#SS1">Sprite #1</a><tr>
+<td align=right><font size=5>Activator :<td><font size=5><a href="#SS2">Sprite #2</a><tr>
+<td align=right><font size=5>Touchplate :<td><font size=5><a href="#SS3">Sprite #3</a><tr>
+<td align=right><font size=5>Activator Locked :<td><font size=5><a href="#SS4">Sprite #4</a><tr>
+<td align=right><font size=5>Music And SFX :<td><font size=5><a href="#SS5">Sprite #5</a><tr>
+<td align=right><font size=5>Locators :<td><font size=5><a href="#SS6">Sprite #6</a><tr>
+<td align=right><font size=5>Cycler :<td><font size=5><a href="#SS7">Sprite #7</a><tr>
+<td align=right><font size=5>Masterswitch :<td><font size=5><a href="#SS8">Sprite #8</a><tr>
+<td align=right><font size=5>Respawn :<td><font size=5><a href="#SS9">Sprite #9</a><tr>
+<td align=right><font size=5>GPSpeed :<td><font size=5><a href="#SS10">Sprite #10</a><tr>
+<td align=right><font size=5>Access Switch :<td><font size=5><a href="#SS130">Sprite #130</a><tr>
+<td align=right><font size=5>Switch :<td><font size=5><a href="#SS132">Sprite #132</a> and all other Switches<tr>
+<td align=right><font size=5>Nuke Button :<td><font size=5><a href="#SS142">Sprite #142</a><tr>
+<td align=right><font size=5>Multiswitch :<td><font size=5><a href="#SS146">Sprite #146</a><tr>
+<td align=right><font size=5>Doortile :<td><font size=5><a href="#SS150">Tile #150</a> and all other Door Tiles<tr>
+<td align=right><font size=5>Dip Switch :<td><font size=5><a href="#SS162">Sprite #162</a><tr>
+<td align=right><font size=5>View Screen :<td><font size=5><a href="#SS502">Sprite #502</a><tr>
+<td align=right><font size=5>Crack1 :<td><font size=5><a href="#SS546">Sprite #546</a> and all other Cracks<tr>
+<td align=right><font size=5>Mirror :<td><font size=5><a href="#SS560">Sprite #560</a><tr>
+<td align=right><font size=5>Camera1 :<td><font size=5><a href="#SS621">Sprite #621</a><tr>
+<td align=right><font size=5>Cranepole :<td><font size=5><a href="#SS1221">Sprite #1221</a><tr>
+<td align=right><font size=5>Crane :<td><font size=5><a href="#SS1222">Sprite #1222</a><tr>
+<td align=right><font size=5>Can With Something :<td><font size=5><a href="#SS1232">Sprite #1232</a><tr>
+<td align=right><font size=5>Seenine :<td><font size=5><a href="#SS1247">Sprite #1247</a><tr>
+<td align=right><font size=5>FemPic1 :<td><font size=5><a href="#SS1280">Sprite #1280</a><tr>
+<td align=right><font size=5>Aplayer :<td><font size=5><a href="#SS1405">Sprite #1405</a><tr>
+</table>
+
+</center>
+<br>
+<HR SIZE=0>
+
+
+<br>
+<a name="SS1"></a>
+<table border=1 width="100%">
+<td colspan=2><b>Sector Effector : Sprite #1 
+<tr>
+<td colspan=2>:The Sector Effector Sprite is used to create game effects and
+manipulate sector attributes.  The SE is the main tool to create effects
+such as Earthquakes, Explosions, Lighting Effects, etc.  Place a Sprite #1
+in the sector to effect.
+<tr>
+<td>
+Lotag :
+<td>
+Lots.  See the <a href="seref.htm">Sector Effector Reference Guide</a> for
+more specific details on all the effects you can do.
+<tr>
+<td>
+Hitag :
+<td>
+Set equal to other SE Sprites with same Lotag to activate together.  Certain
+effects require other sprites to have this hitag as well.
+<tr>
+</table>
+
+<br><br>
+<a name="SS2"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Activator : Sprite #2
+<tr>
+<td colspan=2>:The Activator Sprite is used with Switches or the Touchplate
+sprit to activate the Sector Lotag function or any Sector Effectors within
+the Sector.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to a Switch lotag or a Touchplate lotag.
+<tr>
+<td>
+Hitag :
+<td>
+none
+<tr>
+</table>
+
+<br><br>
+<a name="SS3"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Touchplate  : Sprite #3
+<tr>
+<td colspan=2>:The Touchplate will activate an Activator or a Masterswitch
+Sprite when the player walks on the sector floor.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to an Activator or a Masterswitch lotag
+<tr>
+<td rowspan =2>
+Hitag :
+<td>
+0 = Activate touchplate everytime player walks on the sector
+<tr>                                                        
+<td>
+>0 = The touchplate will only activate this many times when the player
+walks on the sector, then never again.
+</table>
+
+<br><br>
+<a name="SS4"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Activator Locked : Sprite #4
+<tr>
+<td colspan=2>:The Activator Locked sprite will lock the sector's lotag
+function so it can not be activated by the player until it is unlocked
+with a switch.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to a Switch's lotag to be toggled locked and unlocked.
+<tr>
+<td>
+Hitag :
+<td>
+none.
+<tr>
+</table>
+
+<br><br>
+<a name="SS5"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Music And SFX  : Sprite #5
+<tr>
+<td colspan=2>:The Music and Sound Effects Sprite can be used in 3 ways.
+<tr>
+<td>
+1.
+<td>
+Activation Sound:
+<tr>
+<td><td>
+When used in a sector with a Lotag, it will play a sound when the sector's
+lotag function is activated.<br>
+Lotag : Sound number<br>
+Hitag : none
+<tr>
+<td>
+2.
+<td>
+Ambiente Sound:
+<tr>
+<td><td>
+When used in a sector with <b>no lotag</b>, it will play an ambiente
+sound.<br>
+Lotag : Ambiente sound<br>
+Hitag : Max distance the sound can be heard. 1024 equals the largest grid
+square size in build.  This number could reach 10000 for larger areas.
+<tr>
+<td>
+3.
+<td>
+Echo Effect:
+<tr>
+<td><td>
+When used in a sector with <b>no lotag</b>, it will cause all sounds to
+have an echo effect.
+sound.<br>
+Lotag : 1000 + the amount of echo from 0-255<br>
+Hitag : Max distance the sound can be heard. 1024 equals the largest grid
+square size in build.  This number could reach 10000 for larger areas.
+<tr>
+</table>
+
+<br><br>
+<a name="SS6"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Locators  : Sprite #6
+<tr>
+<td colspan=2>:The locator sprite can be used to define a track for a
+<a href="subway.htm">Subway</a> (SE 6 & SE 14) or to define a path for
+<a href="cops.htm">PigCop Recon Cars</a> but not both in the same map.
+Plus you can only have a single path defined in a map.
+<tr>
+<td>
+Lotag :
+<td>
+Set in an increasing order starting from 0 with no gaps in the count for
+all the Locator Spritesin the map.  When the <a href="subway.htm">Subway</a>
+or <a href="cops.htm">PigCop Recon Car</a> reaches the last Locator sprite,
+it will loop back to the Locator sprite with a lotag of 0.
+<tr>
+<td>
+Hitag :
+<td>
+If set to 1 (or any number greater than 0) the <a href="subway.htm">Subway</a>
+will stop at the Locator sprite location for 5 seconds, then continue to
+the next Locator. The <a href="cops.htm">PigCop Recon Car</a> is not affected.
+<tr>
+</table>
+
+<br><br>
+<a name="SS7"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Cycler : Sprite #7
+<tr>
+<td colspan=2>:The Cycler Sprite is used to make the Sector Floor, Walls, and
+Ceiling pulsate in brightness.
+<tr>
+<td>
+Lotag :
+<td>
+Set the offest of how bright it will start.
+<tr>
+<td>
+Hitag :
+<td>
+none
+<tr>
+<td>
+Palette:
+<td>
+Set to a color if needed.
+<tr>
+<td>
+Shade:
+<td>
+Set to how bright the sector will get.  Set the sector brightness to how
+dark it will get.
+</table>
+
+<br><br>
+<a name="SS8"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Masterswitch : Sprite #8
+<tr>
+<td colspan=2>:The Master Switch Sprite is used to activate a Sector Lotag or
+a Sector Effector after a time delay.  This can only be acitvated by a
+Touchplate sprite.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to a Touchplate Sprite Lotag to be activated by.
+<tr>
+<td>
+Hitag :
+<td>
+Set for time delay until activation of Sector Tag or Sector Effector
+Sprite.
+<tr>
+</table>
+
+<br><br>
+<a name="SS9"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Respawn : Sprite #9
+<tr>
+<td colspan=2>:The Respawn Sprite is used to Teleport in Actors and Items
+when activated by a Touchplate Sprite.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to Touchplate Sprite Lotag to be activated by.
+<tr>
+<td>
+Hitag :
+<td>
+Set equal to any Sprite Number that has a name with it in Build or Editart.
+<tr>
+</table>
+
+<br><br>
+<a name="SS10"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>GPSpeed : Sprite #10
+<tr>
+<td colspan=2>:The GPSpeed Sprite is used to define the rate of movement
+for such things as Sector Tag 20 (<a href="doors.htm">Ceiling Door</a>) and Sector Effector 0
+(<a href="rotate.htm">Rotate Sector</a>.)  Can be used in certain cases to
+determine the length of movement as well (<a href="slide.htm">Sliding Doors</a>.)
+<tr>
+<td>
+Lotag :
+<td width=400>
+Set to rate.
+<tr>
+<td>
+Hitag :
+<td width=400> 
+none
+<tr>
+</table>
+
+<br><br>
+<a name="SS130"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Access Switch : Sprite #130
+<tr>
+<td colspan=2>:The Access Switch is used to unlock or activate something
+when used with a Key Card.  Use the Palette to define what card to use.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to Activator or Activator-Locked Sprite Lotag to use.
+<tr>
+<td>
+Hitag :
+<td>
+Set to play sound when activated (212 is common.)
+<tr>
+</table>
+
+
+<br><br>
+<a name="SS132"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Switch : Sprite #132 and all other Switches
+<tr>
+<td colspan=2>:The Switch is used to unlock or activate something when
+activated by the space key.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to Activator or Activator-Locked Sprite Lotag to use.
+<tr>
+<td>
+Hitag :
+<td>
+Set to play sound when activated.
+<tr>
+<td>
+Palette:
+<td>
+0 = Default
+<tr>
+<td><td>
+1 = Multi-play only
+<tr>
+
+</table>
+
+
+<br><br>
+<a name="SS142"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Nuke Button : Sprite #142
+<tr>
+<td colspan=2>:The Nuke Button is used to end a level and goto the stat
+screen.  It can also be used to goto a bonus level.
+<tr>
+<td>
+Lotag :
+<td>
+Set to 32767 to end a level and goto stat screen.<br>
+Set to 1-11 to goto a bonus level in the same volume.
+<tr>
+<td>
+Hitag :
+<td>
+none
+<tr>
+<td>
+Palette:
+<td>
+0 = Default<br>
+14 = Bonus Level
+<tr>
+</table>
+
+
+<br><br>
+<a name="SS146"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Multiswitch : Sprite #146
+<tr>
+<td colspan=2>:The Multi-Switch can activate 4 multiple Activator Sprites.
+It uses 4 consecutive Lotags to activate each Activator.  When first
+switched, it activates Activator Sprites A and D.  The next time it
+activates Activator Sprites A and B, then B and C, C and D, then back to
+A and D again.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to Activator Sprites A, B+1, C+2, and D+3.
+<tr>
+<td>
+Hitag :
+<td>
+none
+<tr>
+</table>
+
+
+<br><br>
+<a name="SS150"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Doortile 5 : Tile #150 and all other Doortiles
+<tr>
+<td colspan=2>:The Door Tiles can be used to activate Activator Sprites when
+the player presses upon the wall.
+<tr>
+<td>
+Wall Lotag :
+<td>
+Set Equal to Activator Sprite Lotag to activate.
+<tr>
+<td>
+Wall Hitag :
+<td>
+none
+<tr>
+</table>
+
+
+<br><br>
+<a name="SS162"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Dipswitch : Sprite #162
+<tr>
+<td colspan=2>:The Dip Switch is used as a combination switch with an
+Activator or Activator Locked Sprite.  All Dip Switches with equal Lotags
+will be used for the combination.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to Activator or Activator Locked Sprite Lotag.
+<tr>
+<td>
+Hitag :
+<td>
+0 = Set to off<br>
+1 = Set to on
+<tr>
+</table>
+
+
+<br><br>
+<a name="SS502"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>View Screen : Sprite #502
+<tr>
+<td colspan=2>:The View Screen is used to view through <a href="camera.htm">Cameras</a> (Sprite
+#621) placed around the map.  It will view through all Cameras with equal
+Lotags.
+<tr>
+<td>
+Lotag :
+<td>
+none
+<tr>
+<td>
+Hitag :
+<td>
+Set equal to Camera1 Sprites #621.
+<tr>
+</table>
+
+
+<br><br>
+<a name="SS546"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Crack1 : Sprite #546 and all other Cracks
+<tr>
+<td colspan=2>:The Crack Sprite is used to activate <a href="crack.htm">explosions
+(SE 13)</a> and other effects.
+<tr>
+<td>
+Lotag :
+<td>
+none
+<tr>
+<td>
+Hitag :
+<td>
+Set equal to SE 13 Hitag to Activate.  See the <a href="crack.htm">Explosions</a>
+tutorial for more details.
+<tr>
+<td>
+Palette :
+<td>
+Set to 1 for Multi-Play mode only
+</table>
+
+
+<br><br>
+<a name="SS560"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Mirror : Tile #560
+<tr>
+<td colspan=2>:The Mirror tile is used to place a <a href="mirrors.htm">mirror
+</a> in the map.  For more details, check out the <a href="mirrors.htm">
+Mirror Tutorial</a>.
+<tr>
+</table>
+
+
+<br><br>
+<a name="SS621"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Camera1 : Sprite #621
+<tr>
+<td colspan=2>:The <a href="camera.htm">Camera</a> Sprite is used to be
+able to view through using the ViewScreen Sprite.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to the ViewScreen Sprite Hitag to be viewed through.
+<tr>
+<td>
+Hitag :
+<td>
+Set to amount of turning radius.  0 equals none. 2048 equals 360 degrees
+<tr>
+<td>
+Shade :
+<td>
+Set to angle of facing down.
+<tr>
+<td>
+Angle :
+<td>
+Set to direction to point.
+</table>
+
+
+<br><br>
+<a name="SS1221"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Cranepole : Sprite #1221
+<tr>
+<td colspan=2>:The <a href="cranes.htm">Cranepole</a> Sprite is used as
+a pickup or destination point for the Crane sprite.
+<tr>
+<td>
+Lotag :
+<td>
+none
+<tr>
+<td>
+Hitag :
+<td>
+Set equal to the Crane Sprite Hitag 
+<tr>
+<td>
+Attributes :
+<td>
+Set to blocking
+</table>
+
+<br><br>
+<a name="SS1222"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Crane : Sprite #1222
+<tr>
+<td colspan=2>:The <a href="cranes.htm">Crane</a> Sprite is used as
+a starting point and drop zone for Cranes.
+<tr>
+<td>
+Lotag :
+<td>
+none
+<tr>
+<td>
+Hitag :
+<td>
+Set equal to the Cranepole Sprite Hitag 
+<tr>
+<td>
+Angle :
+<td>
+Set to direction of travel towards Cranepole Sprite
+</table>
+
+<br><br>
+<a name="SS1232"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>Can With Something : Sprite #1232
+<tr>
+<td colspan=2>:The Can With Something is used to spawn an object when it
+is shot.
+<tr>
+<td>
+Lotag :
+<td>
+Set to Sprite number with a name in Build or EditArt to spawn when shot.
+<tr>
+</table>
+
+
+<br><br>
+<a name="SS1247"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>SeeNine : Sprite #1247
+<tr>
+<td colspan=2>:The SeeNine Sprite is used to activate <a href="crack.htm">
+Explosions (SE 13)</a> and other effects.  It can also be used to time
+delay explosions.
+<tr>
+<td>
+Lotag :
+<td>
+Set equal to time delay until explosion.
+<tr>
+<td>
+Hitag :
+<td>
+Set equal to SE 13 Hitag to activate.
+<tr>
+<td>
+Size :
+<td>
+If the Sprite is shrunk in the x direction, then the sprite will not be
+seen in the game, but the explosion will.
+</table>
+
+
+<br><br>
+<a name="SS1280"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>FemPic1 : Sprite #1280
+<tr>
+<td colspan=2>:The Fem Pics are used to activate the Respawn Sprite to
+spawn in any Sprite with a name in Build or Editart.
+<tr>
+<td>
+Lotag :
+<td>
+none
+<tr>
+<td>
+Hitag :
+<td>
+Set equal to Respawn sprite to activate
+<tr>                                   
+</table>
+
+
+<br><br>
+<a name="SS1405"> </a>
+<table border=1 width="100%">
+<td colspan=2><b>APlayer : Sprite #1405
+<tr>
+<td colspan=2>:The APlayer Sprite is used to define where all multi-players
+will start in the map.  You must have a minimum of 7 sprites in the map for
+an 8 player multi-play game and a minimum of 7 sprites in the map for an 8
+player Coop game
+<tr>
+<td>
+Lotag :
+<td>
+0 = Multi-Player start position (Default)<br>
+1 = Coop-Player start position
+<tr>
+</table>
+
+
+
+
+<br><br><br><br>
+<HR SIZE=1>
+
+<CENTER>Duke Nukem 3D is copyright &copy;1996 <a href="http://www.3drealms.com/"><img src="3drealms.gif" border=0 align=center></a>, All Rights reserved.</CENTER>
+<center><h3>THIS PAGE IS NOT MADE BY OR SUPPORTED BY 3D REALMS</h3></center>
+<center>
+<table cellpadding="0">
+<td>
+<img src="duke.gif">
+<td>Copyright &copy;1996 <a href="mailto:ty@synet.net">Tyler Matthews</a>, All Rights reserved.<br>
+<a href="dukefaq.htm">Go back to my Duke FAQ BUILD page</a><br>
+<a href="duketxt.htm">Go back to my Duke FAQ BUILD page Text-Only</a>
+<tr>
+</table>
+</center>
+   
+</BODY>   
+</html>   
+
